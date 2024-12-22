@@ -1,3 +1,4 @@
 # _Programminglaguage for AI: IQ (Intelligent quantum)_
 
-2025!!!
+SOON -> 2025!!!
+
