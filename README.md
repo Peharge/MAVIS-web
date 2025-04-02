@@ -1,4 +1,4 @@
-# _Programminglaguage for AI: IQ (Intelligent quantum)_
+# _MAVIS Website_
 
 SOON -> 2025!!!
 
