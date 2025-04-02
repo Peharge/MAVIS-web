@@ -3,10 +3,1715 @@
 <head>
     <meta charset="UTF-8">
     <title>MAVIS</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1, h2 {
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            background-image:
+                linear-gradient(to bottom,
+                    rgba(0,0,0,1) 0%,
+                    rgba(0,0,0,0) 10%,
+                    rgba(0,0,0,0) 90%,
+                    rgba(0,0,0,1) 100%),
+                url('images/mavis-4-banner-5.png');
+
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            position: relative;
+            top: -30%;
+            left: 15%;
+            width: 30%;
+            font-size: 9em;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #999999,
+                #b4b4b4,
+                #ffffff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShine 3s infinite linear;
+            text-align: center;
+        }
+
+        .hero h3 {
+            position: relative;
+            top: -15%;
+            left: -15%;
+            width: 30%;
+            font-size: 1.9em;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #777777,
+                #707070,
+                #ffffff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+        }
+
+        h5 {
+            top: -5%;
+            left: -15%;
+            font-size: 1.9em;
+            font-family: 'Arial', sans-serif;
+            color: #ff1d00;
+        }
+
+        /* Farbglanz-Animation */
+        @keyframes textShine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .hero .text-box {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 20px;
+            border-radius: 10px;
+            width: 20%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hero .text-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background-color: rgba(240, 240, 240, 0.3);
+        }
+
+        .hero .text-box2 {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 20px;
+            border-radius: 10px;
+            width: 20%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hero .text-box2:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background-color: rgba(240, 240, 240, 0.3);
+        }
+
+        .hero .text-box3 {
+            position: absolute;
+            top: 50%;
+            left: 70%;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 20px;
+            border-radius: 10px;
+            width: 20%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .hero .text-box3:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background-color: rgba(240, 240, 240, 0.3);
+        }
+
+        .hero .text-box h2 {
+            position: relative;
+            color: transparent;
+            margin-bottom: 10px;
+            font-size: 30px;
+            background: rgba(255, 255, 255);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero .text-box p {
+            position: relative;
+            color: transparent;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: flex;
+        }
+
+        .hero .text-box2 h2 {
+            position: relative;
+            color: transparent;
+            margin-bottom: 10px;
+            font-size: 30px;
+            background: rgba(255, 255, 255);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero .text-box2 p {
+            position: relative;
+            color: transparent;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: flex;
+        }
+        .hero .text-box3 h2 {
+            position: relative;
+            color: transparent;
+            margin-bottom: 10px;
+            font-size: 30px;
+            background: rgba(255, 255, 255);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero .text-box3 p {
+            position: relative;
+            color: transparent;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255);
+            -webkit-background-clip: text;
+            background-clip: text;
+            display: flex;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+                top: -100%;
+            }
+            50% {
+                left: 100%;
+                top: 100%;
+            }
+            100% {
+                left: -100%;
+                top: -100%;
+            }
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero h1:hover::after {
+            opacity: 1;
+        }
+
+        .hero h1 span {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .github {
+            height: 10vw;
+            width: 100%;
+            background: #000000;
+        }
+
+        .versions {
+            height: 800px;
+            width: 100%;
+            background-image:
+                linear-gradient(to bottom,
+                    rgba(0,0,0,1) 0%,
+                    rgba(0,0,0,0) 10%,
+                    rgba(0,0,0,0) 90%,
+                    rgba(0,0,0,1) 100%),
+                url('images/mavis-4-banner-4.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 0 50px;
+            gap: 20px;
+        }
+
+        .section {
+            margin: 0;
+            padding: 0;
+        }
+
+        .version-box {
+            height: 500px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(20% - 40px);
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 0 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .version-box:nth-child(1) {
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            align-items: center;
+            justify-content: center;
+            margin: 160px auto;
+        }
+
+        .version-box:nth-child(2) {
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            align-items: center;
+            justify-content: center;
+            margin: 120px auto;
+        }
+
+        .version-box:nth-child(3) {
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            align-items: center;
+            justify-content: center;
+            margin: 80px auto;
+        }
+
+        .version-box:nth-child(4) {
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            align-items: center;
+            justify-content: center;
+            margin: 120px auto;
+        }
+
+        .version-box:nth-child(5) {
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            align-items: center;
+            justify-content: center;
+            margin: 160px auto;
+        }
+
+        .version-box:hover {
+            transform: translateY(-25px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background-color: rgba(240, 240, 240, 0.3);
+        }
+
+        .version-icon {
+            font-size: 50px;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .logo img {
+            width: 80px;
+            border-radius: 0;
+        }
+        .version-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .version-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .version-box p {
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .detail-row {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .details .detail-row:nth-child(odd) .detail-text {
+            transform: translateX(-100px);
+        }
+        .details .detail-row:nth-child(odd).show .detail-text {
+            transform: translateX(0);
+        }
+        .details .detail-row:nth-child(even) .detail-text {
+            transform: translateX(100px);
+        }
+        .details .detail-row:nth-child(even).show .detail-text {
+            transform: translateX(0);
+        }
+
+        .details .detail-row img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .details .detail-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .slide-show {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide-show img {
+            height: 100%;
+            width: auto;
+            min-width: 100%;
+        }
+        .slide-show::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    rgba(0,0,0,1) 0%,
+                    rgba(0,0,0,0) 10%,
+                    rgba(0,0,0,0) 90%,
+                    rgba(0,0,0,1) 100%);
+            pointer-events: none;
+        }
+        .slide-show .text-box {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 65%;
+            color: #333;
+        }
+        .slide-show .text-box2 {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 65%;
+            color: #333;
+        }
+        .slide-show .text-box h2 {
+            margin-bottom: 10px;
+        }
+        .slide-show .text-box p {
+            font-size: 1.1rem;
+        }
+
+        .slide-show-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        @media (max-width: 1000px) {
+            .version-box {
+                width: 45%;
+                max-width: none;
+            }
+            .details .detail-row {
+                flex-direction: column;
+            }
+            .details .detail-row img, .details .detail-text {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .version-box {
+                width: 100%;
+            }
+            .slide-show .text-box {
+                position: static;
+                max-width: none;
+                margin-top: 20px;
+            }
+        }
+
+        .button-github {
+            transform: translateY(100%);
+            position: absolute;
+            left: 25%;
+            width: 11%;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 0.5rem 1.4rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: middle;
+            align-items: center;
+            border-radius: 0.5rem;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .button-github svg {
+            height: 30px;
+        }
+
+        .button-github:hover {
+            background-color: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            transform: translateY(80%);
+        }
+
+        .button-mavis {
+            transform: translateY(80%);
+            position: absolute;
+            left: 42%;
+            width: 16%;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 0.5rem 1.4rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: middle;
+            align-items: center;
+            border-radius: 0.5rem;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .button-mavis svg {
+            height: 30px;
+        }
+
+        .button-mavis:hover {
+            background-color: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            transform: translateY(60%);
+        }
+
+        .button-mavis-terminal {
+            transform: translateY(80%);
+            position: absolute;
+            left: 62%;
+            width: 16%;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 0.5rem 1.4rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: middle;
+            align-items: center;
+            border-radius: 0.5rem;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .button-mavis-terminal svg {
+            height: 30px;
+        }
+
+        .button-mavis-terminal:hover {
+            background-color: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            transform: translateY(60%);
+        }
+
+
+        .MAVIS-4 {
+            height: 200vw;
+            width: 100%;
+            background: #000000;
+        }
+
+        .MAVIS-4 h1 {
+            position: relative;
+            left: 40%;
+            width: 20%;
+            font-size: 5em;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #999999,
+                #b4b4b4,
+                #ffffff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShine 3s infinite linear;
+            text-align: center;
+        }
+
+        .MAVIS-4 h3 {
+            position: relative;
+            left: 50%;
+            width: 50%;
+            font-size: 1.6em;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #999999,
+                #b4b4b4,
+                #ffffff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShine 3s infinite linear;
+            transform: translateX(-50%); /* Text horizontal mittig ausrichten */
+            text-align: center; /* Optional, falls du den Text innerhalb des Elements noch mittig ausrichten willst */
+        }
+
+        .image-stack-1 img {
+            position: absolute;
+            left: 65%; /* Zentriert das Bild horizontal */
+            border-radius: 15px;
+            width: 30%; /* Stellt die Breite des Bildes ein */
+            z-index: 999; /* Stellt sicher, dass das Bild über anderen Elementen liegt */
+        }
+
+        .image-stack-1   img:first-child {
+            margin-top: 0;
+        }
+
+        .image-stack-2 img {
+            position: absolute;
+            left: 65%; /* Zentriert das Bild horizontal */
+            border-radius: 15px;
+            width: 30%; /* Stellt die Breite des Bildes ein */
+            z-index: 999; /* Stellt sicher, dass das Bild über anderen Elementen liegt */
+        }
+
+        .image-stack-2 img:first-child {
+            margin-top: 0;
+        }
+
+        .image-stack-3 img {
+            position: absolute;
+            left: 65%; /* Zentriert das Bild horizontal */
+            border-radius: 15px;
+            width: 30%; /* Stellt die Breite des Bildes ein */
+        }
+
+        .image-stack-3 img:first-child {
+            margin-top: 0;
+        }
+
+        .mavis-4 p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .content-container-1 {
+            display: flex;
+            align-items: center; /* Zentriert den Inhalt vertikal */
+            margin-top: 5%;
+        }
+
+        .content-container-2 {
+            display: flex;
+            align-items: center; /* Zentriert den Inhalt vertikal */
+            margin-top: 5%;
+        }
+
+        .content-container-3 {
+            display: flex;
+            align-items: center; /* Zentriert den Inhalt vertikal */
+            margin-top: 5%;
+        }
+
+        .text-container {
+            margin-top: 13%;
+            margin-left: 15%;
+            flex: 1; /* Der Text nimmt den restlichen Platz auf der linken Seite ein */
+            padding-right: 20px; /* Abstand zwischen Text und Bild */
+            font-size: 1.5em;
+            color: #c1c2c5;
+        }
+
+        .image-container {
+            flex-shrink: 0; /* Verhindert, dass das Bild schrumpft */
+        }
+
+
+        .MAVIS-terminal-4 {
+            height: 100vw;
+            width: 100%;
+            background: #000000;
+        }
+
+        .MAVIS-terminal-4 h1 {
+            position: relative;
+            left: 30%;
+            width: 40%;
+            font-size: 5em;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #999999,
+                #b4b4b4,
+                #ffffff
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textShine 3s infinite linear;
+        }
+
+        .card {
+          padding: 1rem;
+          overflow: hidden;
+          border: 1px solid #c5c5c5;
+          border-radius: 12px;
+          background-color: #d9d9d92f;
+          backdrop-filter: blur(8px);
+          width: 20%;
+        }
+
+        .wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          position: relative;
+          z-index: 10;
+          border: 0.5px solid #525252;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+        .terminal {
+          display: flex;
+          flex-direction: column;
+
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
+        }
+
+        .head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          overflow: hidden;
+          min-height: 40px;
+          padding-inline: 12px;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+          background-color: #202425;
+        }
+
+        .title {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          height: 2.5rem;
+          user-select: none;
+          font-weight: 600;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: #8e8e8e;
+        }
+
+        .title > svg {
+          height: 18px;
+          width: 18px;
+          margin-top: 2px;
+          color: #006adc;
+        }
+
+        .copy_toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.25rem;
+          border: 0.65px solid #c1c2c5;
+          margin-left: auto;
+          border-radius: 6px;
+          background-color: #202425;
+          color: #8e8e8e;
+          cursor: pointer;
+        }
+
+        .copy_toggle > svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        .copy_toggle:active > svg > path,
+        .copy_toggle:focus-within > svg > path {
+          animation: clipboard-check 500ms linear forwards;
+        }
+
+        .body {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          border-bottom-right-radius: 8px;
+          border-bottom-left-radius: 8px;
+          overflow-x: auto;
+          padding: 1rem;
+          line-height: 19px;
+          color: white;
+          background-color: black;
+          white-space: nowrap;
+        }
+
+        .pre {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          text-wrap: nowrap;
+          white-space: pre;
+          background-color: transparent;
+          overflow: hidden;
+          box-sizing: border-box;
+          font-size: 16px;
+        }
+
+        .pre code:nth-child(1) {
+          color: #575757;
+        }
+
+        .pre code:nth-child(2) {
+          color: #e34ba9;
+        }
+
+        .cmd {
+          height: 19px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+        }
+
+        .cmd::before {
+          content: attr(data-cmd);
+          position: relative;
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          background-color: transparent;
+          animation: inputs 8s steps(22) infinite;
+        }
+
+        .cmd::after {
+          content: "";
+          position: relative;
+          display: block;
+          height: 100%;
+          overflow: hidden;
+          background-color: transparent;
+          border-right: 0.15em solid #e34ba9;
+          animation: cursor 0.5s step-end infinite alternate, blinking 0.5s infinite;
+        }
+
+        @keyframes blinking {
+          20%,
+          80% {
+            transform: scaleY(1);
+          }
+          50% {
+            transform: scaleY(0);
+          }
+        }
+
+        @keyframes cursor {
+          50% {
+            border-right-color: transparent;
+          }
+        }
+
+        @keyframes inputs {
+          0%,
+          100% {
+            width: 0;
+          }
+          10%,
+          90% {
+            width: 58px;
+          }
+          30%,
+          70% {
+            width: 215px;
+            max-width: max-content;
+          }
+        }
+
+        @keyframes clipboard-check {
+          100% {
+            color: #fff;
+            d: path(
+              "M 9 5 H 7 a 2 2 0 0 0 -2 2 v 12 a 2 2 0 0 0 2 2 h 10 a 2 2 0 0 0 2 -2 V 7 a 2 2 0 0 0 -2 -2 h -2 M 9 5 a 2 2 0 0 0 2 2 h 2 a 2 2 0 0 0 2 -2 M 9 5 a 2 2 0 0 1 2 -2 h 2 a 2 2 0 0 1 2 2 m -6 9 l 2 2 l 4 -4"
+            );
+          }
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            width: 60%;
+        }
+
+        .list > div {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 25%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mavis-image-3 {
+            position: relative; /* Damit 'left' für das Bild funktioniert */
+        }
+
+        .mavis-image-3 img {
+            position: relative;  /* Setzt das Bild relativ zu seinem Container */
+            left: 20%;           /* Verschiebt das Bild 20% nach rechts */
+            border-radius: 15px; /* Rundung der Ecken */
+            width: 60%;          /* Setzt die Breite des Bildes auf 60% */
+        }
+
+        .mavis-image-4 {
+            position: relative; /* Damit 'left' für das Bild funktioniert */
+            overflow: visible !important; /* Stellt sicher, dass das Bild nicht abgeschnitten wird */
+        }
+
+        .mavis-image-4 img {
+            position: absolute;
+            top: -50px; /* Verschiebt das Bild 100px nach oben */
+            left: 55%; /* Zentriert das Bild horizontal */
+            border-radius: 15px;
+            width: 25%; /* Stellt die Breite des Bildes ein */
+            z-index: 999; /* Stellt sicher, dass das Bild über anderen Elementen liegt */
+        }
+
+        .mavis-image-5 {
+            position: relative; /* Macht die Positionierung des Bildes relativ zur Box möglich */
+            overflow: visible !important; /* Stellt sicher, dass das Bild nicht abgeschnitten wird */
+        }
+
+        .mavis-image-5 img {
+            position: absolute;
+            top: -350px; /* Verschiebt das Bild 100px nach oben */
+            left: 70%; /* Zentriert das Bild horizontal */
+            border-radius: 15px;
+            width: 25%; /* Stellt die Breite des Bildes ein */
+            z-index: 999; /* Stellt sicher, dass das Bild über anderen Elementen liegt */
+        }
+
+        .mavis-image-6 {
+            position: relative; /* Damit 'left' für das Bild funktioniert */
+            overflow: visible !important; /* Stellt sicher, dass das Bild nicht abgeschnitten wird */
+        }
+
+        .mavis-image-6 img {
+            position: absolute;
+            top: -250px; /* Verschiebt das Bild 100px nach oben */
+            left: 65%; /* Zentriert das Bild horizontal */
+            border-radius: 15px;
+            width: 25%; /* Stellt die Breite des Bildes ein */
+            z-index: 999; /* Stellt sicher, dass das Bild über anderen Elementen liegt */
+        }
+
+    </style>
 </head>
 <body>
+    <div style="height:200px">
+        <br><br><br><h5>Still in development!!! Do Nothing!!! !!!</h5><br><br><br>
+    </div>
+    <section class="hero">
+        <h1>MAVIS</h1><br>
+        <h3>MAth Visual Intelligent System (Strongest calculator in the world).</h3>
+        <div class="text-box">
+            <h2>MAVIS Launcher</h2>
+            <p>MAVIS Installer 1.2</p>
+            <p>MAVIS Installer 1.3</p>
+            <p>MAVIS Launcher 3</p>
+            <p>MAVIS Launcher 4 EAP (NEW)</p>
+            <p>MAVIS Launcher 4 (SOON)</p>
+        </div>
+        <div class="text-box2">
+            <h2>MAVIS</h2>
+            <p>MAVIS 1</p>
+            <p>MAVIS 1.2</p>
+            <p>MAVIS 1.2.3</p>
+            <p>MAVIS 1.3</p>
+            <p>MAVIS 1.4</p>
+            <p>MAVIS 1.5</p>
+            <p>MAVIS 1.5.3</p>
+            <p>MAVIS 3 (NEW)</p>
+            <p>MAVIS 3.3 (NEW)</p>
+            <p>MAVIS 4 EAP (NEW)</p>
+            <p>MAVIS 4 (SOON)</p>
+        </div>
+        <div class="text-box3">
+            <h2>MAVIS Terminal</h2>
+            <p>MAVIS Terminal 3</p>
+            <p>MAVIS Terminal 4 EAP (NEW)</p>
+            <p>MAVIS Terminal 4 (SOON)</p>
+        </div>
+    </section>
 
-Test
+    <section class="github">
+        <button class="button-github" onclick="window.open('https://github.com/Peharge/MAVIS', '_blank')">
+             <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <title>github</title> <rect fill="none" height="24" width="24"></rect> <path d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"></path> </g></svg>
+             MAVIS on GitHub
+        </button>
+        <button class="button-mavis" onclick="window.open('https://raw.githubusercontent.com/Peharge/MAVIS/main/mavis-launcher-4.bat', '_blank')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 1614 1689" stroke-width="6.875" fill="currentColor" stroke="#042433" class="icon2" id="icon-toggle-dddd"><g transform="translate(-1389 -393)">
+                <path d="M2518.46 407.665 3003 1594.62 2662.79 1594.62 2351.21 822.411ZM1878.35 393 2381.46 1635.86 2203.45 2082 1880.42 1280.01 1754.64 1594.62 1389 1594.62Z" fill="#FFFFFF" fill-rule="evenodd"></path>
+            </g></svg>
+             Download MAVIS Launcher 4
+        </button>
+        <button class="button-mavis-terminal" onclick="window.open('https://raw.githubusercontent.com/Peharge/MAVIS/main/run-mavis-terminal-4.bat', '_blank')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 1614 1689" stroke-width="6.875" fill="currentColor" stroke="#042433" class="icon2" id="icon-toggle-dddd"><g transform="translate(-1389 -393)">
+                <path d="M2518.46 407.665 3003 1594.62 2662.79 1594.62 2351.21 822.411ZM1878.35 393 2381.46 1635.86 2203.45 2082 1880.42 1280.01 1754.64 1594.62 1389 1594.62Z" fill="#FFFFFF" fill-rule="evenodd"></path>
+            </g></svg>
+             Download MAVIS Launcher 4
+        </button>
+    </section>
+
+    <section class="versions">
+        <div class="version-box">
+            <div class="logo">
+                <img src="images/mavis-logo-4.png" alt="Company Logo">
+                <h2><br>MAVIS 1.2</h2>
+            </div>
+            <h3><strong>FREE</strong></h3>
+            <p></p>
+        </div>
+        <div class="version-box">
+            <div class="logo">
+                <img src="images/mavis-logo-4.png" alt="Company Logo">
+                <h2><br>MAVIS 3</h2>
+            </div>
+            <h3><strong>FREE</strong></h3>
+            <p></p>
+        </div>
+        <div class="version-box">
+            <div class="logo">
+                <img src="images/mavis-logo-4.png" alt="Company Logo">
+                <h2><br>MAVIS 4</h2>
+            </div>
+            <h3><strong>FREE</strong></h3>
+            <p></p>
+        </div>
+        <div class="version-box">
+            <div class="logo">
+                <img src="images/mavis-logo-4.png" alt="Company Logo">
+                <h2><br>MAVIS 3.3</h2>
+            </div>
+            <h3><strong>FREE</strong></h3>
+            <p></p>
+        </div>
+        <div class="version-box">
+            <div class="logo">
+                <img src="images/mavis-logo-4.png" alt="Company Logo">
+                <h2><br>MAVIS 1.5</h2>
+            </div>
+            <h3><strong>FREE</strong></h3>
+            <p></p>
+        </div>
+    </section>
+
+    <section class="MAVIS-4">
+        <br><br><br><h1>MAVIS 4</h1><br>
+        <h3>Do you think you're better at math than an AI? Prove it! Show that there are infinitely many pairs of prime numbers that are exactly 2 apart. No proof? No answer? Well – maybe it can't be done without AI after all! What are you waiting for? Ask MAVIS!</h3><br><br>
+        <div class="mavis-image-3">
+            <img src="images/mavis-3-demo-3.png" alt="Company Logo">
+        </div>
+            <div class="content-container-1">
+                <div class="text-container">
+                    <p>MAVIS is an AI-driven application that allows you to analyze visual data <br>such as images formats: PNG, JPG, JPEG, GIF, Text, PNG, Py, doc and docx <br>and generate interactive answers based on them.</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-stack-1">
+                        <img src="images/mavis-image-up.png" alt="Bild 1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-container-2">
+                <div class="text-container">
+                    <p>Mavis can instead display formulas in LaTeX to ensure precise and<br>attractive formatting.</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-stack-2">
+                        <img src="images/mavis-latex-image.png" alt="Bild 1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-container-3">
+                <div class="text-container">
+                    <p>Mavis can instead always write code in Python, <br>as this is the only language supported by the user interface.</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-stack-3">
+                        <img src="images/mavis-code-image.png" alt="Bild 1">
+                    </div>
+                </div>
+            </div>
+                    <div class="content-container-3">
+                <div class="text-container">
+                    <p>With MAVIS you can perform complex mathematical calculations, solve <br>programming tasks and create professional graphics.</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-stack-3">
+                        <img src="images/mavis-graf-image.png" alt="Bild 1">
+                    </div>
+                </div>
+            </div>
+                    <div class="content-container-3">
+                <div class="text-container">
+                    <p>Mavis can instead create graphics using Matplotlib, Plotly, Seaborn, and Altair, <br>as the user interface only supports HTML, LaTeX, and Python <br>(version 3.13 with the frameworks Matplotlib, Plotly, Seaborn, Altair, NumPy, Math, <br>SymPy, Pandas, AstroPy, QuantLib, OpenMDAO, pybullet, MONAI <br>(if needed soon: PyTorch, TensorFlow, Keras, Scikit-Learn, and <br>Hugging Face Transformers etc. (maybe JAX))).</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-stack-3">
+                        <img src="images/MAVIS-demo121.gif" alt="Bild 1">
+                    </div>
+                </div>
+            </div>
+                    <div class="content-container-3">
+                <div class="text-container">
+                    <p>Mavis can instead use its powerful features to make your projects <br>more efficient and professional.</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-stack-3">
+                        <img src="images/mavis-jup-image.png" alt="Bild 1">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+
+    <section class="MAVIS-terminal-4">
+        <h1>MAVIS Terminal 4</h1><br><br><br>
+        <div class="mavis-image-3">
+                <img src="images/mavis-terminal-4-img.png" alt="Company Logo">
+        </div>
+        <div class="list">
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>m&nbsp;</code>
+                      <code class="cmd" data-cmd="models ls"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>m&nbsp;</code>
+                      <code class="cmd" data-cmd="git"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>m&nbsp;</code>
+                      <code class="cmd" data-cmd="htop"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>run&nbsp;</code>
+                      <code class="cmd" data-cmd="mavis-4"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>lx&nbsp;</code>
+                      <code class="cmd" data-cmd="neofetch"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>ubuntu&nbsp;</code>
+                      <code class="cmd" data-cmd="nano test.py"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>kali&nbsp;</code>
+                      <code class="cmd" data-cmd="iwconfig"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="wrap">
+                <div class="terminal">
+                  <hgroup class="head">
+                    <p class="title">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 15L10 12L7 9M13 15H17M7.8 21H16.2C17.8802 21 18.7202 21 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C21 18.7202 21 17.8802 21 16.2V7.8C21 6.11984 21 5.27976 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.7202 3 17.8802 3 16.2 3H7.8C6.11984 3 5.27976 3 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3 5.27976 3 6.11984 3 7.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21Z"
+                        ></path>
+                      </svg>
+                      Terminal
+                    </p>
+
+                    <button class="copy_toggle" tabindex="-1" type="button">
+                      <svg
+                        width="16px"
+                        height="16px"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                      >
+                        <path
+                          d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                        ></path>
+                        <path
+                          d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"
+                        ></path>
+                      </svg>
+                    </button>
+                  </hgroup>
+
+                  <div class="body">
+                    <pre class="pre">          <code>-&nbsp;</code>
+                      <code>arch&nbsp;</code>
+                      <code class="cmd" data-cmd="sudo pacman -Syu"></code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="mavis-image-5">
+                <img src="images/m-git-img.png" alt="Company Logo">
+        </div>
+        <div class="mavis-image-6">
+                <img src="images/m-htop-img.png" alt="Company Logo">
+        </div>
+        <div class="mavis-image-4">
+                <img src="images/m-models-ls-img.png" alt="Company Logo">
+        </div>
+    </section>
 
 </body>
 </html>
