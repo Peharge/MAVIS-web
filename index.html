@@ -557,33 +557,29 @@
         }
 
         .MAVIS-4 {
-            background-color: #000000;
-
-            background-size: cover;
-            background-position: center;
-            height: 310vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: 5vw; /* Vermeidet Text, der an Bildschirmrändern klebt */
+            height: 210vw;
+            width: 100%;
+            background: #000000;
         }
 
         .MAVIS-4 h1 {
-            font-size: clamp(3rem, 8vw, 9rem); /* Dynamische Schriftgröße */
+            position: relative;
+            left: 40%;
+            width: 20%;
+            font-size: 5em;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #999999,
+                #b4b4b4,
+                #ffffff
+            );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite linear;
             text-align: center;
-            margin: 0;
-            position: relative; /* Positionierung muss relativ oder absolut sein */
-            top: -30%; /* Verschiebt das h1-Element um 30% nach oben */
         }
 
         .MAVIS-4 h3 {
