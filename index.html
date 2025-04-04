@@ -23,70 +23,58 @@
         .hero {
             background-image:
                 linear-gradient(to bottom,
-                    rgba(0,0,0,1) 0%,
-                    rgba(0,0,0,0) 10%,
-                    rgba(0,0,0,0) 90%,
-                    rgba(0,0,0,1) 100%),
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(0, 0, 0, 0) 10%,
+                    rgba(0, 0, 0, 0) 90%,
+                    rgba(0, 0, 0, 1) 100%),
                 url('images/mavis-1-5-banner-1.png');
 
             background-size: cover;
             background-position: center;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 5vw; /* Vermeidet Text, der an Bildschirmrändern klebt */
         }
 
         .hero h1 {
-            position: relative;
-            top: -30%;
-            left: 15%;
-            width: 30%;
-            font-size: 9em;
+            font-size: clamp(3rem, 8vw, 9rem); /* Dynamische Schriftgröße */
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #a8a8a8,
-                #ffffff,
-                #ffffff,
-                #cdcdcd
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite linear;
             text-align: center;
+            margin: 0;
+            position: relative; /* Positionierung muss relativ oder absolut sein */
+            top: -30%; /* Verschiebt das h1-Element um 30% nach oben */
         }
 
         .hero h3 {
-            position: relative;
-            top: -15%;
-            left: -15%;
-            width: 30%;
-            font-size: 1.9em;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #a8a8a8,
-                #ffffff,
-                #ffffff,
-                #cdcdcd
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-align: center;
+            margin-top: 1rem;
+            position: relative; /* Positionierung muss relativ oder absolut sein */
+            top: -35%; /* Verschiebt das h3-Element um 30% nach oben */
         }
 
         h5 {
-            top: -5%;
-            left: -15%;
-            font-size: 1.9em;
+            font-size: clamp(1rem, 3vw, 1.9rem);
             font-family: 'Arial', sans-serif;
             color: #ff1d00;
+            text-align: center;
+            margin-top: 1rem;
         }
 
         /* Farbglanz-Animation */
@@ -95,10 +83,26 @@
             100% { background-position: 100% 50%; }
         }
 
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+        /* Mobile Anpassungen */
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding: 10vh 5vw;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 6rem);
+            }
+
+            .hero h3 {
+                font-size: clamp(1rem, 5vw, 1.5rem);
+            }
+
+            h5 {
+                font-size: clamp(0.8rem, 3vw, 1.5rem);
+            }
         }
+
 
         .hero .text-box {
             position: absolute;
@@ -124,7 +128,7 @@
 
         .hero .text-box2 {
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 40%;
             background-color: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(8px);
@@ -276,47 +280,56 @@
             to { opacity: 1; }
         }
 
+        /* 🏆 GITHUB SECTION */
         .github {
-            height: 10vw;
-            width: 100%;
-            background: #000000;
+            height: 20vw; /* Höhe auf 10% der Viewport-Breite gesetzt */
+            width: 100%; /* Breite bleibt 100% der übergeordneten Container */
+            background: #000000; /* Hintergrundfarbe bleibt schwarz */
+            display: flex; /* Flexbox für das Layout der Buttons */
+            justify-content: space-between; /* Verteilt die Buttons gleichmäßig */
+            align-items: center; /* Vertikale Ausrichtung der Buttons in der Mitte */
+            padding: 1rem; /* Etwas Abstand an den Rändern des Containers */
+            box-sizing: border-box; /* Stellt sicher, dass Padding und Border in die Gesamtgröße einbezogen werden */
         }
 
+        .button-github, .button-mavis, .button-mavis-lx, .button-mavis-terminal {
+            display: inline-flex; /* Stellen Sie sicher, dass die Buttons nebeneinander angezeigt werden */
+            margin: 0 10px; /* Abstand zwischen den Buttons */
+            flex-shrink: 0; /* Verhindert, dass die Buttons schrumpfen */
+        }
+
+        /* 🏆 VERSION SECTION */
         .versions {
-            height: 800px;
             width: 100%;
             background-image:
                 linear-gradient(to bottom,
-                    rgba(0,0,0,1) 0%,
-                    rgba(0,0,0,0) 10%,
-                    rgba(0,0,0,0) 90%,
-                    rgba(0,0,0,1) 100%),
+                    rgba(0, 0, 0, 1) 0%,
+                    rgba(0, 0, 0, 0) 10%,
+                    rgba(0, 0, 0, 0) 90%,
+                    rgba(0, 0, 0, 1) 100%),
                 url('images/mavis-4-banner-5.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 20px;
+            padding: 5vw 2rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            padding: 0 50px;
             gap: 20px;
         }
 
-        .section {
-            margin: 0;
-            padding: 0;
-        }
-
+        /* 🏆 FLEXIBLE VERSION BOXES */
         .version-box {
-            height: 60%;
-            width: 16%;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.4);
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px outset rgba(0, 0, 0, 0.545);
+            box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.3);
+            padding: 5vw;
             border-radius: 10px;
-            padding: 20px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: clamp(200px, 30%, 300px); /* Dynamische Anpassung der Breite */
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -324,103 +337,47 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            flex-wrap: wrap;
             align-items: center;
             gap: 20px;
         }
 
-        .version-box:nth-child(1) {
-            background-color: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
-            color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
-            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
-            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            align-items: center;
-            justify-content: center;
-            margin: 160px auto;
-        }
-
-        .version-box:nth-child(2) {
-            background-color: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
-            color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
-            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
-            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            align-items: center;
-            justify-content: center;
-            margin: 120px auto;
-        }
-
-        .version-box:nth-child(3) {
-            background-color: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
-            color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
-            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
-            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            align-items: center;
-            justify-content: center;
-            margin: 80px auto;
-        }
-
-        .version-box:nth-child(4) {
-            background-color: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
-            color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
-            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
-            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            align-items: center;
-            justify-content: center;
-            margin: 120px auto;
-        }
-
-        .version-box:nth-child(5) {
-            background-color: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(8px);
-            color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
-            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
-            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            align-items: center;
-            justify-content: center;
-            margin: 160px auto;
-        }
-
+        /* 🏆 VERSION BOX HOVER EFFECT */
         .version-box:hover {
             transform: translateY(-25px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             background-color: rgba(240, 240, 240, 0.3);
         }
 
+        /* 🏆 VERSION ICON */
         .version-icon {
             font-size: 50px;
             color: #FFD700;
             margin-bottom: 10px;
         }
 
-        .logo img {
-            width: 40%;
-            border-radius: 0;
-        }
-        .logo-3 img {
-            width: 45%;
-            border-radius: 0;
-        }
+        /* 🏆 LOGO STYLE */
+        .logo img,
+        .logo-3 img,
         .logo-4 img {
-            width: 50%;
             border-radius: 0;
-        }
-        .version-box h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #ffffff;
         }
 
+        .logo img {
+            width: 90%;
+        }
+
+        .logo-3 img {
+            width: 100%;
+        }
+
+        .logo-4 img {
+            width: 110%;
+        }
+
+        /* 🏆 HEADINGS AND TEXT IN VERSION BOXES */
+        .version-box h2,
         .version-box h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 10px;
             color: #ffffff;
         }
@@ -430,138 +387,21 @@
             color: #ffffff;
         }
 
-        .detail-row {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.5s ease-in-out;
-        }
+        /* 🏆 RESPONSIVE STYLES FOR MOBILE */
+        @media (max-width: 768px) {
+            .versions {
+                padding: 5vw;
+            }
 
-        .details .detail-row:nth-child(odd) .detail-text {
-            transform: translateX(-100px);
-        }
-        .details .detail-row:nth-child(odd).show .detail-text {
-            transform: translateX(0);
-        }
-        .details .detail-row:nth-child(even) .detail-text {
-            transform: translateX(100px);
-        }
-        .details .detail-row:nth-child(even).show .detail-text {
-            transform: translateX(0);
-        }
-
-        .details .detail-row img {
-            width: 60px;
-            height: 60px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .details .detail-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .slide-show {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            overflow: hidden;
-            position: relative;
-        }
-        .slide-show img {
-            height: 100%;
-            width: auto;
-            min-width: 100%;
-        }
-        .slide-show::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom,
-                    rgba(0,0,0,1) 0%,
-                    rgba(0,0,0,0) 10%,
-                    rgba(0,0,0,0) 90%,
-                    rgba(0,0,0,1) 100%);
-            pointer-events: none;
-        }
-        .slide-show .text-box {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 65%;
-            color: #333;
-        }
-        .slide-show .text-box2 {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 65%;
-            color: #333;
-        }
-        .slide-show .text-box h2 {
-            margin-bottom: 10px;
-        }
-        .slide-show .text-box p {
-            font-size: 1.1rem;
-        }
-
-        .slide-show-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        @media (max-width: 1000px) {
             .version-box {
-                width: 45%;
-                max-width: none;
-            }
-            .details .detail-row {
-                flex-direction: column;
-            }
-            .details .detail-row img, .details .detail-text {
-                width: 100%;
-                max-width: none;
+                width: 90%; /* Größere Boxen auf kleineren Bildschirmen */
+                padding: 8vw;
+                margin: 3vh auto;
             }
         }
 
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .version-box {
-                width: 100%;
-            }
-            .slide-show .text-box {
-                position: static;
-                max-width: none;
-                margin-top: 20px;
-            }
-        }
-
+        /* 🏆 GitHub Button */
         .button-github {
-            transform: translateY(100%);
             position: absolute;
             left: 20%;
             width: 11%;
@@ -570,7 +410,7 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             padding: 0.5rem 1.4rem;
             font-size: 0.875rem;
@@ -594,13 +434,13 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            transform: translateY(80%);
+            transform: translateY(-20%);
         }
 
+        /* 🏆 Mavis Button */
         .button-mavis {
-            transform: translateY(80%);
             position: absolute;
             left: 34%;
             width: 16%;
@@ -609,7 +449,7 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             padding: 0.5rem 1.4rem;
             font-size: 0.875rem;
@@ -633,13 +473,13 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            transform: translateY(60%);
+            transform: translateY(-20%);
         }
 
+        /* 🏆 Mavis LX Button */
         .button-mavis-lx {
-            transform: translateY(80%);
             position: absolute;
             left: 53%;
             width: 12%;
@@ -672,13 +512,13 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            transform: translateY(60%);
+            transform: translateY(-20%);
         }
 
+        /* 🏆 Mavis Terminal Button */
         .button-mavis-terminal {
-            transform: translateY(80%);
             position: absolute;
             left: 68%;
             width: 12%;
@@ -687,7 +527,7 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             padding: 0.5rem 1.4rem;
             font-size: 0.875rem;
@@ -711,36 +551,39 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
-            transform: translateY(60%);
+            transform: translateY(-20%);
         }
 
-
         .MAVIS-4 {
-            height: 210vw;
-            width: 100%;
-            background: #000000;
+            background-color: #000000;
+
+            background-size: cover;
+            background-position: center;
+            height: 310vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 5vw; /* Vermeidet Text, der an Bildschirmrändern klebt */
         }
 
         .MAVIS-4 h1 {
-            position: relative;
-            left: 40%;
-            width: 20%;
-            font-size: 5em;
+            font-size: clamp(3rem, 8vw, 9rem); /* Dynamische Schriftgröße */
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #999999,
-                #b4b4b4,
-                #ffffff
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite linear;
             text-align: center;
+            margin: 0;
+            position: relative; /* Positionierung muss relativ oder absolut sein */
+            top: -30%; /* Verschiebt das h1-Element um 30% nach oben */
         }
 
         .MAVIS-4 h3 {
