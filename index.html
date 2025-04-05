@@ -560,47 +560,37 @@
             height: 210vw;
             width: 100%;
             background: #000000;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            padding: 5vw; /* Vermeidet Text, der an Bildschirmrändern klebt */
         }
 
         .MAVIS-4 h1 {
-            position: relative;
-            left: 40%;
-            width: 20%;
-            font-size: 5em;
+            font-size: clamp(3rem, 6vw, 9rem); /* Dynamische Schriftgröße */
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #999999,
-                #b4b4b4,
-                #ffffff
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite linear;
             text-align: center;
+            margin: 0;
+            position: relative; /* Positionierung muss relativ oder absolut sein */
         }
 
         .MAVIS-4 h3 {
-            position: relative;
-            left: 50%;
-            width: 50%;
-            font-size: 1.6em;
+            font-size: clamp(0.6rem, 1.5vw, 1.8rem); /* kleiner, aber weiterhin responsiv */
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #999999,
-                #b4b4b4,
-                #ffffff
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
-            animation: textShine 3s infinite linear;
-            transform: translateX(-50%); /* Text horizontal mittig ausrichten */
-            text-align: center; /* Optional, falls du den Text innerhalb des Elements noch mittig ausrichten willst */
+            -webkit-text-fill-color: transparent; /* Für Safari */
+            color: transparent; /* Fallback für andere Browser */
+            text-align: center;
+            margin-top: 1rem;
+            position: relative;
         }
 
         .image-stack-1 img {
@@ -639,8 +629,9 @@
         }
 
         .mavis-4 p {
-            font-size: 1rem;
+            font-size: clamp(0.5rem, 2vw, 4rem); /* Dynamische Schriftgröße */
             color: #333;
+            max-width: 50%;
         }
 
         .content-container-1 {
@@ -666,8 +657,17 @@
             margin-left: 15%;
             flex: 1; /* Der Text nimmt den restlichen Platz auf der linken Seite ein */
             padding-right: 20px; /* Abstand zwischen Text und Bild */
-            font-size: 1.5em;
-            color: #c1c2c5;
+            font-size: clamp(0.5rem, 1.3vw, 4rem); /* Dynamische Schriftgröße */
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #999999,
+                #b4b4b4,
+                #ffffff
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: 50%;
         }
 
         .image-container {
@@ -679,47 +679,37 @@
             height: 100vw;
             width: 100%;
             background: #000000;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            padding: 5vw; /* Vermeidet Text, der an Bildschirmrändern klebt */
         }
 
         .MAVIS-terminal-4 h1 {
-            position: relative;
-            left: 30%;
-            width: 40%;
-            font-size: 5em;
+            font-size: clamp(3rem, 6vw, 9rem); /* Dynamische Schriftgröße */
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #999999,
-                #b4b4b4,
-                #ffffff
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite linear;
             text-align: center;
+            margin: 0;
+            position: relative; /* Positionierung muss relativ oder absolut sein */
         }
 
         .MAVIS-terminal-4 h3 {
-            position: relative;
-            left: 50%;
-            width: 50%;
-            font-size: 1.6em;
+            font-size: clamp(0.6rem, 1.5vw, 1.8rem); /* kleiner, aber weiterhin responsiv */
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #999999,
-                #b4b4b4,
-                #ffffff
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
-            animation: textShine 3s infinite linear;
-            transform: translateX(-50%); /* Text horizontal mittig ausrichten */
-            text-align: center; /* Optional, falls du den Text innerhalb des Elements noch mittig ausrichten willst */
+            -webkit-text-fill-color: transparent; /* Für Safari */
+            color: transparent; /* Fallback für andere Browser */
+            text-align: center;
+            margin-top: 1rem;
+            position: relative;
         }
 
         .card {
@@ -995,26 +985,24 @@
             height: 210vw;
             width: 100%;
             background: #000000;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            padding: 5vw; /* Vermeidet Text, der an Bildschirmrändern klebt */
         }
 
         .MAVIS-launcher-4 h1 {
-            position: relative;
-            left: 30%;
-            width: 40%;
-            font-size: 5em;
+            font-size: clamp(3rem, 6vw, 9rem); /* Dynamische Schriftgröße */
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(
-                90deg,
-                #ffffff,
-                #999999,
-                #b4b4b4,
-                #ffffff
-            );
+            background: linear-gradient(90deg, #a8a8a8, #ffffff, #ffffff, #cdcdcd);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite linear;
             text-align: center;
+            margin: 0;
+            position: relative; /* Positionierung muss relativ oder absolut sein */
         }
 
     </style>
