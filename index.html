@@ -403,7 +403,7 @@
         /* 🏆 GitHub Button */
         .button-github {
             position: absolute;
-            left: 20%;
+            left: 12%;
             width: 11%;
             display: flex;
             background-color: rgba(255, 255, 255, 0.3);
@@ -442,7 +442,7 @@
         /* 🏆 Mavis Button */
         .button-mavis {
             position: absolute;
-            left: 34%;
+            left: 41%;
             width: 16%;
             display: flex;
             background-color: rgba(255, 255, 255, 0.3);
@@ -481,7 +481,7 @@
         /* 🏆 Mavis LX Button */
         .button-mavis-lx {
             position: absolute;
-            left: 53%;
+            left: 75%;
             width: 14%;
             display: flex;
             background-color: rgba(255, 255, 255, 0.3);
@@ -520,7 +520,7 @@
         /* 🏆 Mavis Terminal Button */
         .button-mavis-terminal {
             position: absolute;
-            left: 70%;
+            left: 26%;
             width: 12%;
             display: flex;
             background-color: rgba(255, 255, 255, 0.3);
@@ -547,6 +547,44 @@
         }
 
         .button-mavis-terminal:hover {
+            background-color: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            transform: translateY(-20%);
+        }
+
+        .button-mavis-terminal-5 {
+            position: absolute;
+            left: 60%;
+            width: 12%;
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 0.5rem 1.4rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            vertical-align: middle;
+            align-items: center;
+            border-radius: 0.5rem;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .button-mavis-terminal-5 svg {
+            height: 35px;
+        }
+
+        .button-mavis-terminal-5:hover {
             background-color: rgba(240, 240, 240, 0.5);
             backdrop-filter: blur(8px);
             color: #ffffff;
@@ -1066,6 +1104,12 @@
                 <path d="M2518.46 407.665 3003 1594.62 2662.79 1594.62 2351.21 822.411ZM1878.35 393 2381.46 1635.86 2203.45 2082 1880.42 1280.01 1754.64 1594.62 1389 1594.62Z" fill="#FFFFFF" fill-rule="evenodd"></path>
             </g></svg>
              Download MAVIS Terminal 4
+        </button><br>
+        <button class="button-mavis-terminal-5" onclick="window.open('https://raw.githubusercontent.com/Peharge/MAVIS/main/run-mavis-terminal-5.bat', '_blank')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" viewBox="0 0 1614 1689" stroke-width="6.875" fill="currentColor" stroke="#042433" class="icon2" id="icon-toggle-dddd"><g transform="translate(-1389 -393)">
+                <path d="M2518.46 407.665 3003 1594.62 2662.79 1594.62 2351.21 822.411ZM1878.35 393 2381.46 1635.86 2203.45 2082 1880.42 1280.01 1754.64 1594.62 1389 1594.62Z" fill="#FFFFFF" fill-rule="evenodd"></path>
+            </g></svg>
+             Download MAVIS Terminal 5
         </button>
     </section>
 
