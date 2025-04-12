@@ -1043,6 +1043,77 @@
             position: relative; /* Positionierung muss relativ oder absolut sein */
         }
 
+        .end {
+          margin: 0;
+          background-color: #ffffff;
+          color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 30vh;
+            color: #000000;
+        }
+
+        .abschluss_info_blur {
+          position: relative;
+          bottom: 0;
+          width: fit-content;
+          margin: 40px auto;
+          background-color: rgba(0, 0, 0);
+          backdrop-filter: blur(10px);
+          color: #ffffff;
+          border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+          border-left: 2px rgba(255, 255, 255, 0.3) outset;
+          box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.3);
+          padding: 20px 30px;
+          border-radius: 12px;
+          transition: all 0.3s ease;
+          text-align: center;
+        }
+
+        .abschluss_info_blur:hover {
+          background-color: rgba(45, 45, 45);
+          box-shadow: 25px 35px 20px rgba(0, 0, 0, 0.4);
+          transform: scale(1.02);
+        }
+
+        .abschluss_info_blur h4 {
+          margin: 0 0 12px;
+          font-size: 1.2rem;
+          letter-spacing: 1px;
+          text-align: center;
+        }
+
+
+        .verweis_liste {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .verweis_liste li {
+          margin: 6px 0;
+        }
+
+        .verweis_liste a {
+          color: #ffffff;
+          text-decoration: none;
+          font-weight: bold;
+          transition: color 0.2s ease;
+        }
+
+        .verweis_liste a:hover {
+          color: #00bfff;
+        }
+
+        /* Optional: responsive tweak */
+        @media (max-width: 600px) {
+          .abschluss_info_blur {
+            width: 90%;
+            padding: 15px 20px;
+          }
+        }
+
     </style>
 </head>
 <body>
@@ -1957,6 +2028,17 @@
                 </div>
             </div>
     </section>
+
+    <div class="end">
+      <div class="abschluss_info_blur">
+        <ul class="verweis_liste">
+            <li><a href="https://github.com/Peharge" target="_blank">🔗 GitHub Peharge</a></li>
+          <li><a href="https://github.com/Peharge/MAVIS" target="_blank">🔗 GitHub MAVIS Repository</a></li>
+          <li><a href="https://huggingface.co/Peharge" target="_blank">🤗 Hugging Peharge</a></li>
+          <li><a href="https://github.com/Peharge/MAVIS/blob/main/LICENSE" target="_blank">📄 MAVIS MIT Licence</a></li>
+        </ul>
+      </div>
+    </div>
 
 </body>
 </html>
