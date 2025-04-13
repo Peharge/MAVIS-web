@@ -484,11 +484,11 @@
             left: 75%;
             width: 14%;
             display: flex;
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 0, 0, 0.3);
             backdrop-filter: blur(8px);
             color: #ffffff;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            border-bottom: 3px solid rgba(255, 41, 41, 0.44);
+            border-left: 2px rgba(255, 80, 80, 0.54) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             padding: 0.5rem 1.4rem;
             font-size: 0.875rem;
@@ -1044,15 +1044,28 @@
             position: relative;
         }
 
+        .end-main {
+            display: flex;  /* Aktiviert Flexbox */
+            flex-direction: row;  /* Stellt sicher, dass die Boxen nebeneinander angezeigt werden */
+            justify-content: center;  /* Optional: Zentriert die Boxen horizontal */
+            align-items: center;  /* Optional: Zentriert die Boxen vertikal */
+            gap: 300px;  /* Fügt einen Abstand zwischen den Boxen hinzu */
+            background-color: #ffffff;  /* Setzt die Hintergrundfarbe auf Weiß */
+            height: 16vw;
+        }
+
         .end {
             margin: 0;
-            background-color: #ffffff;
+            background-color: #ffffff;  /* Weißer Hintergrund für jede Box */
             font-family: 'Segoe UI', sans-serif;
+            min-height: 100px;
+            max-height: 400px;
+            width: 200px;  /* Beispiel-Breite für die .end Boxen */
             display: flex;
-            flex-direction: column;
-            min-height: 30vh;
             justify-content: center;
             align-items: center;
+            border: 1px solid #ccc;  /* Optional: Rahmen für die Boxen */
+            box-sizing: border-box;
         }
 
         .abschluss_info_blur {
@@ -1066,9 +1079,33 @@
             border-radius: 16px;
             text-align: center;
             transition: all 0.3s ease;
-            width: 25%;
-            min-width: 250px;
+            width: 100%;
+            min-width: 350px;
             max-width: 1000px;
+            height: auto;
+        }
+
+        .abschluss_info_blur:hover {
+            background-color: rgba(45, 45, 45, 0.95);
+            box-shadow: 25px 35px 20px rgba(0, 0, 0, 0.4);
+            transform: scale(1.03);
+        }
+
+        .abschluss_info_blur-3 {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+            border-left: 2px rgba(255, 255, 255, 0.3) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px 40px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            width: 100%;
+            min-width: 500px;
+            max-width: 1000px;
+            height: auto;
         }
 
         .abschluss_info_blur:hover {
@@ -1105,8 +1142,8 @@
         }
 
         .link_icon {
-          width: 20px;
-              height: 20px;
+            width: 20px;
+            height: 20px;
             margin-right: 10px;
             vertical-align: middle;
         }
@@ -1126,7 +1163,6 @@
                 margin-right: 8px;
             }
         }
-
 
     </style>
 </head>
@@ -2179,43 +2215,74 @@
             </div>
     </section>
 
-    <div class="end">
-      <div class="abschluss_info_blur">
-        <ul class="verweis_liste">
-          <li>
-            <a href="https://github.com/Peharge" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="link_icon">
-              GitHub Peharge
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Peharge/MAVIS" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Repo" class="link_icon">
-              MAVIS Repository
-            </a>
-          </li>
-          <li>
-            <a href="https://huggingface.co/Peharge" target="_blank">
-              <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" class="link_icon">
-              Hugging Face Profil
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Peharge/MAVIS/blob/main/LICENSE" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="License" class="link_icon">
-              MAVIS MIT Licence
-            </a>
-          </li>
-            <li>
-            <a href="https://github.com/Peharge/MAVIS/blob/main/learn-mavis/README.md" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="License" class="link_icon">
-              Learn MAVIS
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div class="end-main">
+        <div class="end">
+            <div class="abschluss_info_blur">
+                <ul class="verweis_liste">
+                    <li>
+                        <a href="https://github.com/Peharge" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="link_icon">
+                            GitHub Peharge
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Peharge/MAVIS" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Repo" class="link_icon">
+                            MAVIS Repository
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://huggingface.co/Peharge" target="_blank">
+                            <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" class="link_icon">
+                            Hugging Face Profil
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="end">
+            <div class="abschluss_info_blur">
+                <ul class="verweis_liste">
+                    <li>
+                        <a href="https://github.com/Peharge/MAVIS/blob/main/LICENSE" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="License" class="link_icon">
+                            MAVIS MIT Licence
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Peharge/MAVIS/blob/main/learn-mavis/README.md" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="License" class="link_icon">
+                            Learn MAVIS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="end">
+            <div class="abschluss_info_blur-3">
+                <ul class="verweis_liste">
+                    <li>
+                        <a href="https://raw.githubusercontent.com/Peharge/MAVIS/main/mavis-launcher-4.bat" target="_blank">
+                            <img src="./icons/mavis-logo-new.png" alt="License" class="link_icon">
+                            Download MAVIS Launcher 4 Windows
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://raw.githubusercontent.com/Peharge/MAVIS/main/run-mavis-terminal-5.bat" target="_blank">
+                            <img src="./icons/mavis-logo-new.png" alt="License" class="link_icon">
+                            Download MAVIS Terminal 5 Windows
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://raw.githubusercontent.com/Peharge/MAVIS/main/run-mavis-terminal-4.bat" target="_blank">
+                            <img src="./icons/mavis-logo-new.png" alt="License" class="link_icon">
+                            Download MAVIS Terminal 4 Windows
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
 
 </body>
 </html>
