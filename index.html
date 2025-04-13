@@ -1061,13 +1061,12 @@
             justify-content: center;  /* Optional: Zentriert die Boxen horizontal */
             align-items: center;  /* Optional: Zentriert die Boxen vertikal */
             gap: 300px;  /* Fügt einen Abstand zwischen den Boxen hinzu */
-            background-color: #ffffff;  /* Setzt die Hintergrundfarbe auf Weiß */
+            background-color: #000000;  /* Setzt die Hintergrundfarbe auf Weiß */
             height: 16vw;
         }
 
         .end {
             margin: 0;
-            background-color: #ffffff;  /* Weißer Hintergrund für jede Box */
             font-family: 'Segoe UI', sans-serif;
             min-height: 100px;
             max-height: 400px;
@@ -1075,17 +1074,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid #ccc;  /* Optional: Rahmen für die Boxen */
             box-sizing: border-box;
         }
 
         .abschluss_info_blur {
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
             color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
-            border-left: 2px rgba(255, 255, 255, 0.3) outset;
-            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             padding: 30px 40px;
             border-radius: 16px;
             text-align: center;
@@ -1097,18 +1095,22 @@
         }
 
         .abschluss_info_blur:hover {
-            background-color: rgba(45, 45, 45, 0.95);
-            box-shadow: 25px 35px 20px rgba(0, 0, 0, 0.4);
+            background-color: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             transform: scale(1.03);
         }
 
         .abschluss_info_blur-3 {
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
             color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
-            border-left: 2px rgba(255, 255, 255, 0.3) outset;
-            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             padding: 30px 40px;
             border-radius: 16px;
             text-align: center;
@@ -1120,8 +1122,12 @@
         }
 
         .abschluss_info_blur-3:hover {
-            background-color: rgba(45, 45, 45, 0.95);
-            box-shadow: 25px 35px 20px rgba(0, 0, 0, 0.4);
+            background-color: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             transform: scale(1.03);
         }
 
@@ -2399,100 +2405,91 @@
       <!-- Erste Reihe: Box 1 bis 10 -->
       <div class="anim-row" style="--anim-delay: 0s;">
         <div class="anim-track">
-          <div class="anim-box">Xc++ I</div>
-          <div class="anim-box">Xc++ II</div>
-          <div class="anim-box">Xc++ III</div>
-          <div class="anim-box">Xc++ IV</div>
-          <div class="anim-box">Deep Seek R1</div>
-          <div class="anim-box">Deep Seek V3</div>
-          <div class="anim-box">Gemma 3</div>
-          <div class="anim-box">Gemma 2</div>
-          <div class="anim-box">Qwen 2</div>
-          <div class="anim-box">Qwen 2.5</div>
+            <div class="anim-box">Xc++ I</div>
+            <div class="anim-box">Xc++ II</div>
+            <div class="anim-box">Xc++ III</div>
+            <div class="anim-box">Xc++ IV</div>
+            <div class="anim-box">Deep Seek R1</div>
+            <div class="anim-box">Deep Seek V3</div>
+            <div class="anim-box">Gemma 3</div>
+            <div class="anim-box">Gemma 2</div>
+            <div class="anim-box">Qwen 2</div>
+            <div class="anim-box">Qwen 2.5</div>
         </div>
       </div>
 
       <!-- Zweite Reihe: Box 11 bis 20 -->
       <div class="anim-row" style="--anim-delay: 2s;">
         <div class="anim-track">
-          <div class="anim-box">Llama 3</div>
-          <div class="anim-box">Llama 3.1</div>
-          <div class="anim-box">Llama 3.2</div>
-          <div class="anim-box">Llama 3.3</div>
-          <div class="anim-box">Llama 4</div>
-          <div class="anim-box">Qwen 2.5 Coder</div>
-          <div class="anim-box">QwQ</div>
-          <div class="anim-box">QvQ</div>
-          <div class="anim-box">Qwen 2.5 Omni</div>
-          <div class="anim-box">Qwen 2.5 VL</div>
+            <div class="anim-box">Llama 3</div>
+            <div class="anim-box">Llama 3.1</div>
+            <div class="anim-box">Llama 3.2</div>
+            <div class="anim-box">Llama 3.3</div>
+            <div class="anim-box">Llama 4</div>
+            <div class="anim-box">Qwen 2.5 Coder</div>
+            <div class="anim-box">QwQ</div>
+            <div class="anim-box">QvQ</div>
+            <div class="anim-box">Qwen 2.5 Omni</div>
+            <div class="anim-box">Qwen 2.5 VL</div>
         </div>
       </div>
 
       <!-- Dritte Reihe: Box 21 bis 30 -->
       <div class="anim-row" style="--anim-delay: 4s;">
         <div class="anim-track">
-          <div class="anim-box">mistral-small3.1</div>
-          <div class="anim-box">Phi4</div>
-          <div class="anim-box">Box 23</div>
-          <div class="anim-box">Box 24</div>
-          <div class="anim-box">Box 25</div>
-          <div class="anim-box">Box 26</div>
-          <div class="anim-box">Box 27</div>
-          <div class="anim-box">Box 28</div>
-          <div class="anim-box">Box 29</div>
-          <div class="anim-box">Box 30</div>
+            <div class="anim-box">Mistral small 3.1</div>
+            <div class="anim-box">Phi 4</div>
+            <div class="anim-box">Phi 3.5</div>
+            <div class="anim-box">Phi 3</div>
+            <div class="anim-box">DeepScaler</div>
+            <div class="anim-box">OpenThinker</div>
+            <div class="anim-box">Dolphin 3</div>
+            <div class="anim-box">SmallThinker</div>
+            <div class="anim-box">Falcon 3</div>
+            <div class="anim-box">Exaone 3.5</div>
         </div>
       </div>
 
       <!-- Vierte Reihe: Box 31 bis 40 -->
       <div class="anim-row" style="--anim-delay: 6s;">
         <div class="anim-track">
-          <div class="anim-box">Box 31</div>
-          <div class="anim-box">Box 32</div>
-          <div class="anim-box">Box 33</div>
-          <div class="anim-box">Box 34</div>
-          <div class="anim-box">Box 35</div>
-          <div class="anim-box">Box 36</div>
-          <div class="anim-box">Box 37</div>
-          <div class="anim-box">Box 38</div>
-          <div class="anim-box">Box 39</div>
-          <div class="anim-box">Box 40</div>
+          <div class="anim-box">Sailor 2</div>
+          <div class="anim-box">Marco o1</div>
+          <div class="anim-box">Tulu 3</div>
+          <div class="anim-box">Athene V2</div>
+          <div class="anim-box">OpenCoder</div>
+          <div class="anim-box">Smollm 2</div>
+          <div class="anim-box">Llava</div>
+          <div class="anim-box">Granite 3.2</div>
+          <div class="anim-box">Olmo 2</div>
+          <div class="anim-box">Smollm</div>
         </div>
       </div>
 
       <!-- Fünfte Reihe: Box 41 bis 50 -->
       <div class="anim-row" style="--anim-delay: 8s;">
         <div class="anim-track">
-          <div class="anim-box">Box 41</div>
-          <div class="anim-box">Box 42</div>
-          <div class="anim-box">Box 43</div>
-          <div class="anim-box">Box 44</div>
-          <div class="anim-box">Box 45</div>
-          <div class="anim-box">Box 46</div>
-          <div class="anim-box">Box 47</div>
-          <div class="anim-box">Box 48</div>
-          <div class="anim-box">Box 49</div>
-          <div class="anim-box">Box 50</div>
+          <div class="anim-box">Mistral Large</div>
+          <div class="anim-box">Mistral Nemo</div>
+          <div class="anim-box">Moondream</div>
         </div>
       </div>
     </div>
   </section>
 
   <style>
-        /* Spezifische CSS-Variablen für den Animationsbereich */
         :root {
-            --anim-min-box-width: 150px;     /* Mindestbreite der Boxen (etwas länger) */
-            --anim-box-height: 120px;          /* Feste Höhe der Boxen */
-            --anim-box-padding: 0 20px;         /* Horizontales Padding, damit sich die Box an den Text anpasst */
-            --anim-box-margin: 10px;           /* Außenabstand der Boxen */
-            --anim-duration: 20s;              /* Animationsdauer */
-            --anim-row-gap: 20px;              /* Abstand zwischen den Reihen */
+            --anim-min-box-width: 150px;
+            --anim-box-height: 120px;
+            --anim-box-padding: 0 20px;
+            --anim-box-margin: 10px;
+            --anim-duration: 20s;
+            --anim-row-gap: 20px;
         }
 
-        /* Section, die den Animationsbereich kapselt */
         section.anim-section {
             width: 100%;
-            height: 40vw;
+            height: 55vw;
             background-image:
                 linear-gradient(to bottom,
                     rgba(0, 0, 0, 1) 0%,
@@ -2508,14 +2505,6 @@
             padding: 20px;
         }
 
-        /* Container für alle Reihen */
-        .anim-container {
-            display: flex;
-            flex-direction: column;
-            gap: var(--anim-row-gap);
-        }
-
-        /* Jede Zeile erstreckt sich über die gesamte Breite */
         .anim-container {
             display: flex;
             flex-direction: column;
@@ -2523,17 +2512,12 @@
             padding-top: 5%;
         }
 
-
-        /* Individueller horizontaler Versatz für jede Reihe */
         .anim-row:nth-child(1) { transform: translateX(0); }
         .anim-row:nth-child(2) { transform: translateX(10px); }
         .anim-row:nth-child(3) { transform: translateX(20px); }
         .anim-row:nth-child(4) { transform: translateX(30px); }
         .anim-row:nth-child(5) { transform: translateX(40px); }
 
-        /* Der animierte Track: flexibles Element, das alle Boxen in einer Zeile enthält.
-           Die Breite richtet sich automatisch nach dem Inhalt (max-content), sodass die Animation
-           über den gesamten Bildschirm verläuft. */
         .anim-track {
             display: flex;
             width: max-content;
@@ -2541,17 +2525,16 @@
             animation-delay: var(--anim-delay, 0s);
         }
 
-        /* Gestaltung der einzelnen Boxen – an Textlänge angepasst, aber in der Höhe fix */
         .anim-box {
             min-width: var(--anim-min-box-width);
             height: var(--anim-box-height);
             padding: var(--anim-box-padding);
             margin: var(--anim-box-margin);
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(8px);
             color: #ffffff;
-            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
-            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
             box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
             display: flex;
             align-items: center;
@@ -2559,13 +2542,21 @@
             font-weight: bold;
             border-radius: 8px;
             user-select: none;
-            white-space: nowrap;  /* Verhindert Zeilenumbruch im Box-Text */
+            white-space: nowrap;
             width: 15vw;
-            font-size: clamp(1rem, 2vw, 2rem);
+            font-size: clamp(1rem, 1.3vw, 1.5rem);
         }
 
-        /* Keyframes: Animation bewegt den Track von rechts außerhalb des Sichtbereichs
-           bis nach links außerhalb, sodass die Boxen den gesamten Bildschirm durchlaufen */
+        .anim-box:hover {
+            background-color: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+            border-left: 2px rgba(255, 255, 255, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            transform: scale(1.03);
+        }
+
         @keyframes animSlide {
             0% {
                 transform: translateX(100%);
