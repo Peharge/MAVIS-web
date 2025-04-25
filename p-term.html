@@ -13,6 +13,49 @@
       padding: 20px;
     }
 
+    /* Stile für das .headline div */
+    .headline {
+        display: flex; /* Flexbox aktivieren */
+        justify-content: center; /* Horizontal zentrieren */
+        align-items: center; /* Vertikal zentrieren */
+    }
+
+/* Grundlegende Stile für das h1 */
+h1 {
+    font-family: 'Courier New', monospace;
+    font-size: 2.5rem;
+    color: #0f0; /* Grüne Farbe */
+    display: inline-block;
+    border-right: 3px solid black; /* Simuliert den Cursor-Effekt */
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; /* Start mit null Breite */
+    animation: typing 4s steps(40) 0s forwards, deleting 4s steps(40) 4s forwards; /* Versatz für das Löschen */
+    animation-iteration-count: infinite; /* Unendliche Wiederholung */
+}
+
+/* Animation für das Schreiben */
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 85%; /* Schreibe bis zu 85% der Breite */
+    }
+}
+
+/* Animation für das Löschen */
+@keyframes deleting {
+    0% {
+        width: 85%; /* Beginnt mit der vollen Breite des geschriebenen Texts */
+    }
+    100% {
+        width: 0; /* Löscht den Text */
+    }
+}
+
+
     .logo {
       text-align: center;
       margin-bottom: 20px;
@@ -21,7 +64,7 @@
     .logo img {
       width: 70%;
       max-width: 500px;
-      filter: grayscale(100%);
+      filter: grayscale(100%) drop-shadow(0 0px 20px rgba(0, 255, 0)); /* Schatten nur um die Form des Logos */
     }
 
     .button-container {
@@ -35,6 +78,7 @@
       background-color: #111;
       color: #0f0;
       border: 1px solid #333;
+      border-radius: 6px;
       padding: 10px 20px;
       font-family: 'Courier New', Courier, monospace;
       font-size: 16px;
@@ -49,6 +93,7 @@
     }
 
     .terminal {
+      border-radius: 6px;
       background-color: #111;
       border: 1px solid #333;
       padding: 20px;
@@ -78,6 +123,10 @@
     <img src="./images/p-term-icon-3.png" alt="Mein Logo">
   </div>
 
+  <div class="headline">
+    <h1>Peharge Terminal: The fastest terminal in the world</h1>
+  </div>
+
   <div class="button-container">
     <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Term GitHub</button>
     <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
@@ -85,6 +134,7 @@
   </div>
 
   <div class="terminal">
+    <h2>Command list</h2>
     <div class="command">
       <div class="cmd"># p</div>
       <div class="description">Peharge command</div>
@@ -281,6 +331,117 @@
     </div>
 
     soon more
+  </div>
+
+  <br><br><br>
+
+  <div class="terminal">
+    <h2>Install P-Term</h2>
+    <p1>soon</p1>
+  </div>
+
+  <br><br><br>
+
+  <div class="terminal">
+    <h2>Install PP-Term</h2>
+    <p1>soon</p1>
+    Aktive Codepage: 65001.<br>
+<br>
+██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
+██╔══██╗██╔══██╗&nbsp;&nbsp;&nbsp;╚══██╔══╝██╔════╝██╔══██╗████╗&nbsp;████║██║████╗&nbsp;&nbsp;██║██╔══██╗██║<br>
+██████╔╝██████╔╝█████╗██║&nbsp;&nbsp;&nbsp;█████╗&nbsp;&nbsp;██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║<br>
+██╔═══╝&nbsp;██╔═══╝&nbsp;╚════╝██║&nbsp;&nbsp;&nbsp;██╔══╝&nbsp;&nbsp;██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;███████╗██║&nbsp;&nbsp;██║██║&nbsp;╚═╝&nbsp;██║██║██║&nbsp;╚████║██║&nbsp;&nbsp;██║███████╗<br>
+╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;╚══════╝╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝<br>
+<br>
+██╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████╗&nbsp;██╗&nbsp;&nbsp;&nbsp;██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;██████╗██╗&nbsp;&nbsp;██╗███████╗██████╗<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██╗██║&nbsp;&nbsp;&nbsp;██║████╗&nbsp;&nbsp;██║██╔════╝██║&nbsp;&nbsp;██║██╔════╝██╔══██╗<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████║██║&nbsp;&nbsp;&nbsp;██║██╔██╗&nbsp;██║██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████║█████╗&nbsp;&nbsp;██████╔╝<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██║██║&nbsp;&nbsp;&nbsp;██║██║╚██╗██║██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██║██╔══╝&nbsp;&nbsp;██╔══██╗<br>
+███████╗██║&nbsp;&nbsp;██║╚██████╔╝██║&nbsp;╚████║╚██████╗██║&nbsp;&nbsp;██║███████╗██║&nbsp;&nbsp;██║<br>
+╚══════╝╚═╝&nbsp;&nbsp;╚═╝&nbsp;╚═════╝&nbsp;╚═╝&nbsp;&nbsp;╚═══╝&nbsp;╚═════╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝╚═╝&nbsp;&nbsp;╚═╝<br>
+<br>
+Initiating high-tech installation...<br>
+[*] Prepare for the next level...<br>
+<br>
+[Time Stamp]   25.04.2025 14:27:41,28<br>
+[Hostname]     JULIAN<br>
+[User]         julian<br>
+<br>
+MIT License<br>
+Copyright (c) 2025<br>
+Peharge<br>
+<br>
+Permission is hereby granted, free of charge, to any person obtaining a copy<br>
+of this software and associated documentation files (the "Software"), to deal<br>
+in the Software without restriction, including without limitation the rights<br>
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
+copies of the Software, and to permit persons to whom the Software is<br>
+furnished to do so, subject to the following conditions:<br>
+<br>
+The above copyright notice and this permission notice shall be included in all<br>
+copies or substantial portions of the Software.<br>
+<br>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE<br>
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE<br>
+SOFTWARE.<br>
+<br>
+Initializing PP-Terminal<br>
+Gooo...<br>
+<br>
+Lokale IP:  ---<br>
+✅ Internet connection exists.<br>
+✅ Python is already installed.<br>
+✅ Git is already installed.<br>
+✅ Ollama is already installed.<br>
+✅ FFmpeg is already installed.<br>
+✅ Rustup is already installed.<br>
+✅ PowerShell 7 is already installed.<br>
+✅ WSL is already installed.<br>
+✅ WSL is already set up with the distribution: "U"<br>
+✅ All WSL processes have been successfully terminated.<br>
+P-terminal repository already exists. Checking for updates...<br>
+Fetching latest changes...<br>
+Updates available, pulling changes...<br>
+✅ P-terminal repository updated successfully<br>
+✅ P-terminal update process completed successfully.<br>
+Checking for existing .env file at: "C:\Users\julia\p-terminal\pp-term\.env"<br>
+✅ .env file already exists at "C:\Users\julia\p-terminal\pp-term\.env"<br>
+Starting PP_terminal...<br>
+✅ Peharge C++ Compiler available and the folder "C:\Users\julia\p-terminal\pp-term\peharge-cpp-compier" exists.<br>
+✅ Peharge C Compiler available and the folder "C:\Users\julia\p-terminal\pp-term\peharge-c-compiler" exists.<br>
+✅ All tasks were completed successfully<br>
+Virtual environment C:\Users\julia\p-terminal\pp-term\.env activated.<br>
+All missing packages installed.<br>
+<br>
+<br>
+██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
+██╔══██╗██╔══██╗&nbsp;&nbsp;&nbsp;╚══██╔══╝██╔════╝██╔══██╗████╗&nbsp;████║██║████╗&nbsp;&nbsp;██║██╔══██╗██║<br>
+██████╔╝██████╔╝█████╗██║&nbsp;&nbsp;&nbsp;█████╗&nbsp;&nbsp;██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║<br>
+██╔═══╝&nbsp;██╔═══╝&nbsp;╚════╝██║&nbsp;&nbsp;&nbsp;██╔══╝&nbsp;&nbsp;██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;███████╗██║&nbsp;&nbsp;██║██║&nbsp;╚═╝&nbsp;██║██║██║&nbsp;╚████║██║&nbsp;&nbsp;██║███████╗<br>
+╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;╚══════╝╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝<br>
+<br>
+A warm welcome, julian, to Peharge Python Terminal<br>
+Developed by Peharge and JK (Peharge Projects 2025)<br>
+Thank you so much for using PP-Term. We truly appreciate your support ❤️<br>
+<br>
+P-Terminal Version: 1.1<br>
+PP-Terminal Version: 1.1<br>
+Peharge C compiler Version: 1.1<br>
+Peharge C++ compiler Version: 1.1<br>
+P-Terminal License: MIT<br>
+<br>
+████████<br>
+████████<br>
+<br>
+<br>
+┌──(julian@Peharge)-[C:\Users\julian\p-terminal\pp-term]-[.\p-terminal\pp-term\.env]<br>
+└─$ [Command...]<br>
   </div>
 
 </body>
