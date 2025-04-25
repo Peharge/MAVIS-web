@@ -344,7 +344,12 @@ h1 {
 
   <div class="terminal">
     <h2>Install PP-Term</h2>
-    <p1>soon</p1>
+    <p>Mavis Terminal is a powerful command-line interface designed to streamline development, system monitoring, and AI model execution. This document provides a comprehensive list of available commands, along with usage guidelines for `pip` and PowerShell.
+
+---
+
+If you start MAVIS Terminal 5 out of <a href="https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat" target="_blank">run-pp-term.bat</a>, and if you do, it looks like this:</p><br><br><br>
+<p>
     Aktive Codepage: 65001.<br>
 <br>
 ██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
@@ -442,6 +447,78 @@ P-Terminal License: MIT<br>
 <br>
 ┌──(julian@Peharge)-[C:\Users\julian\p-terminal\pp-term]-[.\p-terminal\pp-term\.env]<br>
 └─$ [Command...]<br>
+</p>
+    <p>
+      <h2>Problems installing the PP Terminal</h2>
+<p>The PP Terminal should normally be installed automatically. However, problems may arise during installation that require you to install certain dependencies manually.</p>
+<p>Usually, all required dependencies are included in the automatic installation. However, if a dependency was not installed correctly, only those specific dependencies need to be installed subsequently.</p>
+
+<h3>1. <strong>Git</strong></h3>
+<p>Git is required to clone code and track changes. <br>
+Download Git from the official website: <a href="https://git-scm.com/downloads" target="_blank">Download Git</a></p>
+
+<h3>2. <strong>Python</strong></h3>
+<p>It is recommended to use Python 3.12 (Python 3.11 is also supported, but not Python 3.13). <br>
+Download Python from the official website: <a href="https://www.python.org/downloads/" target="_blank">Download Python</a> or directly from the Microsoft Store.</p>
+
+<h3>3. <strong>Ollama</strong></h3>
+<p>Ollama is a necessary tool for the PP terminal. Install Ollama from the official website: <a href="https://ollama.com/download" target="_blank">Download Ollama</a></p>
+
+<h3>4. <strong>FFmpeg</strong></h3>
+<p>FFmpeg is another important dependency for the PP terminal. Make sure it is installed on your system. For more information, see the official website: <a href="https://ffmpeg.org/" target="_blank">FFmpeg</a></p>
+
+<h3>5. <strong>Rustup</strong></h3>
+<p>Rustup is required to install Rust and related tools. You can download it from the official Rust website: <a href="https://rustup.rs/" target="_blank">Download Rustup</a></p>
+
+<h3>6. <strong>PowerShell 7</strong></h3>
+<p>PowerShell 7 is a modern version of PowerShell and is recommended for use with the PP terminal. Download PowerShell 7 from the official Microsoft page: <a href="https://github.com/PowerShell/PowerShell/releases" target="_blank">Download PowerShell 7</a><h3>7. <strong>Windows Subsystem for Linux (WSL)</strong></h3>
+<p>To make optimal use of the PP Terminal, you need the Windows Subsystem for Linux (WSL). Supported distributions are:</p>
+<ul>
+<li><strong>Ubuntu</strong> <br>
+Install Ubuntu from the Microsoft Store: <a href="https://aka.ms/wslubuntu" target="_blank">Ubuntu in the Microsoft Store</a> <br>
+Or use the WSL installation command:
+<pre>wsl --install -d Ubuntu</pre>
+</li>
+<li><strong>Debian</strong> <br>
+Install Debian from the Microsoft Store: <a href="https://aka.ms/wsldebian" target="_blank">Debian in the Microsoft Store</a> <br>
+Or use the WSL installation command:
+<pre>wsl --install -d Debian</pre>
+</li>
+<li><strong>Kali Linux</strong> <br>
+Install Kali Linux from the Microsoft Store: <a href="https://aka.ms/wslkali" target="_blank">Kali Linux in the Microsoft Store</a> <br>
+Or use the WSL installation command:
+<pre>wsl --install -d Kali-Linux</pre>
+</li>
+<li><strong>Arch Linux</strong> <br>
+Arch Linux is not directly available in the Microsoft Store, but you can install it using [WSL installation scripts](https://github.com/yuk7/wsldl): <a href="https://github.com/yuk7/wsldl" target="_blank">Arch Linux WSL script</a> <br>
+Alternatively, you can install Arch manually via the AUR (Arch User Repository).
+</li>
+<li><strong>openSUSE</strong> <br>
+Install openSUSE from the Microsoft Store: <a href="https://aka.ms/wslsuse" target="_blank">openSUSE in the Microsoft Store</a> <br>
+Or use the WSL installation command:
+<pre>wsl --install -d openSUSE</pre>
+</li>
+<li><strong>Linux Mint</strong> <br>
+Linux Mint is also not available directly from the Microsoft Store, but you can install it via [WSL2](https://www.linuxmint.com/) and follow the installation instructions.
+</li>
+<li><strong>Fedora</strong> <br>
+Fedora is available directly from the Microsoft Store: <a href="https://aka.ms/wslfedora" target="_blank">Fedora in the Microsoft Store</a> <br>
+Or use the WSL installation command:
+<pre>wsl --install -d Fedora</pre>
+</li>
+<li><strong>Red Hat</strong> <br>
+Red Hat Enterprise Linux (RHEL) is available from the Red Hat website. For more information on installation, see here: <a href="https://developers.redhat.com/blog/2020/06/25/introducing-red-hat-enterprise-linux-on-wsl" target="_blank">Installing RHEL on WSL</a>
+</li>
+</ul>
+<p>For more information on installing WSL, see here: <a href="https://docs.microsoft.com/en-us/windows/wsl/install" target="_blank">Installing WSL</a></p>
+
+<h3>8. PP Terminal Repository
+<p>Clone the PP Terminal repository from GitHub: <a href="https://github.com/Peharge/PP-Terminal" target="_blank">PP Terminal GitHub Repository</a></p>
+
+<h3>9. C++ Extensions for Desktop Development
+</strong></h3>
+<p>To develop and run the PP Terminal, you also need the C++ extensions for Visual Studio. You can download them here: <a href="https://visualstudio.microsoft.com/de/downloads/" target="_blank">Download C++ Extensions</a></p>
+  </p>
   </div>
 
 </body>
