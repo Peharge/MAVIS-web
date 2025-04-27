@@ -20,41 +20,40 @@
         align-items: center; /* Vertikal zentrieren */
     }
 
-/* Grundlegende Stile für das h1 */
-h1 {
-    font-family: 'Courier New', monospace;
-    font-size: 2.5rem;
-    color: #fff; /* Grüne Farbe */
-    display: inline-block;
-    border-right: 3px solid black; /* Simuliert den Cursor-Effekt */
-    padding-right: 10px;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0; /* Start mit null Breite */
-    animation: typing 4s steps(40) 0s forwards, deleting 4s steps(40) 4s forwards; /* Versatz für das Löschen */
-    animation-iteration-count: infinite; /* Unendliche Wiederholung */
-}
+    /* Grundlegende Stile für das h1 */
+    h1 {
+        font-family: 'Courier New', monospace;
+        font-size: 2.5rem;
+        color: #fff; /* Grüne Farbe */
+        display: inline-block;
+        border-right: 3px solid black; /* Simuliert den Cursor-Effekt */
+        padding-right: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0; /* Start mit null Breite */
+        animation: typing 4s steps(40) 0s forwards, deleting 4s steps(40) 4s forwards; /* Versatz für das Löschen */
+        animation-iteration-count: infinite; /* Unendliche Wiederholung */
+    }
 
-/* Animation für das Schreiben */
-@keyframes typing {
-    0% {
-        width: 0;
+    /* Animation für das Schreiben */
+    @keyframes typing {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 85%; /* Schreibe bis zu 85% der Breite */
+        }
     }
-    100% {
-        width: 85%; /* Schreibe bis zu 85% der Breite */
-    }
-}
 
-/* Animation für das Löschen */
-@keyframes deleting {
-    0% {
-        width: 85%; /* Beginnt mit der vollen Breite des geschriebenen Texts */
+    /* Animation für das Löschen */
+    @keyframes deleting {
+        0% {
+            width: 85%; /* Beginnt mit der vollen Breite des geschriebenen Texts */
+        }
+        100% {
+            width: 0; /* Löscht den Text */
+        }
     }
-    100% {
-        width: 0; /* Löscht den Text */
-    }
-}
-
 
     .logo {
       text-align: center;
@@ -99,7 +98,24 @@ h1 {
       background-color: #111;
       border: 1px solid #333;
       padding: 20px;
-      max-width: 900px;
+      width: 65%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .terminal-3 {
+      border-radius: 10px;
+      border: 1px solid #fff;
+      padding: 20px;
+      margin: 0 auto;
+    }
+
+    .terminal-4 {
+      border-radius: 10px;
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      width: 65%;
       margin: 0 auto;
       box-shadow: 0 0 20px #fff;
     }
@@ -117,6 +133,17 @@ h1 {
       color: #ccc;
       margin-left: 20px;
     }
+
+    a {
+      color: #1fb1ff;
+      text-decoration: none;
+      transition: text-shadow 0.3s ease;
+    }
+
+    a:hover {
+      text-shadow: 0 0 20px #1fb1ff;
+    }
+
   </style>
 </head>
 <body>
@@ -138,362 +165,362 @@ h1 {
   <div class="terminal">
     <h2>Command list</h2>
     <div class="command">
-      <div class="cmd">$ p</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> p</div>
       <div class="description">Peharge command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ pp</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> pp</div>
       <div class="description">Peharge permission command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ ps</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> ps</div>
       <div class="description">Peharge search command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ pa</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> pa</div>
       <div class="description">Peharge AI - Ask a question (AI functionality) - deepcoder:14b</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ lx</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> lx</div>
       <div class="description">Linux (WSL) command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ ubuntu</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> ubuntu</div>
       <div class="description">Ubuntu command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ debian</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> debian</div>
       <div class="description">Debian command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ kali</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> kali</div>
       <div class="description">Kali Linux command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ arch</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> arch</div>
       <div class="description">Arch Linux command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ mint</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> mint</div>
       <div class="description">Mint command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ redhat</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> redhat</div>
       <div class="description">Red Hat command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ fun</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> fun</div>
       <div class="description">Peharge search command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Set-Location</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Set-Location</div>
       <div class="description">Changes the current directory.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Get-ChildItem</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Get-ChildItem</div>
       <div class="description">Lists files and directories in the current directory.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ New-Item</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> New-Item</div>
       <div class="description">Creates a new directory or file.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Remove-Item</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Remove-Item</div>
       <div class="description">Removes files or directories.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Copy-Item</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Copy-Item</div>
       <div class="description">Copies files or directories.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Move-Item</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Move-Item</div>
       <div class="description">Moves or renames files or directories.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Get-Location</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Get-Location</div>
       <div class="description">Displays the path of the current directory.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Get-Content</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Get-Content</div>
       <div class="description">Displays the content of a file in the terminal.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Write-Output</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Write-Output</div>
       <div class="description">Outputs text or variables in the terminal.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Get-Process</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Get-Process</div>
       <div class="description">Displays a list of currently running processes.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Get-Help</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Get-Help</div>
       <div class="description">Shows help for cmdlets or commands.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Set-ExecutionPolicy</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Set-ExecutionPolicy</div>
       <div class="description">Changes the user preference for PowerShell script execution policy.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ Clear-Host</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> Clear-Host</div>
       <div class="description">Clears the terminal screen.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ cd</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> cd</div>
       <div class="description">Changes the current directory. (Alias for Set-Location)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ cls</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> cls</div>
       <div class="description">Clears the terminal screen. (Alias for Clear-Host)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ clear</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> clear</div>
       <div class="description">Clears the terminal screen. (Alias for Clear-Host)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ dir</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> dir</div>
       <div class="description">Lists files and directories in the current directory. (Alias for Get-ChildItem)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ ls</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> ls</div>
       <div class="description">Lists files and directories in the current directory. (Alias for Get-ChildItem)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ mkdir</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> mkdir</div>
       <div class="description">Creates a new directory. (Alias for New-Item)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ rmdir</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> rmdir</div>
       <div class="description">Removes a directory. (Alias for Remove-Item)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ del</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> del</div>
       <div class="description">Deletes a file. (Alias for Remove-Item)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ rm</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> rm</div>
       <div class="description">Deletes files or directories. (Alias for Remove-Item)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ echo</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> echo</div>
       <div class="description">Outputs text or variables in the terminal. (Alias for Write-Output)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ type</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> type</div>
       <div class="description">Displays the content of a file. (Alias for Get-Content)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ cat</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> cat</div>
       <div class="description">Displays the content of a file in the terminal. (Alias for Get-Content)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ exit</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> exit</div>
       <div class="description">Exits the PowerShell session.</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ alpine</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> alpine</div>
       <div class="description">This command is not native to PowerShell, but could be available by installing the Alpine package (e.g., as a Docker container or through a Windows Bash environment).</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ hack</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> hack</div>
       <div class="description">Hack command (functionality-specific)</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ opensuse</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> opensuse</div>
       <div class="description">openSUSE Linux command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ mint</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> mint</div>
       <div class="description">Linux Mint command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ fedora</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> fedora</div>
       <div class="description">Fedora Linux command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ redhat</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> redhat</div>
       <div class="description">Red Hat Linux command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ sles</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> sles</div>
       <div class="description">SUSE Linux Enterprise Server command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ pengwin</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> pengwin</div>
       <div class="description">Pengwin WSL Linux command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ oracle</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> oracle</div>
       <div class="description">Oracle Linux command</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ speedtest</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> speedtest</div>
       <div class="description">Internet speed test</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ kill</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> kill</div>
       <div class="description">Kill a process</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ download</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> download</div>
       <div class="description">Download a file</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ cputemp</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> cputemp</div>
       <div class="description">Show CPU temperature</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ chucknorris</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> chucknorris</div>
       <div class="description">Display Chuck Norris jokes</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ theme</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> theme</div>
       <div class="description">Change theme</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ cleantemp</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> cleantemp</div>
       <div class="description">Clean temporary files</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ selfupdate</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> selfupdate</div>
       <div class="description">Update the application</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ tree</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> tree</div>
       <div class="description">Display directory tree view</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ py</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> py</div>
       <div class="description">Execute Python code</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ weather</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> weather</div>
       <div class="description">Show weather information</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ whoami</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> whoami</div>
       <div class="description">Show current user</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ hostname</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> hostname</div>
       <div class="description">Show machine hostname</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ ip</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> ip</div>
       <div class="description">Show IP address</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ os</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> os</div>
       <div class="description">Show operating system information</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ time</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> time</div>
       <div class="description">Show current time</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ date</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> date</div>
       <div class="description">Show current date</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ open</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> open</div>
       <div class="description">Open a file or application</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ fortune</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> fortune</div>
       <div class="description">Display a random fortune message</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ history</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> history</div>
       <div class="description">Show command history</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ search</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> search</div>
       <div class="description">Search files or commands</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ zip</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> zip</div>
       <div class="description">Compress files into a zip archive</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ unzip</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> unzip</div>
       <div class="description">Extract files from a zip archive</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ sysinfo</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> sysinfo</div>
       <div class="description">Show system information</div>
     </div>
 
     <div class="command">
-      <div class="cmd">$ clip set</div>
+      <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> clip set</div>
       <div class="description">Set clipboard content</div>
     </div>
 
@@ -522,21 +549,22 @@ h1 {
 
   <br><br><br>
 
-  <div class="terminal">
+  <div class="terminal-4">
     <h2>Install P-Term</h2>
     <p1>soon</p1>
   </div>
 
   <br><br><br>
 
-  <div class="terminal">
+  <div class="terminal-4">
     <h2>Install PP-Term</h2>
     <p class="description">Mavis Terminal is a powerful command-line interface designed to streamline development, system monitoring, and AI model execution. This document provides a comprehensive list of available commands, along with usage guidelines for `pip` and PowerShell.
 
 ---
 
 If you start MAVIS Terminal 5 out of <a href="https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat" target="_blank">run-pp-term.bat</a>, and if you do, it looks like this:</p><br>
-<p>
+  <div class="terminal-3" style="font-size: 0.6em;">
+    <p>
     Aktive Codepage: 65001.<br>
 <br>
 <p style="color: #1fb1ff; display: inline;">██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;</p>████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
@@ -652,12 +680,13 @@ Thank you so much for using PP-Term. We truly appreciate your support ❤️<br>
 <p style="color: #1fb1ff; display: inline;">Peharge C++ compiler Version</p>: 1.1<br>
 <p style="color: #1fb1ff; display: inline;">P-Terminal License</p>: MIT<br>
 <br>
-<p style="color: #000; display: inline;">██<p style="color: #ff0000; display: inline;">██<p style="color: #00ff00; display: inline;">██<p style="color: #FFD700; display: inline;">██<p style="color: #ff00ff; display: inline;">██<p style="color: #00ffbc; display: inline;">██<p style="color: #fff; display: inline;">██</p><br>
-<p style="color: #4e4e4e; display: inline;">██<p style="color: #980000; display: inline;">██<p style="color: #009700; display: inline;">██<p style="color: #957c00; display: inline;">██<p style="color: #ff00ff; display: inline;">██<p style="color: #00936c; display: inline;">██<p style="color: #d3d3d3; display: inline;">██</p><br>
+<p style="color: #000; display: inline;">██<p style="color: #ff0000; display: inline;">██<p style="color: #00ff00; display: inline;">██<p style="color: #FFD700; display: inline;">██<p style="color: #0065ff; display: inline;">██<p style="color: #ff00ff; display: inline;">██<p style="color: #00ffbc; display: inline;">██<p style="color: #fff; display: inline;">██</p><br>
+<p style="color: #4e4e4e; display: inline;">██<p style="color: #980000; display: inline;">██<p style="color: #009700; display: inline;">██<p style="color: #957c00; display: inline;">██<p style="color: #003a93; display: inline;">██<p style="color: #ff00ff; display: inline;">██<p style="color: #00936c; display: inline;">██<p style="color: #d3d3d3; display: inline;">██</p><br>
 <br>
 <p style="color: #76cc2b; display: inline;">┌──(</p><p style="color: #1fb1ff; display: inline;">julian<strong>㋐</strong>Peharge</p><p style="color: #76cc2b; display: inline;">)</p>-[C:\Users\julian<p style="color: #76cc2b; display: inline;">]-[</p>.\.venv<p style="color: #76cc2b; display: inline;">]</p><br>
 <p style="color: #76cc2b; display: inline;">└─</p><p style="color: #1fb1ff; display: inline;">$</p> [Command...]<br>
 </p>
+    </div>
     <p>
       <h2>Problems installing the PP Terminal</h2>
 <p class="description">The PP Terminal should normally be installed automatically. However, problems may arise during installation that require you to install certain dependencies manually.</p>
@@ -687,17 +716,17 @@ Download Python from the official website: <a href="https://www.python.org/downl
 <li><strong>Ubuntu</strong> <br>
 <p class="description">Install Ubuntu from the Microsoft Store: <a href="https://aka.ms/wslubuntu" target="_blank">Ubuntu in the Microsoft Store</a> <br>
 Or use the WSL installation command:</p>
-<pre>$ wsl --install -d Ubuntu</pre>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Ubuntu</pre>
 </li>
 <li><strong>Debian</strong> <br>
 <p class="description">Install Debian from the Microsoft Store: <a href="https://aka.ms/wsldebian" target="_blank">Debian in the Microsoft Store</a> <br>
 Or use the WSL installation command:</p>
-<pre>$ wsl --install -d Debian</pre>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Debian</pre>
 </li>
 <li><strong>Kali Linux</strong> <br>
 <p class="description">Install Kali Linux from the Microsoft Store: <a href="https://aka.ms/wslkali" target="_blank">Kali Linux in the Microsoft Store</a> <br>
 Or use the WSL installation command:</p>
-<pre>$ wsl --install -d Kali-Linux</pre>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Kali-Linux</pre>
 </li>
 <li><strong>Arch Linux</strong> <br>
 <p class="description">Arch Linux is not directly available in the Microsoft Store, but you can install it using [WSL installation scripts](https://github.com/yuk7/wsldl): <a href="https://github.com/yuk7/wsldl" target="_blank">Arch Linux WSL script</a> <br>
@@ -706,7 +735,7 @@ Alternatively, you can install Arch manually via the AUR (Arch User Repository).
 <li><strong>openSUSE</strong> <br>
 <p class="description">Install openSUSE from the Microsoft Store: <a href="https://aka.ms/wslsuse" target="_blank">openSUSE in the Microsoft Store</a> <br>
 Or use the WSL installation command:</p>
-<pre>$ wsl --install -d openSUSE</pre>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d openSUSE</pre>
 </li>
 <li><strong>Linux Mint</strong> <br>
 <p class="description">Linux Mint is also not available directly from the Microsoft Store, but you can install it via [WSL2](https://www.linuxmint.com/) and follow the installation instructions.</p>
@@ -714,7 +743,7 @@ Or use the WSL installation command:</p>
 <li><strong>Fedora</strong> <br>
 <p class="description">Fedora is available directly from the Microsoft Store: <a href="https://aka.ms/wslfedora" target="_blank">Fedora in the Microsoft Store</a> <br>
 Or use the WSL installation command:
-<pre>$ wsl --install -d Fedora</pre>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Fedora</pre>
 </li>
 <li><strong>Red Hat</strong> <br>
 <p class="description">Red Hat Enterprise Linux (RHEL) is available from the Red Hat website. For more information on installation, see here: <a href="https://developers.redhat.com/blog/2020/06/25/introducing-red-hat-enterprise-linux-on-wsl" target="_blank">Installing RHEL on WSL</a></p>
