@@ -20,8 +20,21 @@
         align-items: center; /* Vertikal zentrieren */
     }
 
+    .headline-3 {
+        display: flex; /* Flexbox aktivieren */
+        justify-content: center; /* Horizontal zentrieren */
+        align-items: center; /* Vertikal zentrieren */
+        flex-direction: column; /* Elemente untereinander anordnen */
+        margin: 0;
+        padding: 0;
+    }
+
+    .headline-3 > * {
+        margin-bottom: -5px; /* Negative Marge für die Kinder anwenden */
+    }
+
     /* Grundlegende Stile für das h1 */
-    h1 {
+    .headline h1 {
         font-family: 'Courier New', monospace;
         font-size: 2.5rem;
         color: #fff; /* Grüne Farbe */
@@ -152,15 +165,19 @@
     <img src="./images/p-term-icon-3.png" alt="Mein Logo">
   </div>
 
-  <div class="headline">
-    <h1>Peharge Terminal: The fastest terminal in the world</h1>
-  </div>
+  <div class="headline-3">
+      <h1>Peharge Terminal: The fastest terminal in the world</h1>
+      <h2>A warm welcome, to Peharge Python Terminal!</h2>
+      <h2>Peharge Projects 2025</h2>
+      <h2>Thank you for your interest in P-Terminal. We greatly appreciate that ❤️</h2><br><br><br>
+    </div>
 
   <div class="button-container">
     <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
     <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
     <button class="terminal-button" onclick="window.open('impressum.html', '_blank')">Impressum</button>
   </div>
+
 
   <div class="terminal">
     <h2>Command list</h2>
