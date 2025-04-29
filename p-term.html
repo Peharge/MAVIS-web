@@ -82,8 +82,8 @@
     .button-container {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
+      gap: 25px;
+      margin-bottom: 50px;
     }
 
     .terminal-button {
@@ -91,15 +91,98 @@
       border: 1px solid #333;
       color: #fff;
       border-radius: 10px;
-      padding: 10px 20px;
+      padding: 10px 20px 10px 20px;
       font-family: 'Courier New', Courier, monospace;
       font-size: 16px;
       cursor: pointer;
       box-shadow: 0 0 10px #fff;
-      transition: background-color 0.2s, color 0.2s;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .terminal-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-3 {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-3::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://img.icons8.com/ios_filled/512/FFFFFF/windows-11.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+    }
+
+    .terminal-button-3:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('https://img.icons8.com/ios_filled/512/000000/windows-11.png');
+    }
+
+    .terminal-button-3:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-github {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-github::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://img.icons8.com/ios_filled/512/FFFFFF/github.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+    }
+
+    .terminal-button-github:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('https://img.icons8.com/ios_filled/512/000000/github.png');
+    }
+
+    .terminal-button-github:hover {
       background-color: #fff;
       color: #000;
       border: none;
@@ -175,8 +258,11 @@
     </div>
 
   <div class="button-container">
-    <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
-    <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
+    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
+    <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">
+  Download PP-Term
+</button>
+
     <button class="terminal-button" onclick="window.open('impressum.html', '_blank')">Impressum</button>
   </div>
 
@@ -1319,9 +1405,9 @@ Or use the WSL installation command:
 </body>
 
   <div class="button-container">
-    <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
-    <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
-    <button class="terminal-button" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
+    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
+    <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
+    <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
     <button class="terminal-button" onclick="window.open('impressum.html', '_blank')">Impressum</button>
   </div>
 
