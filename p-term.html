@@ -33,6 +33,19 @@
         margin-bottom: -8px; /* Negative Marge für die Kinder anwenden */
     }
 
+    .headline-4 {
+        display: flex; /* Flexbox aktivieren */
+        justify-content: center; /* Horizontal zentrieren */
+        align-items: center; /* Vertikal zentrieren */
+        flex-direction: column; /* Elemente untereinander anordnen */
+        margin: 0;
+        padding: 0;
+    }
+
+    .headline-4 > * {
+        margin-bottom: -8px; /* Negative Marge für die Kinder anwenden */
+    }
+
     /* Grundlegende Stile für das h1 */
     .headline h1 {
         font-family: 'Courier New', monospace;
@@ -70,13 +83,13 @@
 
     .logo {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
     }
 
     .logo img {
-      width: 70%;
-      max-width: 500px;
-      filter: grayscale(100%) drop-shadow(0 0px 20px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
+      width: 25%;
+      max-width: 1000px;
+      filter: drop-shadow(0 0px 20px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
     }
 
     .img-1 {
@@ -85,17 +98,17 @@
     }
 
     .img-1 img {
-      width: 65%;
+      width: 50%;
       max-width: 2000px;
-      border-radius: 5px;
-      border: 1px solid #fff;
+      border-radius: 10px;
+      filter: drop-shadow(0 0px 10px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
     }
 
     .button-container {
       display: flex;
       justify-content: center;
       gap: 25px;
-      margin-bottom: 50px;
+      margin-bottom: 15px;
     }
 
     .terminal-button {
@@ -262,7 +275,7 @@
   </div>
 
   <div class="headline-3">
-      <h1 style="font-size: 3.3rem;">Peharge Terminal</h1>
+      <h1 style="font-size: 4rem;">Peharge Terminal</h1>
       <h1 style="font-size: 2.3rem;">"The fastest terminal in the world"</h1><br><br>
       <h2 style="font-size: 1.5rem;">A warm welcome, to P-Term (C/C++) and PP-Term (Python)</h2>
       <h2 style="font-size: 1.5rem;">Peharge Projects 2025</h2>
@@ -278,6 +291,271 @@
     <button class="terminal-button" onclick="window.open('impressum.html', '_blank')">Impressum</button>
   </div>
 
+    <div class="headline-4">
+      <h1 style="font-size: 3rem;">NEW PP-Terminal 3</h1>
+    </div>
+
+  <br><br><br>
+
+   <div class="img-1">
+    <img src="./images/pp-term-img.png" alt="Mein Logo">
+  </div>
+
+  <br><br><br>
+
+  <div class="terminal-4">
+    <h2>Install PP-Term</h2>
+    <p class="description">Mavis Terminal is a powerful command-line interface designed to streamline development, system monitoring, and AI model execution. This document provides a comprehensive list of available commands, along with usage guidelines for `pip` and PowerShell.
+
+---
+
+If you start MAVIS Terminal 5 out of <a href="https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat" target="_blank">run-pp-term.bat</a>, and if you do, it looks like this:</p><br>
+  <div class="terminal-3" style="font-size: 0.6em;">
+    <p>
+    Aktive Codepage: 65001.<br>
+<br>
+<p style="color: #1fb1ff; display: inline;">██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;</p>████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
+<p style="color: #1fb1ff; display: inline;">██╔══██╗██╔══██╗&nbsp;&nbsp;&nbsp;</p>╚══██╔══╝██╔════╝██╔══██╗████╗&nbsp;████║██║████╗&nbsp;&nbsp;██║██╔══██╗██║<br>
+<p style="color: #1fb1ff; display: inline;">██████╔╝██████╔╝</p>█████╗██║&nbsp;&nbsp;&nbsp;█████╗&nbsp;&nbsp;██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║<br>
+<p style="color: #1fb1ff; display: inline;">██╔═══╝&nbsp;██╔═══╝&nbsp;</p>╚════╝██║&nbsp;&nbsp;&nbsp;██╔══╝&nbsp;&nbsp;██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║<br>
+<p style="color: #1fb1ff; display: inline;">██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>██║&nbsp;&nbsp;&nbsp;███████╗██║&nbsp;&nbsp;██║██║&nbsp;╚═╝&nbsp;██║██║██║&nbsp;╚████║██║&nbsp;&nbsp;██║███████╗<br>
+<p style="color: #1fb1ff; display: inline;">╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>╚═╝&nbsp;&nbsp;&nbsp;╚══════╝╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝<br>
+<br>
+██╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████╗&nbsp;██╗&nbsp;&nbsp;&nbsp;██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;██████╗██╗&nbsp;&nbsp;██╗███████╗██████╗<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██╗██║&nbsp;&nbsp;&nbsp;██║████╗&nbsp;&nbsp;██║██╔════╝██║&nbsp;&nbsp;██║██╔════╝██╔══██╗<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████║██║&nbsp;&nbsp;&nbsp;██║██╔██╗&nbsp;██║██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████║█████╗&nbsp;&nbsp;██████╔╝<br>
+██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██║██║&nbsp;&nbsp;&nbsp;██║██║╚██╗██║██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██║██╔══╝&nbsp;&nbsp;██╔══██╗<br>
+███████╗██║&nbsp;&nbsp;██║╚██████╔╝██║&nbsp;╚████║╚██████╗██║&nbsp;&nbsp;██║███████╗██║&nbsp;&nbsp;██║<br>
+╚══════╝╚═╝&nbsp;&nbsp;╚═╝&nbsp;╚═════╝&nbsp;╚═╝&nbsp;&nbsp;╚═══╝&nbsp;╚═════╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝╚═╝&nbsp;&nbsp;╚═╝<br>
+<br>
+Initiating high-tech installation...<br>
+[*] Prepare for the next level...<br>
+<br>
+MIT License<br>
+Copyright (c) 2025<br>
+Peharge<br>
+<br>
+Permission is hereby granted, free of charge, to any person obtaining a copy<br>
+of this software and associated documentation files (the "Software"), to deal<br>
+in the Software without restriction, including without limitation the rights<br>
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
+copies of the Software, and to permit persons to whom the Software is<br>
+furnished to do so, subject to the following conditions:<br>
+<br>
+The above copyright notice and this permission notice shall be included in all<br>
+copies or substantial portions of the Software.<br>
+<br>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE<br>
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE<br>
+SOFTWARE.<br>
+<br>
+Time Stamp: 27.04.2025  9:41:41,83<br>
+Hostname: JULIAN<br>
+User: julian<br>
+Domain: JULIAN<br>
+<br>
+IP Address(es):<br>
+&nbsp;&nbsp;&nbsp;IPv4-Adresse&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;:&nbsp;111.111.11.1<br>
+&nbsp;&nbsp;&nbsp;IPv4-Adresse&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;:&nbsp;111.111.1.111<br>
+&nbsp;&nbsp;&nbsp;IPv4-Adresse&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;:&nbsp;111.11.11.1<br>
+<br>
+Operating System: Microsoft Windows [Version ...]<br>
+<br>
+Current Directory: C:\Windows\System32<br>
+<br>
+Drives:<br>
+Description       FileSystem  FreeSpace     Name  Size<br>
+Local Fixed Disk  NTFS        112863223808  C:    510732005376<br>
+<br>
+Logged in Users:<br>
+ BENUTZERNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SITZUNGSNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;&nbsp;STATUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LEERLAUF&nbsp;&nbsp;&nbsp;ANMELDEZEIT<br>
+>julian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;Aktiv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kein&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27.04.2025 08:50<br>
+<br>
+Initializing PP-Terminal<br>
+Gooo...<br>
+<br>
+Detected Windows Build Number: 26100<br>
+✅ Windows 11 is in use.<br>
+✅ Windows Defender is active.<br>
+✅ No Virtual Machine detected.<br>
+Lokale IP:  111.111.1.111<br>
+✅ Internet connection exists.<br>
+✅ Secure Internet access verified.<br>
+✅ Python is already installed.<br>
+✅ Git is already installed.<br>
+✅ Ollama is already installed.<br>
+✅ FFmpeg is already installed.<br>
+✅ Rustup is already installed.<br>
+✅ PowerShell 7 is already installed.<br>
+✅ 3D Slicer is already installed.<br>
+✅ WSL is already installed.<br>
+✅ WSL is already set up with the distribution: "U".<br>
+✅ All WSL processes have been successfully terminated.<br>
+P-terminal repository already exists. Checking for updates...<br>
+Fetching latest changes...<br>
+Updates available, pulling changes...<br>
+✅ P-terminal repository updated successfully.<br>
+✅ P-terminal update process completed successfully.<br>
+Checking for existing .env file at: "C:\Users\julian\p-terminal\pp-term\.env"<br>
+✅ .env file already exists at "C:\Users\julian\p-terminal\pp-term\.env"<br>
+Starting PP_terminal...<br>
+✅ Peharge C++ Compiler available and the folder "C:\Users\julian\p-terminal\pp-term\peharge-cpp-compier" exists.<br>
+✅ Peharge C Compiler available and the folder "C:\Users\julian\p-terminal\pp-term\peharge-c-compiler" exists.<br>
+Virtual environment C:\Users\julian\p-terminal\pp-term\.env activated.<br>
+Installing missing packages: python-dotenv, beautifulsoup4, PyQt6-sip, PyQt6-Charts, PyQt6-WebEngine, PyQt6-Charts, speedtest-cli...<br>
+✅ All missing packages installed.<br>
+✅ All tasks were completed successfully!<br>
+<br>
+<p style="color: #1fb1ff; display: inline;">██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;</p>████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
+<p style="color: #1fb1ff; display: inline;">██╔══██╗██╔══██╗&nbsp;&nbsp;&nbsp;</p>╚══██╔══╝██╔════╝██╔══██╗████╗&nbsp;████║██║████╗&nbsp;&nbsp;██║██╔══██╗██║<br>
+<p style="color: #1fb1ff; display: inline;">██████╔╝██████╔╝</p>█████╗██║&nbsp;&nbsp;&nbsp;█████╗&nbsp;&nbsp;██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║<br>
+<p style="color: #1fb1ff; display: inline;">██╔═══╝&nbsp;██╔═══╝&nbsp;</p>╚════╝██║&nbsp;&nbsp;&nbsp;██╔══╝&nbsp;&nbsp;██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║<br>
+<p style="color: #1fb1ff; display: inline;">██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>██║&nbsp;&nbsp;&nbsp;███████╗██║&nbsp;&nbsp;██║██║&nbsp;╚═╝&nbsp;██║██║██║&nbsp;╚████║██║&nbsp;&nbsp;██║███████╗<br>
+<p style="color: #1fb1ff; display: inline;">╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>╚═╝&nbsp;&nbsp;&nbsp;╚══════╝╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝<br>
+<br>
+<p style="display: inline;">A warm welcome, </p><p style="color: #1fb1ff; display: inline;">julian</p>, to Peharge Python Terminal<br>
+Developed by Peharge and JK (Peharge Projects 2025)<br>
+Thank you so much for using PP-Term. We truly appreciate your support ❤️<br>
+<br>
+<p style="color: #1fb1ff; display: inline;">P-Terminal Version</p>: 1.1<br>
+<p style="color: #1fb1ff; display: inline;">PP-Terminal Version</p>: 1.1<br>
+<p style="color: #1fb1ff; display: inline;">Peharge C compiler Version</p>: 1.1<br>
+<p style="color: #1fb1ff; display: inline;">Peharge C++ compiler Version</p>: 1.1<br>
+<p style="color: #1fb1ff; display: inline;">P-Terminal License</p>: MIT<br>
+<br>
+<p style="color: #1B1B2F; display: inline;">██<p style="color: #E10600; display: inline;">██<p style="color: #00FF9F; display: inline;">██<p style="color: #FFD000; display: inline;">██<p style="color: #1E90FF; display: inline;">██<p style="color: #A200FF; display: inline;">██<p style="color: #00CFFF; display: inline;">██<p style="color: #FFFFFF; display: inline;">██</p><br>
+<p style="color: #2C2C3A; display: inline;">██<p style="color: #FF2C1F; display: inline;">██<p style="color: #4CFFB0; display: inline;">██<p style="color: #FFE94D; display: inline;">██<p style="color: #1fb1ff; display: inline;">██<p style="color: #E87CFF; display: inline;">██<p style="color: #4DE9FF; display: inline;">██<p style="color: #FAFAFA; display: inline;">██</p><br>
+<br>
+<p style="color: #00FF9F; display: inline;">┌──(</p><p style="color: #1fb1ff; display: inline;">julian<strong>㋐</strong>Peharge</p><p style="color: #00FF9F; display: inline;">)-[</p>C:\Users\julian<p style="color: #00FF9F; display: inline;">]-[</p>.\.venv<p style="color: #00FF9F; display: inline;">]</p><br>
+<p style="color: #00FF9F; display: inline;">└─</p><p style="color: #1fb1ff; display: inline;">$</p> [Command...]<br>
+</p>
+    </div>
+    <p>
+      <h2>Problems installing the PP Terminal</h2>
+<p class="description">The PP Terminal should normally be installed automatically. However, problems may arise during installation that require you to install certain dependencies manually.</p>
+<p class="description">Usually, all required dependencies are included in the automatic installation. However, if a dependency was not installed correctly, only those specific dependencies need to be installed subsequently.</p>
+
+<h3>1. <strong>Git</strong></h3>
+<p class="description">Git is required to clone code and track changes. <br>
+Download Git from the official website: <a href="https://git-scm.com/downloads" target="_blank">Download Git</a></p>
+
+<h3>2. <strong>Python</strong></h3>
+<p class="description">It is recommended to use Python 3.12 (Python 3.11 is also supported, but not Python 3.13). <br>
+Download Python from the official website: <a href="https://www.python.org/downloads/" target="_blank">Download Python</a> or directly from the Microsoft Store.</p>
+
+<h3>3. <strong>Ollama</strong></h3>
+<p class="description">Ollama is a necessary tool for the PP terminal. Install Ollama from the official website: <a href="https://ollama.com/download" target="_blank">Download Ollama</a></p>
+
+<h3>4. <strong>FFmpeg</strong></h3>
+<p class="description">FFmpeg is another important dependency for the PP terminal. Make sure it is installed on your system. For more information, see the official website: <a href="https://ffmpeg.org/" target="_blank">FFmpeg</a></p>
+
+<h3>5. <strong>Rustup</strong></h3>
+<p class="description">Rustup is required to install Rust and related tools. You can download it from the official Rust website: <a href="https://rustup.rs/" target="_blank">Download Rustup</a></p>
+
+<h3>6. <strong>3D Slicer</strong></h3>
+<p class="description">Installing 3D Slicer isn't required to run pp-term. However, if you plan to use SIMON, installing 3D Slicer is mandatory. If you encounter any problems during installation, simply run the 'Install 3d-slicer' command in the pp terminal. This installation method is significantly more secure! Installation canceled. Please install 3D Slicer manually: <a href="https://download.slicer.org" target="_blank">Download 3D Slicer</a></p>
+
+<h3>7. <strong>PowerShell 7</strong></h3>
+<p class="description">PowerShell 7 is a modern version of PowerShell and is recommended for use with the PP terminal. Download PowerShell 7 from the official Microsoft page: <a href="https://github.com/PowerShell/PowerShell/releases" target="_blank">Download PowerShell 7</a>
+
+<h3>8. <strong>Windows Subsystem for Linux (WSL)</strong></h3>
+<p class="description">To make optimal use of the PP Terminal, you need the Windows Subsystem for Linux (WSL). Supported distributions are:</p>
+<ul>
+<li><strong>Ubuntu</strong> <br>
+<p class="description">Install Ubuntu from the Microsoft Store: <a href="https://aka.ms/wslubuntu" target="_blank">Ubuntu in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Ubuntu</pre>
+</li>
+<li><strong>Debian</strong> <br>
+<p class="description">Install Debian from the Microsoft Store: <a href="https://aka.ms/wsldebian" target="_blank">Debian in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Debian</pre>
+</li>
+<li><strong>Kali Linux</strong> <br>
+<p class="description">Install Kali Linux from the Microsoft Store: <a href="https://aka.ms/wslkali" target="_blank">Kali Linux in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Kali-Linux</pre>
+</li>
+<li><strong>Arch Linux</strong> <br>
+<p class="description">Arch Linux is not directly available in the Microsoft Store, but you can install it using [WSL installation scripts](https://github.com/yuk7/wsldl): <a href="https://github.com/yuk7/wsldl" target="_blank">Arch Linux WSL script</a> <br>
+Alternatively, you can install Arch manually via the AUR (Arch User Repository).</p>
+</li>
+<li><strong>openSUSE</strong> <br>
+<p class="description">Install openSUSE from the Microsoft Store: <a href="https://aka.ms/wslsuse" target="_blank">openSUSE in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d openSUSE</pre>
+</li>
+<li><strong>Linux Mint</strong> <br>
+<p class="description">Linux Mint is also not available directly from the Microsoft Store, but you can install it via [WSL2](https://www.linuxmint.com/) and follow the installation instructions.</p>
+</li>
+<li><strong>Fedora</strong> <br>
+<p class="description">Fedora is available directly from the Microsoft Store: <a href="https://aka.ms/wslfedora" target="_blank">Fedora in the Microsoft Store</a> <br>
+Or use the WSL installation command:
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Fedora</pre>
+</li>
+<li><strong>Red Hat</strong> <br>
+<p class="description">Red Hat Enterprise Linux (RHEL) is available from the Red Hat website. For more information on installation, see here: <a href="https://developers.redhat.com/blog/2020/06/25/introducing-red-hat-enterprise-linux-on-wsl" target="_blank">Installing RHEL on WSL</a></p>
+</li>
+<li><strong>SUSE Linux</strong> <br>
+<p class="description">Install SUSE Linux from the Microsoft Store: <a href="https://aka.ms/wslopensuse" target="_blank">SUSE Linux in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d openSUSE-42</pre>
+</li>
+<li><strong>Pengwin</strong> <br>
+<p class="description">Install Pengwin from the Microsoft Store: <a href="https://aka.ms/wsl-pengwin" target="_blank">Pengwin in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Pengwin</pre>
+</li>
+<li><strong>Oracle Linux</strong> <br>
+<p class="description">Install Oracle Linux from the Microsoft Store: <a href="https://aka.ms/wsl-oracle" target="_blank">Oracle Linux in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d OracleLinux_8_5</pre>
+</li>
+<li><strong>Clear Linux</strong> <br>
+<p class="description">Install Clear Linux from the Microsoft Store: <a href="https://aka.ms/wsl-clearlinux" target="_blank">Clear Linux in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d ClearLinux</pre>
+</li>
+<li><strong>Alpine</strong> <br>
+<p class="description">Install Alpine from the Microsoft Store: <a href="https://aka.ms/wsl-alpine" target="_blank">Alpine in the Microsoft Store</a> <br>
+Or use the WSL installation command:</p>
+<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Alpine</pre>
+</li>
+</ul>
+<p class="description">For more information on installing WSL, see here: <a href="https://docs.microsoft.com/en-us/windows/wsl/install" target="_blank">Installing WSL</a></p>
+
+<h3>9. <strong>PP Terminal</strong> Repository</h3>
+<p class="description">Clone the PP Terminal repository from GitHub: <a href="https://github.com/Peharge/P-Terminal" target="_blank">PP Terminal GitHub Repository</a></p>
+
+<h3>10. C++ Extensions for Desktop Development</h3>
+<p class="description">To develop and run the PP Terminal, you also need the C++ extensions for Visual Studio. You can download them here: <a href="https://visualstudio.microsoft.com/de/downloads/" target="_blank">Download C++ Extensions</a></p>
+  </p>
+  </div>
+
+  <br><br><br>
+
+      <div class="headline-3">
+      <h1 style="font-size: 3rem;">SOON P-Terminal 1</h1>
+    </div>
+
+  <br><br><br>
+
+  <div class="img-1">
+    <img src="./images/p-term-img.png" alt="Mein Logo">
+  </div>
+
+  <br><br><br>
+
+  <div class="terminal-4">
+    <h2>Install P-Term</h2>
+    <div class="description">soon</div>
+  </div>
+
+<br><br><br>
 
   <div class="terminal">
     <h2>Command list</h2>
@@ -1244,251 +1522,6 @@
     </div>
 
     etc.
-  </div>
-
-  <br><br><br>
-
-  <div class="terminal-4">
-    <h2>Install P-Term</h2>
-    <div class="description">soon</div>
-  </div>
-
-  <br><br><br>
-
-  <div class="terminal-4">
-    <h2>Install PP-Term</h2><br>
-        <div class="img-1">
-    <img src="./images/pp-term-img.png" alt="Mein Logo">
-  </div><br>
-    <p class="description">Mavis Terminal is a powerful command-line interface designed to streamline development, system monitoring, and AI model execution. This document provides a comprehensive list of available commands, along with usage guidelines for `pip` and PowerShell.
-
----
-
-If you start MAVIS Terminal 5 out of <a href="https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat" target="_blank">run-pp-term.bat</a>, and if you do, it looks like this:</p><br>
-  <div class="terminal-3" style="font-size: 0.6em;">
-    <p>
-    Aktive Codepage: 65001.<br>
-<br>
-<p style="color: #1fb1ff; display: inline;">██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;</p>████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
-<p style="color: #1fb1ff; display: inline;">██╔══██╗██╔══██╗&nbsp;&nbsp;&nbsp;</p>╚══██╔══╝██╔════╝██╔══██╗████╗&nbsp;████║██║████╗&nbsp;&nbsp;██║██╔══██╗██║<br>
-<p style="color: #1fb1ff; display: inline;">██████╔╝██████╔╝</p>█████╗██║&nbsp;&nbsp;&nbsp;█████╗&nbsp;&nbsp;██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║<br>
-<p style="color: #1fb1ff; display: inline;">██╔═══╝&nbsp;██╔═══╝&nbsp;</p>╚════╝██║&nbsp;&nbsp;&nbsp;██╔══╝&nbsp;&nbsp;██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║<br>
-<p style="color: #1fb1ff; display: inline;">██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>██║&nbsp;&nbsp;&nbsp;███████╗██║&nbsp;&nbsp;██║██║&nbsp;╚═╝&nbsp;██║██║██║&nbsp;╚████║██║&nbsp;&nbsp;██║███████╗<br>
-<p style="color: #1fb1ff; display: inline;">╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>╚═╝&nbsp;&nbsp;&nbsp;╚══════╝╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝<br>
-<br>
-██╗&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;█████╗&nbsp;██╗&nbsp;&nbsp;&nbsp;██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;██████╗██╗&nbsp;&nbsp;██╗███████╗██████╗<br>
-██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██╗██║&nbsp;&nbsp;&nbsp;██║████╗&nbsp;&nbsp;██║██╔════╝██║&nbsp;&nbsp;██║██╔════╝██╔══██╗<br>
-██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████║██║&nbsp;&nbsp;&nbsp;██║██╔██╗&nbsp;██║██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;███████║█████╗&nbsp;&nbsp;██████╔╝<br>
-██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██║██║&nbsp;&nbsp;&nbsp;██║██║╚██╗██║██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██╔══██║██╔══╝&nbsp;&nbsp;██╔══██╗<br>
-███████╗██║&nbsp;&nbsp;██║╚██████╔╝██║&nbsp;╚████║╚██████╗██║&nbsp;&nbsp;██║███████╗██║&nbsp;&nbsp;██║<br>
-╚══════╝╚═╝&nbsp;&nbsp;╚═╝&nbsp;╚═════╝&nbsp;╚═╝&nbsp;&nbsp;╚═══╝&nbsp;╚═════╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝╚═╝&nbsp;&nbsp;╚═╝<br>
-<br>
-Initiating high-tech installation...<br>
-[*] Prepare for the next level...<br>
-<br>
-MIT License<br>
-Copyright (c) 2025<br>
-Peharge<br>
-<br>
-Permission is hereby granted, free of charge, to any person obtaining a copy<br>
-of this software and associated documentation files (the "Software"), to deal<br>
-in the Software without restriction, including without limitation the rights<br>
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br>
-copies of the Software, and to permit persons to whom the Software is<br>
-furnished to do so, subject to the following conditions:<br>
-<br>
-The above copyright notice and this permission notice shall be included in all<br>
-copies or substantial portions of the Software.<br>
-<br>
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE<br>
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE<br>
-SOFTWARE.<br>
-<br>
-Time Stamp: 27.04.2025  9:41:41,83<br>
-Hostname: JULIAN<br>
-User: julian<br>
-Domain: JULIAN<br>
-<br>
-IP Address(es):<br>
-&nbsp;&nbsp;&nbsp;IPv4-Adresse&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;:&nbsp;111.111.11.1<br>
-&nbsp;&nbsp;&nbsp;IPv4-Adresse&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;:&nbsp;111.111.1.111<br>
-&nbsp;&nbsp;&nbsp;IPv4-Adresse&nbsp;&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;:&nbsp;111.11.11.1<br>
-<br>
-Operating System: Microsoft Windows [Version ...]<br>
-<br>
-Current Directory: C:\Windows\System32<br>
-<br>
-Drives:<br>
-Description       FileSystem  FreeSpace     Name  Size<br>
-Local Fixed Disk  NTFS        112863223808  C:    510732005376<br>
-<br>
-Logged in Users:<br>
- BENUTZERNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SITZUNGSNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID&nbsp;&nbsp;STATUS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LEERLAUF&nbsp;&nbsp;&nbsp;ANMELDEZEIT<br>
->julian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;Aktiv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kein&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27.04.2025 08:50<br>
-<br>
-Initializing PP-Terminal<br>
-Gooo...<br>
-<br>
-Detected Windows Build Number: 26100<br>
-✅ Windows 11 is in use.<br>
-✅ Windows Defender is active.<br>
-✅ No Virtual Machine detected.<br>
-Lokale IP:  111.111.1.111<br>
-✅ Internet connection exists.<br>
-✅ Secure Internet access verified.<br>
-✅ Python is already installed.<br>
-✅ Git is already installed.<br>
-✅ Ollama is already installed.<br>
-✅ FFmpeg is already installed.<br>
-✅ Rustup is already installed.<br>
-✅ PowerShell 7 is already installed.<br>
-✅ 3D Slicer is already installed.<br>
-✅ WSL is already installed.<br>
-✅ WSL is already set up with the distribution: "U".<br>
-✅ All WSL processes have been successfully terminated.<br>
-P-terminal repository already exists. Checking for updates...<br>
-Fetching latest changes...<br>
-Updates available, pulling changes...<br>
-✅ P-terminal repository updated successfully.<br>
-✅ P-terminal update process completed successfully.<br>
-Checking for existing .env file at: "C:\Users\julian\p-terminal\pp-term\.env"<br>
-✅ .env file already exists at "C:\Users\julian\p-terminal\pp-term\.env"<br>
-Starting PP_terminal...<br>
-✅ Peharge C++ Compiler available and the folder "C:\Users\julian\p-terminal\pp-term\peharge-cpp-compier" exists.<br>
-✅ Peharge C Compiler available and the folder "C:\Users\julian\p-terminal\pp-term\peharge-c-compiler" exists.<br>
-Virtual environment C:\Users\julian\p-terminal\pp-term\.env activated.<br>
-Installing missing packages: python-dotenv, beautifulsoup4, PyQt6-sip, PyQt6-Charts, PyQt6-WebEngine, PyQt6-Charts, speedtest-cli...<br>
-✅ All missing packages installed.<br>
-✅ All tasks were completed successfully!<br>
-<br>
-<p style="color: #1fb1ff; display: inline;">██████╗&nbsp;██████╗&nbsp;&nbsp;&nbsp;&nbsp;</p>████████╗███████╗██████╗ ███╗&nbsp;&nbsp;&nbsp;███╗██╗███╗&nbsp;&nbsp;&nbsp;██╗&nbsp;█████╗&nbsp;██╗<br>
-<p style="color: #1fb1ff; display: inline;">██╔══██╗██╔══██╗&nbsp;&nbsp;&nbsp;</p>╚══██╔══╝██╔════╝██╔══██╗████╗&nbsp;████║██║████╗&nbsp;&nbsp;██║██╔══██╗██║<br>
-<p style="color: #1fb1ff; display: inline;">██████╔╝██████╔╝</p>█████╗██║&nbsp;&nbsp;&nbsp;█████╗&nbsp;&nbsp;██████╔╝██╔████╔██║██║██╔██╗ ██║███████║██║<br>
-<p style="color: #1fb1ff; display: inline;">██╔═══╝&nbsp;██╔═══╝&nbsp;</p>╚════╝██║&nbsp;&nbsp;&nbsp;██╔══╝&nbsp;&nbsp;██╔══██╗██║╚██╔╝██║██║██║╚██╗██║██╔══██║██║<br>
-<p style="color: #1fb1ff; display: inline;">██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;██║&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>██║&nbsp;&nbsp;&nbsp;███████╗██║&nbsp;&nbsp;██║██║&nbsp;╚═╝&nbsp;██║██║██║&nbsp;╚████║██║&nbsp;&nbsp;██║███████╗<br>
-<p style="color: #1fb1ff; display: inline;">╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>╚═╝&nbsp;&nbsp;&nbsp;╚══════╝╚═╝&nbsp;&nbsp;╚═╝╚═╝&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;╚═╝╚═╝╚═╝&nbsp;&nbsp;╚═══╝╚═╝&nbsp;&nbsp;╚═╝╚══════╝<br>
-<br>
-<p style="display: inline;">A warm welcome, </p><p style="color: #1fb1ff; display: inline;">julian</p>, to Peharge Python Terminal<br>
-Developed by Peharge and JK (Peharge Projects 2025)<br>
-Thank you so much for using PP-Term. We truly appreciate your support ❤️<br>
-<br>
-<p style="color: #1fb1ff; display: inline;">P-Terminal Version</p>: 1.1<br>
-<p style="color: #1fb1ff; display: inline;">PP-Terminal Version</p>: 1.1<br>
-<p style="color: #1fb1ff; display: inline;">Peharge C compiler Version</p>: 1.1<br>
-<p style="color: #1fb1ff; display: inline;">Peharge C++ compiler Version</p>: 1.1<br>
-<p style="color: #1fb1ff; display: inline;">P-Terminal License</p>: MIT<br>
-<br>
-<p style="color: #1B1B2F; display: inline;">██<p style="color: #E10600; display: inline;">██<p style="color: #00FF9F; display: inline;">██<p style="color: #FFD000; display: inline;">██<p style="color: #1E90FF; display: inline;">██<p style="color: #A200FF; display: inline;">██<p style="color: #00CFFF; display: inline;">██<p style="color: #FFFFFF; display: inline;">██</p><br>
-<p style="color: #2C2C3A; display: inline;">██<p style="color: #FF2C1F; display: inline;">██<p style="color: #4CFFB0; display: inline;">██<p style="color: #FFE94D; display: inline;">██<p style="color: #1fb1ff; display: inline;">██<p style="color: #E87CFF; display: inline;">██<p style="color: #4DE9FF; display: inline;">██<p style="color: #FAFAFA; display: inline;">██</p><br>
-<br>
-<p style="color: #00FF9F; display: inline;">┌──(</p><p style="color: #1fb1ff; display: inline;">julian<strong>㋐</strong>Peharge</p><p style="color: #00FF9F; display: inline;">)-[</p>C:\Users\julian<p style="color: #00FF9F; display: inline;">]-[</p>.\.venv<p style="color: #00FF9F; display: inline;">]</p><br>
-<p style="color: #00FF9F; display: inline;">└─</p><p style="color: #1fb1ff; display: inline;">$</p> [Command...]<br>
-</p>
-    </div>
-    <p>
-      <h2>Problems installing the PP Terminal</h2>
-<p class="description">The PP Terminal should normally be installed automatically. However, problems may arise during installation that require you to install certain dependencies manually.</p>
-<p class="description">Usually, all required dependencies are included in the automatic installation. However, if a dependency was not installed correctly, only those specific dependencies need to be installed subsequently.</p>
-
-<h3>1. <strong>Git</strong></h3>
-<p class="description">Git is required to clone code and track changes. <br>
-Download Git from the official website: <a href="https://git-scm.com/downloads" target="_blank">Download Git</a></p>
-
-<h3>2. <strong>Python</strong></h3>
-<p class="description">It is recommended to use Python 3.12 (Python 3.11 is also supported, but not Python 3.13). <br>
-Download Python from the official website: <a href="https://www.python.org/downloads/" target="_blank">Download Python</a> or directly from the Microsoft Store.</p>
-
-<h3>3. <strong>Ollama</strong></h3>
-<p class="description">Ollama is a necessary tool for the PP terminal. Install Ollama from the official website: <a href="https://ollama.com/download" target="_blank">Download Ollama</a></p>
-
-<h3>4. <strong>FFmpeg</strong></h3>
-<p class="description">FFmpeg is another important dependency for the PP terminal. Make sure it is installed on your system. For more information, see the official website: <a href="https://ffmpeg.org/" target="_blank">FFmpeg</a></p>
-
-<h3>5. <strong>Rustup</strong></h3>
-<p class="description">Rustup is required to install Rust and related tools. You can download it from the official Rust website: <a href="https://rustup.rs/" target="_blank">Download Rustup</a></p>
-
-<h3>6. <strong>3D Slicer</strong></h3>
-<p class="description">Installing 3D Slicer isn't required to run pp-term. However, if you plan to use SIMON, installing 3D Slicer is mandatory. If you encounter any problems during installation, simply run the 'Install 3d-slicer' command in the pp terminal. This installation method is significantly more secure! Installation canceled. Please install 3D Slicer manually: <a href="https://download.slicer.org" target="_blank">Download 3D Slicer</a></p>
-
-<h3>7. <strong>PowerShell 7</strong></h3>
-<p class="description">PowerShell 7 is a modern version of PowerShell and is recommended for use with the PP terminal. Download PowerShell 7 from the official Microsoft page: <a href="https://github.com/PowerShell/PowerShell/releases" target="_blank">Download PowerShell 7</a>
-
-<h3>8. <strong>Windows Subsystem for Linux (WSL)</strong></h3>
-<p class="description">To make optimal use of the PP Terminal, you need the Windows Subsystem for Linux (WSL). Supported distributions are:</p>
-<ul>
-<li><strong>Ubuntu</strong> <br>
-<p class="description">Install Ubuntu from the Microsoft Store: <a href="https://aka.ms/wslubuntu" target="_blank">Ubuntu in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Ubuntu</pre>
-</li>
-<li><strong>Debian</strong> <br>
-<p class="description">Install Debian from the Microsoft Store: <a href="https://aka.ms/wsldebian" target="_blank">Debian in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Debian</pre>
-</li>
-<li><strong>Kali Linux</strong> <br>
-<p class="description">Install Kali Linux from the Microsoft Store: <a href="https://aka.ms/wslkali" target="_blank">Kali Linux in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Kali-Linux</pre>
-</li>
-<li><strong>Arch Linux</strong> <br>
-<p class="description">Arch Linux is not directly available in the Microsoft Store, but you can install it using [WSL installation scripts](https://github.com/yuk7/wsldl): <a href="https://github.com/yuk7/wsldl" target="_blank">Arch Linux WSL script</a> <br>
-Alternatively, you can install Arch manually via the AUR (Arch User Repository).</p>
-</li>
-<li><strong>openSUSE</strong> <br>
-<p class="description">Install openSUSE from the Microsoft Store: <a href="https://aka.ms/wslsuse" target="_blank">openSUSE in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d openSUSE</pre>
-</li>
-<li><strong>Linux Mint</strong> <br>
-<p class="description">Linux Mint is also not available directly from the Microsoft Store, but you can install it via [WSL2](https://www.linuxmint.com/) and follow the installation instructions.</p>
-</li>
-<li><strong>Fedora</strong> <br>
-<p class="description">Fedora is available directly from the Microsoft Store: <a href="https://aka.ms/wslfedora" target="_blank">Fedora in the Microsoft Store</a> <br>
-Or use the WSL installation command:
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Fedora</pre>
-</li>
-<li><strong>Red Hat</strong> <br>
-<p class="description">Red Hat Enterprise Linux (RHEL) is available from the Red Hat website. For more information on installation, see here: <a href="https://developers.redhat.com/blog/2020/06/25/introducing-red-hat-enterprise-linux-on-wsl" target="_blank">Installing RHEL on WSL</a></p>
-</li>
-<li><strong>SUSE Linux</strong> <br>
-<p class="description">Install SUSE Linux from the Microsoft Store: <a href="https://aka.ms/wslopensuse" target="_blank">SUSE Linux in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d openSUSE-42</pre>
-</li>
-<li><strong>Pengwin</strong> <br>
-<p class="description">Install Pengwin from the Microsoft Store: <a href="https://aka.ms/wsl-pengwin" target="_blank">Pengwin in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Pengwin</pre>
-</li>
-<li><strong>Oracle Linux</strong> <br>
-<p class="description">Install Oracle Linux from the Microsoft Store: <a href="https://aka.ms/wsl-oracle" target="_blank">Oracle Linux in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d OracleLinux_8_5</pre>
-</li>
-<li><strong>Clear Linux</strong> <br>
-<p class="description">Install Clear Linux from the Microsoft Store: <a href="https://aka.ms/wsl-clearlinux" target="_blank">Clear Linux in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d ClearLinux</pre>
-</li>
-<li><strong>Alpine</strong> <br>
-<p class="description">Install Alpine from the Microsoft Store: <a href="https://aka.ms/wsl-alpine" target="_blank">Alpine in the Microsoft Store</a> <br>
-Or use the WSL installation command:</p>
-<pre><p style="color: #1fb1ff; display: inline;">$</p> wsl --install -d Alpine</pre>
-</li>
-</ul>
-<p class="description">For more information on installing WSL, see here: <a href="https://docs.microsoft.com/en-us/windows/wsl/install" target="_blank">Installing WSL</a></p>
-
-<h3>9. <strong>PP Terminal</strong> Repository</h3>
-<p class="description">Clone the PP Terminal repository from GitHub: <a href="https://github.com/Peharge/P-Terminal" target="_blank">PP Terminal GitHub Repository</a></p>
-
-<h3>10. C++ Extensions for Desktop Development</h3>
-<p class="description">To develop and run the PP Terminal, you also need the C++ extensions for Visual Studio. You can download them here: <a href="https://visualstudio.microsoft.com/de/downloads/" target="_blank">Download C++ Extensions</a></p>
-  </p>
   </div>
 
 <br><br><br>
