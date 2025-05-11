@@ -33,47 +33,47 @@
         margin-bottom: -8px; /* Negative Marge für die Kinder anwenden */
     }
 
-.headline-4 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
+    .headline-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
 
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.5s ease, transform 1.5s ease;
-}
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+    }
 
-.headline-4.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
+    .headline-4.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-/* Kinder einzeln verzögert */
-.headline-4 > * {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 1s ease, transform 1s ease;
-}
+    /* Kinder einzeln verzögert */
+    .headline-4 > * {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
 
-.headline-4.in-view > * {
-    opacity: 1;
-    transform: translateY(0);
-}
+    .headline-4.in-view > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-/* Verzögerung pro Kind */
-.headline-4.in-view > *:nth-child(1) { transition-delay: 0.3s; }
-.headline-4.in-view > *:nth-child(2) { transition-delay: 0.6s; }
-.headline-4.in-view > *:nth-child(3) { transition-delay: 0.9s; }
-/* ... füge weitere hinzu bei Bedarf */
+    /* Verzögerung pro Kind */
+    .headline-4.in-view > *:nth-child(1) { transition-delay: 0.3s; }
+    .headline-4.in-view > *:nth-child(2) { transition-delay: 0.6s; }
+    .headline-4.in-view > *:nth-child(3) { transition-delay: 0.9s; }
+    /* ... füge weitere hinzu bei Bedarf */
 
 
     /* Grundlegende Stile für das h1 */
     .headline h1 {
         font-family: 'Courier New', monospace;
-        font-size: 2.5rem;
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
         color: #fff; /* Grüne Farbe */
         display: inline-block;
         border-right: 3px solid black; /* Simuliert den Cursor-Effekt */
@@ -116,29 +116,28 @@
       filter: drop-shadow(0 0px 20px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
     }
 
-.img-1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+    .img-1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-/* Bild: Grundzustand – versteckt und leicht unten */
-.img-1 img {
-    width: 50%;
-    max-width: 2000px;
-    border-radius: 10px;
-    filter: drop-shadow(0 0px 10px rgb(255, 255, 255));
+    /* Bild: Grundzustand – versteckt und leicht unten */
+    .img-1 img {
+        width: 50%;
+        max-width: 2000px;
+        border-radius: 10px;
+        filter: drop-shadow(0 0px 10px rgb(255, 255, 255));
 
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1.8s ease, transform 1.8s ease;
-}
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1.8s ease, transform 1.8s ease;
+    }
 
-/* Sichtbar mit Animation nach oben */
-.img-1.in-view img {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+    /* Sichtbar mit Animation nach oben */
+    .img-1.in-view img {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     .button-container {
       display: flex;
@@ -255,7 +254,7 @@
       background-color: #111;
       border: 1px solid #333;
       padding: 20px;
-      width: 65%;
+      width: 80%;
       margin: 0 auto;
       box-shadow: 0 0 20px #fff;
     }
@@ -272,7 +271,7 @@
       background-color: #111;
       border: 1px solid #333;
       padding: 20px;
-      width: 65%;
+      width: 80%;
       margin: 0 auto;
       box-shadow: 0 0 20px #fff;
     }
@@ -302,6 +301,86 @@
       text-shadow: 0 0 10px #1fb1ff;
     }
 
+    :root {
+      --gap: 2rem;
+      --bg: #111;
+      --radius: 0.5rem;
+      --shadow: 0 0 20px #fff;
+      --accent: #fff;
+      --text: #ccc;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --min-col-width: 300px; /* verhindert, dass Spalten zu schmal werden */
+        /* schon in deinem Stylesheet definiert */
+      --transition-speed: 0.35s;
+    }
+
+    .section-pp-terminal {
+      max-width: 80%;
+      margin: 0 auto var(--gap);
+    }
+
+    .row-pp-terminal {
+      display: flex;
+      flex-wrap: nowrap;            /* kein Zeilenumbruch */
+      /* ... */
+      min-height: 500px;    /* oder height: 500px; */
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    .text-area-pp-terminal, .image-area-pp-terminal {
+      flex: 0 0 45%;                /* jeweils 50% der Container-Breite */
+      min-width: var(--min-col-width);
+    }
+
+    .text-area-pp-terminal {
+      padding: var(--gap);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .text-area-pp-terminal h2 {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+
+    .text-area-pp-terminal p {
+      color: #ccc;
+      margin: 0;
+      font-size: clamp(1rem, 1vw, 2.5rem);
+    }
+
+    /* 2. Image-Container auf 80 % der Elternhöhe begrenzen */
+    .image-area-pp-terminal {
+      position: relative;
+      width: 20%;                  /* oder flex: 0 0 50%; */
+      height: 30%;                 /* genau 80 % der Höhe von .row */
+      max-height: 30%;             /* auf Nummer sicher gehen */
+      overflow: hidden;
+      border-radius: var(--radius);
+      filter: drop-shadow(0 0px 10px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
+      transform: translateZ(0);
+
+      /* Fade-In */
+      opacity: 0;
+      animation: fadeIn var(--transition-speed) ease-out forwards;
+    }
+
+    /* 3. Bild im Container */
+    .image-area-pp-terminal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Keyframes für Fade-In */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
   </style>
 </head>
 <body>
@@ -324,7 +403,7 @@
   Download PP-Term
 </button>
 
-    <button class="terminal-button" onclick="window.open('impressum.html', '_blank')">Impressum</button>
+    <button class="terminal-button" onclick="window.open('impressum-p-terminal.html', '_blank')">Impressum</button>
   </div>
 
     <div class="headline-4">
@@ -339,8 +418,192 @@
 
   <br><br><br>
 
+  <section class="section-pp-terminal">
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>What can the PP terminal do</h2>
+        <p>
+          Why show the standard? The PP Terminal does it all — but we show you what sets it apart.
+        </p>
+      </div>
+      <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-img.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>PP-Terminal Design</h2>
+        <p>
+          The PP-Terminal combines cutting-edge design with intelligent performance – delivering a seamless, future-ready experience for users and businesses alike.
+        </p>
+      </div>
+      <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-3.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Linux</h2>
+        <p>
+          The PP-Termin supports a wide range of Linux distributions, offering maximum flexibility and compatibility.The MAVIS Terminal 5 supports a wide range of Linux distributions, offering maximum flexibility and compatibility.
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-4.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Search</h2>
+        <p>
+          ...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-5.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Peharge AI</h2>
+        <p>
+          ...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-6.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>GIT</h2>
+        <p>
+          The pp-terminal can solve everything you want in the terminal but also graphically...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-8.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+        <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>System administration</h2>
+        <p>
+          The pp-terminal can solve everything you want in the terminal but also graphically...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-9.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+        <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Data administration</h2>
+        <p>
+          The pp-terminal can solve everything you want in the terminal but also graphically...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-10.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+        <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>SIMON ext.</h2>
+        <p>
+          The pp-terminal can solve everything you want in the terminal but also graphically...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-11.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+        <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Framework administration</h2>
+        <p>
+          The pp-terminal can solve everything you want in the terminal but also graphically...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-13.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+        <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>LINUX OS administration</h2>
+        <p>
+          The pp-terminal can solve everything you want in the terminal but also graphically...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-14.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Search</h2>
+        <p>
+          ...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-16.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+        <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Games</h2>
+        <p>
+          ...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-15.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+        <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>Emacs</h2>
+        <p>
+          ...
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-18.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+    <div class="row-pp-terminal">
+      <div class="text-area-pp-terminal">
+        <h2>More Linux tools</h2>
+        <p>
+          like nano, vim, nvim, code etc.
+        </p>
+      </div>
+        <div class="image-area-pp-terminal">
+        <img src="./images/pp-term-ads-19.png" alt="PP Terminal Preview" loading="lazy">
+      </div>
+    </div>
+
+  </section>
+
   <div class="terminal-4">
-    <h2>Install PP-Term</h2>
+    <h2 style="font-size: clamp(1.5rem, 2vw, 2.5rem);">Install PP-Term</h2>
     <p class="description">Mavis Terminal is a powerful command-line interface designed to streamline development, system monitoring, and AI model execution. This document provides a comprehensive list of available commands, along with usage guidelines for pip and PowerShell.<br><br>
 
 If you start MAVIS Terminal 5 out of <a href="https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat" target="_blank">run-pp-term.bat</a>, and if you do, it looks like this:</p><br>
@@ -585,14 +848,14 @@ Or use the WSL installation command:</p>
   <br><br><br>
 
   <div class="terminal-4">
-    <h2>Install P-Term</h2>
+    <h2 style="font-size: clamp(1.5rem, 2vw, 2.5rem);">Install P-Term</h2>
     <div class="description">soon</div>
   </div>
 
 <br><br><br>
 
   <div class="terminal">
-    <h2>Command list</h2>
+    <h2 style="font-size: clamp(1.5rem, 2vw, 2.5rem);">Command list</h2>
     <div class="command">
       <div class="cmd"><p style="color: #1fb1ff; display: inline;">$</p> p</div>
       <div class="description">Peharge command</div>
@@ -1567,7 +1830,7 @@ Or use the WSL installation command:</p>
     <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
     <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
     <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
-    <button class="terminal-button" onclick="window.open('impressum.html', '_blank')">Impressum</button>
+    <button class="terminal-button" onclick="window.open('impressum-p-terminal.html', '_blank')">Impressum</button>
   </div>
 
   <div class="headline-3">
