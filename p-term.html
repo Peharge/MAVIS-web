@@ -209,6 +209,48 @@
       transform: scale(1.06);
     }
 
+    .terminal-button-4 {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-4::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('icons/p-term-logo-5.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      filter: brightness(0) invert(1); /* Weiß */
+      margin-left: 15px;
+    }
+
+    .terminal-button-4:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('icons/p-term-logo-5.png');
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-4:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
     .terminal-button-github {
       background-color: #111;
       border: 1px solid #333;
@@ -230,16 +272,18 @@
       display: block;
       width: 23px;
       height: 23px;
-      background-image: url('https://img.icons8.com/ios_filled/512/FFFFFF/github.png');
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg');
       background-size: contain;
       background-repeat: no-repeat;
       margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
     }
 
     .terminal-button-github:hover::after {
       width: 25px;
       height: 25px;
-      background-image: url('https://img.icons8.com/ios_filled/512/000000/github.png');
+      filter: brightness(0); /* Schwarz */
     }
 
     .terminal-button-github:hover {
@@ -423,7 +467,7 @@
     <div class="button-container">
         <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal/tree/main/pp-term', '_blank')">PP-Term GitHub</button>
         <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
-        <button class="terminal-button" onclick="window.open('commands-pp-term.html', '_blank')">PP-Term Commands</button>
+        <button class="terminal-button-4" onclick="window.open('commands-pp-term.html', '_blank')">PP-Term Commands</button>
   </div>
 
     <br><br><br>
@@ -861,7 +905,7 @@ Or use the WSL installation command:</p>
     <div class="button-container">
         <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal/tree/main/p-term', '_blank')">P-Term GitHub</button>
         <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
-        <button class="terminal-button" onclick="window.open('commands-p-term.html', '_blank')">P-Term Commands</button>
+        <button class="terminal-button-4" onclick="window.open('commands-p-term.html', '_blank')">P-Term Commands</button>
   </div>
 
     <br><br><br>
@@ -887,19 +931,19 @@ Engineered for performance-focused developers, sysadmins, and hardcore terminal 
 
   <div class="button-container">
 
-    <button class="terminal-button" onclick="window.open('commands-p-term.html', '_blank')">P-Term Commands</button>
-    <button class="terminal-button" onclick="window.open('commands-pp-term.html', '_blank')">PP-Term Commands</button>
+    <button class="terminal-button-4" onclick="window.open('commands-p-term.html', '_blank')">P-Term Commands</button>
+    <button class="terminal-button-4" onclick="window.open('commands-pp-term.html', '_blank')">PP-Term Commands</button>
     <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
     <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
     <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/MAVIS/blob/main/run-mavis-terminal-5.bat', '_blank')">Download MAVIS Terminal 5</button>
   </div>
 
   <div class="button-container">
-    <button class="terminal-button" onclick="window.open('impressum-p-terminal.html', '_blank')">Impressum</button>
-    <button class="terminal-button" onclick="window.open('license-p-terminal.html', '_blank')">P-Terminal License</button>
-    <button class="terminal-button" onclick="window.open('security-p-terminal.html', '_blank')">Security</button>
-    <button class="terminal-button" onclick="window.open('contributing-p-terminal.html', '_blank')">Contributing</button>
-    <button class="terminal-button" onclick="window.open('code_of_conduct-p-terminal.html', '_blank')">Code of Conduct</button>
+    <button class="terminal-button-4" onclick="window.open('impressum-p-terminal.html', '_blank')">Impressum</button>
+    <button class="terminal-button-4" onclick="window.open('license-p-terminal.html', '_blank')">P-Terminal License</button>
+    <button class="terminal-button-4" onclick="window.open('security-p-terminal.html', '_blank')">Security</button>
+    <button class="terminal-button-4" onclick="window.open('contributing-p-terminal.html', '_blank')">Contributing</button>
+    <button class="terminal-button-4" onclick="window.open('code_of_conduct-p-terminal.html', '_blank')">Code of Conduct</button>
 
   </div>
 
