@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Command List</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 20px;
+    }
+    .terminal {
+      border-radius: 10px;
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px #fff;
+    }
+    .terminal h2 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+    .command {
+      margin-bottom: 20px;
+    }
+
+    .cmd {
+      color: #fff;
+      font-weight: bold;
+    }
+    .description {
+      color: #ccc;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <h2>Command list</h2>
+    <div id="command-list"></div>
+  </div>
+
+  <script>
+const commands = [
+  { cmd: "p", desc: "Peharge command" },
+  { cmd: "p git", desc: "Peharge git command - Opens a P-Term Commit Explorer" },
+  { cmd: "p htop", desc: "Peharge git command - Opens a P-Term Taskmanager" },
+  { cmd: "p ls", desc: "Peharge git command - Opens a P-Term File Explorer" },
+  { cmd: "p simon", desc: "Peharge git command - Opens a P-Term SIMON Explorer" },
+  { cmd: "p wsl", desc: "Peharge git command - Opens a P-Term WSL Explorer" },
+  { cmd: "p pip", desc: "Peharge git command - Opens a P-Term PIP Explorer" },
+  { cmd: "p models", desc: "Peharge git command - Opens a P-Term MAVIS Models Explorer" },
+  { cmd: "p ubuntu", desc: "Peharge git command - Opens a P-Term Ubuntu Explorer" },
+  { cmd: "pp", desc: "Peharge permission command" },
+  { cmd: "pp-cpp", desc: "Peharge permission Peharge C++ compiler" },
+  { cmd: "pp-c", desc: "Peharge permission Peharge C compiler" },
+  { cmd: "pp-p", desc: "Peharge permission run with Python" },
+  { cmd: "ps", desc: "Peharge search command" },
+  { cmd: "ps-github", desc: "Peharge GitHub search command" },
+  { cmd: "ps-huggingface", desc: "Huggingface GitHub search command" },
+  { cmd: "ps-ollama", desc: "Peharge Ollama search command" },
+  { cmd: "ps-stackoverflow", desc: "Stack Overflow GitHub search command" },
+  { cmd: "ps-arxiv", desc: "Peharge ArXiv search command" },
+  { cmd: "pa", desc: "Peharge AI command: Ask a question (AI functionality) -> qwen3:14b" },
+  { cmd: "pa qwen3:0.6b", desc: "" },
+  { cmd: "pa qwen3:1.7b", desc: "" },
+  { cmd: "pa qwen3:4b", desc: "" },
+  { cmd: "pa qwen3:8b", desc: "" },
+  { cmd: "pa qwen3:14b", desc: "" },
+  { cmd: "pa qwen3:32b", desc: "" },
+  { cmd: "pa qwen3:30b", desc: "" },
+  { cmd: "pa qwen3:235b", desc: "" },
+  { cmd: "pa llama4:scout", desc: "" },
+  { cmd: "pa llama4:maverick", desc: "" },
+  { cmd: "lx", desc: "Linux command" },
+  { cmd: "lx-c", desc: "Linux command with Peharge C compiler" },
+  { cmd: "lx-p", desc: "Linux command with Python" },
+  { cmd: "lx-cpp-c", desc: "Linux command with Peharge C++ compiler" },
+  { cmd: "lx-c-c", desc: "Linux command with Peharge C compiler" },
+  { cmd: "lx-p-c", desc: "Linux command with Python" },
+  { cmd: "ubuntu", desc: "Ubuntu command" },
+  { cmd: "ubuntu-c", desc: "Ubuntu command with Peharge C compiler" },
+  { cmd: "ubuntu-p", desc: "Ubuntu command with Python" },
+  { cmd: "debian", desc: "Debian command" },
+  { cmd: "debian-c", desc: "Debian command with Peharge C compiler" },
+  { cmd: "debian-p", desc: "Debian command with Python" },
+  { cmd: "kali", desc: "Kali Linux command" },
+  { cmd: "kali-c", desc: "Kali command with Peharge C compiler" },
+  { cmd: "kali-p", desc: "Kali command with Python" },
+  { cmd: "hack", desc: "Hack command (functionality-specific)" },
+  { cmd: "arch", desc: "Arch Linux command" },
+  { cmd: "arch-c", desc: "Arch command with Peharge C compiler" },
+  { cmd: "arch-p", desc: "Arch command with Python" },
+  { cmd: "opensuse", desc: "openSUSE Linux command" },
+  { cmd: "opensuse-c", desc: "openSUSE command with Peharge C compiler" },
+  { cmd: "opensuse-p", desc: "openSUSE command with Python" },
+  { cmd: "mint", desc: "Linux Mint command" },
+  { cmd: "mint-c", desc: "Linux Mint command with Peharge C compiler" },
+  { cmd: "mint-p", desc: "Linux Mint command with Python" },
+  { cmd: "fedora", desc: "Fedora Linux command" },
+  { cmd: "fedora-c", desc: "Fedora command with Peharge C compiler" },
+  { cmd: "fedora-p", desc: "Fedora command with Python" },
+  { cmd: "redhat", desc: "Red Hat Linux command" },
+  { cmd: "redhat-c", desc: "Red Hat Linux command with Peharge C compiler" },
+      { cmd: "redhat-p", desc: "Red Hat Linux command with Python" },
+  { cmd: "sles", desc: "SUSE Linux Enterprise Server command" },
+  { cmd: "sles-c", desc: "SUSE Linux command with Peharge C compiler" },
+  { cmd: "sles-p", desc: "SUSE Linux command with Python" },
+  { cmd: "pengwin", desc: "Pengwin WSL Linux command" },
+  { cmd: "pengwin-c", desc: "Pengwin WSL Linux command with Peharge C compiler" },
+  { cmd: "pengwin-p", desc: "Pengwin WSL Linux command with Python" },
+  { cmd: "oracle", desc: "Oracle Linux command" },
+  { cmd: "oracle-c", desc: "Oracle Linux command with Peharge C compiler" },
+  { cmd: "oracle-p", desc: "Oracle Linux command with Python" },
+  { cmd: "cd", desc: "Change directory" },
+  { cmd: "cls", desc: "Clear screen (Windows)" },
+  { cmd: "clear", desc: "Clear screen (Linux)" },
+  { cmd: "dir", desc: "List directory contents (Windows)" },
+  { cmd: "ls", desc: "List directory contents (Linux)" },
+  { cmd: "mkdir", desc: "Create a new directory" },
+  { cmd: "rmdir", desc: "Remove a directory" },
+  { cmd: "del", desc: "Delete a file (Windows)" },
+  { cmd: "rm", desc: "Remove a file (Linux)" },
+  { cmd: "echo", desc: "Print text to output" },
+  { cmd: "type", desc: "Display contents of a file (Windows)" },
+  { cmd: "cat", desc: "Display contents of a file (Linux)" },
+  { cmd: "exit", desc: "Exit application" },
+  { cmd: "alpine", desc: "Alpine Linux command" },
+  { cmd: "scoop", desc: "Manage apps via Scoop package manager (Windows)" },
+  { cmd: "choco", desc: "Manage apps via Chocolatey package manager (Windows)" },
+  { cmd: "winget", desc: "Manage apps via Winget package manager (Windows)" },
+  { cmd: "speedtest", desc: "Run internet speed test" },
+  { cmd: "kill", desc: "Kill a running process" },
+  { cmd: "download", desc: "Download a file from a URL" },
+  { cmd: "cputemp", desc: "Display CPU temperature" },
+  { cmd: "chucknorris", desc: "Show Chuck Norris jokes" },
+  { cmd: "theme", desc: "Change the application's theme" },
+  { cmd: "cleantemp", desc: "Clean temporary files" },
+  { cmd: "selfupdate", desc: "Update the application to latest version" },
+  { cmd: "tree", desc: "Display directory tree structure" },
+  { cmd: "py", desc: "Execute Python code" },
+  { cmd: "ask", desc: "Ask a question (AI interaction)" },
+  { cmd: "weather", desc: "Show current weather information" },
+  { cmd: "whoami", desc: "Display current user information" },
+  { cmd: "hostname", desc: "Display machine hostname" },
+  { cmd: "ip", desc: "Display IP address information" },
+  { cmd: "os", desc: "Display operating system information" },
+  { cmd: "time", desc: "Display current time" },
+  { cmd: "date", desc: "Display current date" },
+  { cmd: "open", desc: "Open a file or application" },
+  { cmd: "fortune", desc: "Display a random fortune quote" },
+  { cmd: "history", desc: "Show command history" },
+  { cmd: "search", desc: "Search for files or commands" },
+  { cmd: "zip", desc: "Compress files into a zip archive" },
+  { cmd: "unzip", desc: "Extract files from a zip archive" },
+  { cmd: "sysinfo", desc: "Show system information" },
+  { cmd: "clip set", desc: "Set clipboard content" },
+  { cmd: "clip get", desc: "Get clipboard content" },
+  { cmd: "ping", desc: "Ping a network address" },
+  { cmd: "emptytrash", desc: "Empty the trash/recycle bin" },
+  { cmd: "launch", desc: "Launch an application" },
+  { cmd: "doctor", desc: "Run system doctor check" },
+  { cmd: "mavis env install", desc: "Install Mavis environment" },
+  { cmd: "install mavis env", desc: "Install Mavis environment" },
+  { cmd: "install mavis3", desc: "Install Mavis version 3" },
+  { cmd: "install mavis3.3", desc: "Install Mavis version 3.3" },
+  { cmd: "install mavis4", desc: "Install Mavis version 4" },
+  { cmd: "install mavis4.3", desc: "Install Mavis version 4.3" },
+  { cmd: "mavis env update", desc: "Update Mavis environment" },
+  { cmd: "update mavis env", desc: "Update Mavis environment" },
+  { cmd: "mavis update", desc: "Update Mavis repository" },
+  { cmd: "update mavis", desc: "Update Mavis repository" },
+  { cmd: "security", desc: "Run security check" },
+  { cmd: "p-terminal security", desc: "Run security check in terminal" },
+  { cmd: "securitycheck", desc: "Run security check" },
+  { cmd: "info", desc: "Show general information" },
+  { cmd: "mavis info", desc: "Show Mavis information" },
+  { cmd: "info mavis", desc: "Show Mavis information" },
+  { cmd: "p-term info", desc: "Show terminal information" },
+      { cmd: "info p-term", desc: "Show terminal information" },
+  { cmd: "neofetch", desc: "Display system information" },
+  { cmd: "fastfetch", desc: "Display system information quickly" },
+  { cmd: "screenfetch", desc: "Display system information" },
+  { cmd: "jupyter", desc: "Run Jupyter" },
+  { cmd: "run jupyter", desc: "Run Jupyter" },
+  { cmd: "run ju", desc: "Run Jupyter" },
+  { cmd: "run mavis-4", desc: "Run Mavis version 4" },
+  { cmd: "run mavis-4-3", desc: "Run Mavis version 4.3" },
+  { cmd: "run mavis-4-fast", desc: "Run Mavis version 4 fast" },
+  { cmd: "run mavis-4-3-fast", desc: "Run Mavis version 4.3 fast" },
+  { cmd: "run mavis-launcher-4", desc: "Run Mavis launcher" },
+  { cmd: "run ollama mavis-4", desc: "Install Ollama Mavis version 4" },
+  { cmd: "install ollama mavis-4", desc: "Install Ollama Mavis version 4" },
+  { cmd: "change models mavis-4", desc: "Change models for Mavis version 4" },
+  { cmd: "change models", desc: "Change models" },
+  { cmd: "grafana", desc: "Run Grafana" },
+  { cmd: "run grafana", desc: "Run Grafana" },
+  { cmd: "install grafana", desc: "Install Grafana" },
+  { cmd: "account", desc: "Manage Mavis account" },
+  { cmd: "run qwen3:0.6b", desc: "Run Qwen 3 model version 0.6b" },
+  { cmd: "run qwen3:1.7b", desc: "Run Qwen 3 model version 1.7b" },
+  { cmd: "run qwen3:4b", desc: "Run Qwen 3 model version 4b" },
+  { cmd: "run qwen3:8b", desc: "Run Qwen 3 model version 8b" },
+  { cmd: "run qwen3:14b", desc: "Run Qwen 3 model version 14b" },
+  { cmd: "run qwen3:32b", desc: "Run Qwen 3 model version 32b" },
+  { cmd: "run qwen3:30b", desc: "Run Qwen 3 model version 30b" },
+  { cmd: "run qwen3:235b", desc: "Run Qwen 3 model version 235b" },
+  { cmd: "run deepseek-r1:1.5b", desc: "Run DeepSeek model version 1.5b" },
+  { cmd: "run deepseek-r1:7b", desc: "Run DeepSeek model version 7b" },
+  { cmd: "run deepseek-r1:8b", desc: "Run DeepSeek model version 8b" },
+  { cmd: "run deepseek-r1:14b", desc: "Run DeepSeek model version 14b" },
+  { cmd: "run deepseek-r1:32b", desc: "Run DeepSeek model version 32b" },
+  { cmd: "run deepseek-r1:70b", desc: "Run DeepSeek model version 70b" },
+  { cmd: "run deepseek-r1:671b", desc: "Run DeepSeek model version 671b" },
+  { cmd: "run deepscaler", desc: "Run DeepScaler" },
+  { cmd: "run llama3.1:8b", desc: "Run Llama3.1 model version 8b" },
+  { cmd: "run llama3.1:70b", desc: "Run Llama3.1 model version 70b" },
+  { cmd: "run llama3.1:405", desc: "Run Llama3.1 model version 405b" },
+  { cmd: "run llama3.2:1b", desc: "Run Llama3.2 model version 1b" },
+  { cmd: "run llama3.2:3b", desc: "Run Llama3.2 model version 3b" },
+  { cmd: "run llama3.3", desc: "Run Llama3.3 model" },
+  { cmd: "run llama3:8b", desc: "Run Llama3 model version 8b" },
+  { cmd: "run llama3:70b", desc: "Run Llama3 model version 70b" },
+  { cmd: "run mistral", desc: "Run Mistral model" },
+  { cmd: "run mistral-large", desc: "Run Mistral large model" },
+  { cmd: "run mistral-nemo", desc: "Run Mistral Nemo model" },
+  { cmd: "run mistral-openorca", desc: "Run Mistral OpenOrca model" },
+  { cmd: "run mistral-small:22b", desc: "Run Mistral small model version 22b" },
+  { cmd: "run mistral-small:24b", desc: "Run Mistral small model version 24b" },
+  { cmd: "run phi4", desc: "Run Phi4 model" },
+  { cmd: "run qwen2.5:0.5b", desc: "Run Qwen2.5 model version 0.5b" },
+  { cmd: "run qwen2.5:1.5b", desc: "Run Qwen2.5 model version 1.5b" },
+  { cmd: "run qwen2.5:3b", desc: "Run Qwen2.5 model version 3b" },
+  { cmd: "run qwen2.5:7b", desc: "Run Qwen2.5 model version 7b" },
+  { cmd: "run qwen2.5:14b", desc: "Run Qwen2.5 model version 14b" },
+  { cmd: "run qwen2.5:32b", desc: "Run Qwen2.5 model version 32b" },
+  { cmd: "run qwen2.5:72b", desc: "Run Qwen2.5 model version 72b" },
+  { cmd: "run qwen2.5-coder:0.5b", desc: "Run Qwen2.5 Coder model version 0.5b" },
+  { cmd: "run qwen2.5-coder:1.5b", desc: "Run Qwen2.5 Coder model version 1.5b" },
+  { cmd: "run qwen2.5-coder:3b", desc: "Run Qwen2.5 Coder model version 3b" },
+  { cmd: "run qwen2.5-coder:7b", desc: "Run Qwen2.5 Coder model version 7b" },
+  { cmd: "run qwen2.5-coder:14b", desc: "Run Qwen2.5 Coder model version 14b" },
+  { cmd: "run qwen2.5-coder:32b", desc: "Run Qwen2.5 Coder model version 32b" },
+  { cmd: "run gemma3:1b", desc: "Run Gemma3 model version 1b" },
+  { cmd: "run gemma3:4b", desc: "Run Gemma3 model version 4b" },
+  { cmd: "run gemma3:12b", desc: "Run Gemma3 model version 12b" },
+  { cmd: "run gemma3:27b", desc: "Run Gemma3 model version 27b" },
+  { cmd: "run qwq", desc: "Run QwQ model" },
+  { cmd: "run command-a", desc: "Run Command-A" },
+  { cmd: "run phi4-mini", desc: "Run Phi4 mini model" },
+  { cmd: "run granite3.2:8b", desc: "Run Granite3.2 model version 8b" },
+  { cmd: "run granite3.2:2b", desc: "Run Granite3.2 model version 2b" },
+  { cmd: "run granite3.2-vision:2b", desc: "Run Granite3.2 Vision model version 2b" },
+  { cmd: "run qwen-2-5-omni:7b", desc: "Run Qwen-2.5 Omni model version 7b" },
+  { cmd: "run qvq:72b", desc: "Run QVQ model version 72b" },
+  { cmd: "run qwen-2-5-vl:32b", desc: "Run Qwen-2.5 VL model version 32b" },
+  { cmd: "run qwen-2-5-vl:72b", desc: "Run Qwen-2.5 VL model version 72b" },
+  { cmd: "run llama-4-maverick:17b", desc: "Run Llama-4 Maverick model version 17b" },
+  { cmd: "run llama-4-scout:17b", desc: "Run Llama-4 Scout model version 17b" },
+  { cmd: "run deepcoder:1.5b", desc: "Run DeepCoder model version 1.5b" },
+  { cmd: "run deepcoder:14b", desc: "Run DeepCoder model version 14b" },
+  { cmd: "run mistral-small3.1", desc: "Run Mistral small model version 3.1" },
+  { cmd: "help", desc: "Display help information" },
+  { cmd: "image generation", desc: "Generate images" },
+  { cmd: "video generation", desc: "Generate videos" },
+  { cmd: "models", desc: "List available models" },
+  { cmd: "models ls", desc: "List available models" },
+  { cmd: "install 3d-slicer", desc: "Install 3D Slicer" },
+  { cmd: "run 3d-slicer", desc: "Run 3D Slicer" },
+  { cmd: "install simon", desc: "Install Simon" },
+  { cmd: "run simon", desc: "Run Simon" },
+  { cmd: "jupyter --version", desc: "Display Jupyter version" },
+  { cmd: "grafana --version", desc: "Display Grafana version" },
+  { cmd: "3d-slicer --version", desc: "Display 3D Slicer version" },
+  { cmd: "pin-evil", desc: "evil mode" },
+  { cmd: "pin-main", desc: "main mode" },
+  { cmd: "pin-cool", desc: "cool mode" },
+  { cmd: "install cool pin", desc: "Install cool pin mode" },
+  { cmd: "pin-cool-3", desc: "cool-3 mode" },
+  { cmd: "install cool pin-3", desc: "Install cool pin-3 mode" },
+  { cmd: "pin-cool-4", desc: "cool-4 mode" },
+  { cmd: "install cool pin-4", desc: "Install cool pin-4 mode" }
+];
+
+    const container = document.getElementById("command-list");
+
+    commands.forEach(item => {
+      const commandDiv = document.createElement("div");
+      commandDiv.className = "command";
+
+      const cmdDiv = document.createElement("div");
+      cmdDiv.className = "cmd";
+      cmdDiv.innerHTML = `<p style="color: #1fb1ff; display: inline;">$</p> ${item.cmd}`;
+
+      const descDiv = document.createElement("div");
+      descDiv.className = "description";
+      descDiv.textContent = item.desc;
+
+      commandDiv.appendChild(cmdDiv);
+      commandDiv.appendChild(descDiv);
+      container.appendChild(commandDiv);
+    });
+  </script>
+</body>
+</html>
