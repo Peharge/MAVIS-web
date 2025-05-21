@@ -1,48 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MIT License – P-Terminal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>License</title>
   <link rel="icon" type="image/x-icon" href="icons/mavis-logo-new.png" />
   <style>
-    html, body {
-      margin: 0;
-    }
+    /* Hintergrund mit Bild und dunklem Verlauf */
     body {
-      background-color: #000;
-      color: #fff;
-      font-family: 'Courier New', Courier, monospace;
       margin: 0;
-      padding: 20px;
+      font-family: sans-serif;
+      background-image:
+          linear-gradient(to bottom,
+              rgba(0, 0, 0, 1) 0%,
+              rgba(0, 0, 0, 0) 10%,
+              rgba(0, 0, 0, 0) 90%,
+              rgba(0, 0, 0, 1) 100%),
+          url('images/mavis-1-5-banner-1.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
-    .box {
-      border-radius: 10px;
-      background-color: #111;
-      border: 1px solid #333;
-      padding: 20px;
-      width: 75%;
-      box-shadow: 0 0 20px #fff;
+
+    /* Stil der Box */
+    .overlay {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            max-width: 800px;
     }
+
+    h1, h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
     h1 {
-      font-size: 1.8rem;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
       margin-bottom: 1rem;
     }
-    pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      font-size: 0.95rem;
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #f0f0f0;
+    }
+
+    a {
+      color: #66ccff;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .overlay {
+        padding: 1.2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>MIT License</h1>
+  <div class="overlay">
+        <h1>MIT License</h1>
     <pre>
-Copyright (c) 2024 Peharge
+<p>Copyright (c) 2024 Peharge
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -60,7 +120,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+SOFTWARE.</p>
     </pre>
   </div>
 </body>
