@@ -377,6 +377,49 @@
       transform: scale(1.06);
     }
 
+    .arch-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .arch-button::after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://img.icons8.com/?size=512&id=6M7Il2xpbLYM&format=png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .arch-button:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .arch-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+
     .terminal {
       border-radius: 10px;
       background-color: #111;
@@ -1033,16 +1076,22 @@ Engineered for performance-focused developers, sysadmins, and hardcore terminal 
         MAVIS Images Repository
     </button>
 
-    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/MAVIS-web', '_blank')">
-        MAVIS Web Repository
+    <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/MAVIS-images', '_blank')">
+        Download MAVIS 4 Launcher
     </button>
-    <button class="mavis-button" onclick="window.open('license.html', '_blank')">
-    MAVIS Licence
-</button>
+    <button class="arch-button" onclick="window.open('https://github.com/Peharge/MAVIS/blob/main/install-on-larch-lx.md', '_blank')">
+        Download MAVIS 4 Launcher
+    </button>
   </div>
 
 
   <div class="button-container">
+        <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/MAVIS-web', '_blank')">
+        MAVIS Web Repository
+    </button>
+        <button class="mavis-button" onclick="window.open('license.html', '_blank')">
+    MAVIS Licence
+</button>
 <button class="mavis-button" onclick="window.open('security.html', '_blank')">
     Security MAVIS
 </button>
