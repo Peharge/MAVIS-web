@@ -293,6 +293,90 @@
       transform: scale(1.06);
     }
 
+    .terminal-button-huggingface {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-huggingface::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/huggingface-ieplm3z71nlrt3qz5gujl.png/huggingface-epevjo31sauq02pf2urer.png?_a=DATAdtAAZAA0');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .terminal-button-huggingface:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-huggingface:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .mavis-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mavis-button::after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      background-image: url('./icons/mavis-logo-new.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .mavis-button:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .mavis-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
     .terminal {
       border-radius: 10px;
       background-color: #111;
@@ -444,8 +528,9 @@
 
   <div class="button-container">
     <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
-        <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
+    <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
     <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
+    <button class="mavis-button" onclick="window.open('https://peharge.github.io/MAVIS-web/', '_blank')">MAVIS.com</button>
   </div>
 
   <br><br><br><br>
@@ -923,14 +1008,14 @@ Engineered for performance-focused developers, sysadmins, and hardcore terminal 
 
   <div class="button-container">
     <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge', '_blank')">Peharge GitHub</button>
+    <button class="terminal-button-huggingface" onclick="window.open('https://huggingface.co/Peharge', '_blank')">Peharge Huggingfcae</button>
     <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
     <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal/tree/main/pp-term', '_blank')">PP-Term GitHub</button>
     <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal/tree/main/p-term', '_blank')">P-Term GitHub</button>
-    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/MAVIS/', '_blank')">MAVIS GitHub</button>
+    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal-old/', '_blank')">P-Terminal OLd GitHub</button>
   </div>
 
   <div class="button-container">
-
     <button class="terminal-button-4" onclick="window.open('commands-p-term.html', '_blank')">P-Term Commands</button>
     <button class="terminal-button-4" onclick="window.open('commands-pp-term.html', '_blank')">PP-Term Commands</button>
     <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
@@ -939,12 +1024,49 @@ Engineered for performance-focused developers, sysadmins, and hardcore terminal 
   </div>
 
   <div class="button-container">
+    <button class="mavis-button" onclick="window.open('https://peharge.github.io/MAVIS-web/', '_blank')">MAVIS.com</button>
+    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/MAVIS', '_blank')">
+        MAVIS Repository
+    </button>
+
+    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/MAVIS-images', '_blank')">
+        MAVIS Images Repository
+    </button>
+
+    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/MAVIS-web', '_blank')">
+        MAVIS Web Repository
+    </button>
+    <button class="mavis-button" onclick="window.open('license.html', '_blank')">
+    MAVIS Licence
+</button>
+  </div>
+
+
+  <div class="button-container">
+<button class="mavis-button" onclick="window.open('security.html', '_blank')">
+    Security MAVIS
+</button>
+
+<button class="mavis-button" onclick="window.open('contributing.html', '_blank')">
+    Contributing MAVIS
+</button>
+
+<button class="mavis-button" onclick="window.open('code_of_conduct.html', '_blank')">
+    Code of Conduct MAVIS
+</button>
+
+<button class="mavis-button" onclick="window.open('https://github.com/Peharge/MAVIS/blob/main/learn-mavis/README.md', '_blank')">
+    Learn MAVIS
+</button>
+
+      </div>
+
+  <div class="button-container">
     <button class="terminal-button-4" onclick="window.open('impressum-p-terminal.html', '_blank')">Impressum</button>
     <button class="terminal-button-4" onclick="window.open('license-p-terminal.html', '_blank')">P-Terminal License</button>
     <button class="terminal-button-4" onclick="window.open('security-p-terminal.html', '_blank')">Security</button>
     <button class="terminal-button-4" onclick="window.open('contributing-p-terminal.html', '_blank')">Contributing</button>
     <button class="terminal-button-4" onclick="window.open('code_of_conduct-p-terminal.html', '_blank')">Code of Conduct</button>
-
   </div>
 
 <br><br><br>
