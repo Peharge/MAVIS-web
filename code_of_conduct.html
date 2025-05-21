@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum</title>
+  <link rel="icon" type="image/x-icon" href="icons/mavis-logo-new.png" />
+  <style>
+    /* Hintergrund mit Bild und dunklem Verlauf */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-image:
+          linear-gradient(to bottom,
+              rgba(0, 0, 0, 1) 0%,
+              rgba(0, 0, 0, 0) 10%,
+              rgba(0, 0, 0, 0) 90%,
+              rgba(0, 0, 0, 1) 100%),
+          url('images/mavis-1-5-banner-1.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* Stil der Box */
+    .overlay {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            max-width: 1600px;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #f0f0f0;
+    }
+
+    a {
+      color: #66ccff;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .overlay {
+        padding: 1.2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+<h1>Code of Conduct for MAVIS</h1>
+
+  <div class="image-container">
+    <img alt="mavis" src="./icons/MAVIS-icon-banner-3.svg" />
+    <img alt="mavis-launcher" src="./icons/MAVIS-launcher-icon-banner-3.svg" />
+    <img alt="mavis-terminal" src="./icons/MAVIS-terminal-icon-banner-3.svg" />
+    <img alt="tg-loerrach" src="https://img.shields.io/badge/TG Lörrach-red?style=flat" />
+    <img alt="peharge" src="./icons/Peharge-banner-3.svg" />
+  </div>
+
+  <h2>Our Pledge</h2>
+  <p>
+    As contributors and maintainers of the MAVIS project, we pledge to foster an environment where researchers, scientists, and collaborators can engage, innovate, and contribute freely without fear of discrimination, harassment, or intimidation. MAVIS is committed to providing an inclusive, accessible, and bias-free platform that empowers individuals to advance scientific discovery and knowledge.
+  </p>
+
+  <h2>Our Standards</h2>
+  <p>We expect all participants in the MAVIS community to:</p>
+  <ul>
+    <li>Treat all individuals with respect, professionalism, and courtesy, regardless of their background, experience level, or identity.</li>
+    <li>Encourage open dialogue, collaboration, and the sharing of ideas, ensuring that every contribution is valued and considered.</li>
+    <li>Support a culture of inclusivity and respect, where diverse perspectives are welcomed, and everyone feels heard, respected, and empowered to contribute.</li>
+  </ul>
+
+  <h2>Unacceptable Behavior</h2>
+  <p>We will not tolerate any form of behavior that undermines the principles of respect, inclusivity, or collaboration, including:</p>
+  <ul>
+    <li>Discriminatory remarks or actions based on gender, race, ethnicity, nationality, disability, religion, sexual orientation, or any other personal attribute.</li>
+    <li>Disruptive behavior that interferes with the work of others, obstructs progress, or hinders the collaborative nature of the project.</li>
+    <li>Any form of bullying, harassment, intimidation, or hostile behavior that creates an unsafe or unproductive environment for participants.</li>
+  </ul>
+
+  <h2>Reporting</h2>
+  <p>
+    If you witness or experience any form of unacceptable behavior, we encourage you to report it immediately by creating an <strong>issue</strong> in the repository. Please <strong>do not</strong> use email for reporting. All reports will be reviewed promptly and treated with the utmost confidentiality. We are committed to addressing all concerns and ensuring that MAVIS remains a safe, respectful, and productive community for all.
+  </p>
+
+  </div>
+</body>
+</html>
