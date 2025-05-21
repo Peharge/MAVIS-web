@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum</title>
+  <link rel="icon" type="image/x-icon" href="icons/mavis-logo-new.png" />
+  <style>
+    /* Hintergrund mit Bild und dunklem Verlauf */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-image:
+          linear-gradient(to bottom,
+              rgba(0, 0, 0, 1) 0%,
+              rgba(0, 0, 0, 0) 10%,
+              rgba(0, 0, 0, 0) 90%,
+              rgba(0, 0, 0, 1) 100%),
+          url('images/mavis-1-5-banner-1.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 160vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* Stil der Box */
+    .overlay {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.440);
+            border-left: 2px  rgba(0, 0, 0, 0.545) outset;
+            box-shadow: 20px 30px 15px rgba(0, 0, 0, 0.280);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            max-width: 1600px;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #f0f0f0;
+    }
+
+    a {
+      color: #66ccff;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .overlay {
+        padding: 1.2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+  <h1>Contributing to MAVIS</h1>
+
+  <div class="image-container">
+    <img alt="mavis" src="./icons/MAVIS-icon-banner-3.svg" />
+    <img alt="mavis-launcher" src="./icons/MAVIS-launcher-icon-banner-3.svg" />
+    <img alt="mavis-terminal" src="./icons/MAVIS-terminal-icon-banner-3.svg" />
+    <img alt="tg-loerrach" src="https://img.shields.io/badge/TG Lörrach-red?style=flat" />
+    <img alt="peharge" src="./icons/Peharge-banner-3.svg" />
+  </div>
+
+  <p>Thank you for your interest in MAVIS! While we do not currently accept code contributions, we greatly value feedback and suggestions from the community to help improve MAVIS. Your insights and suggestions will play a key role in making MAVIS even better for researchers and scientists.</p>
+
+  <h2>How You Can Help</h2>
+  <p>There are several ways you can contribute to the development and improvement of MAVIS:</p>
+
+  <h3>1. <strong>Provide Feedback</strong></h3>
+  <ul>
+    <li>Share your experience using MAVIS. What works well for you? What could be improved?</li>
+    <li>Report any bugs or issues you encounter while using MAVIS.</li>
+    <li>Suggest new features or enhancements that would make MAVIS more useful for researchers.</li>
+  </ul>
+  <p>To provide feedback, simply open a new <a href="https://github.com/Peharge/MAVIS/issues" target="_blank" rel="noopener noreferrer">issue</a> in our GitHub repository. Be sure to include:</p>
+  <ul>
+    <li>A clear title summarizing the issue or suggestion.</li>
+    <li>A detailed description of the problem or suggestion, including steps to reproduce any issues if applicable.</li>
+    <li>Any relevant screenshots, logs, or additional context that may help us understand your feedback.</li>
+  </ul>
+
+  <h3>2. <strong>Rate and Review MAVIS</strong></h3>
+  <ul>
+    <li>If you’re finding MAVIS useful for your research, let us know! Your positive reviews and ratings will help us reach more scientists who can benefit from MAVIS.</li>
+    <li>We encourage you to leave a review of MAVIS on any platform where it is available, or share your thoughts via GitHub Issues.</li>
+  </ul>
+  <p>Your feedback and reviews help us prioritize development and understand how MAVIS is being used in the scientific community.</p>
+
+  <h3>3. <strong>Spread the Word</strong></h3>
+  <ul>
+    <li>Tell your colleagues, fellow researchers, and peers about MAVIS. Help us expand our reach so that more scientists and researchers can benefit from free AI infrastructure.</li>
+    <li>Share your experiences with MAVIS on social media, blogs, or academic platforms.</li>
+  </ul>
+
+  <h2>Reporting Issues</h2>
+  <p>If you encounter any bugs or issues, please report them by creating a new issue in the <a href="https://github.com/Peharge/MAVIS/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> section of this repository. To make it easier for us to resolve, include:</p>
+  <ul>
+    <li>A <strong>detailed description</strong> of the problem.</li>
+    <li>The <strong>steps to reproduce</strong> the issue.</li>
+    <li>Any <strong>error messages</strong>, logs, or screenshots.</li>
+  </ul>
+
+  <h2>Code of Conduct</h2>
+  <p>By participating in the MAVIS community, we expect all users to follow our <a href="CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">Code of Conduct</a>. We are committed to creating a respectful and supportive environment for everyone.</p>
+
+  <hr />
+
+  <h3>Thank you!</h3>
+  <p>Even though MAVIS is not currently accepting code contributions, we deeply appreciate your support through feedback, reviews, and spreading the word. Your involvement helps make MAVIS a better platform for scientists and researchers worldwide.</p>
+
+
+  </div>
+</body>
+</html>
