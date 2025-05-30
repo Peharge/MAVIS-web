@@ -1099,8 +1099,8 @@
           "    <div class=\"category\">\n" +
           "        <h2>WSL / GCC / G++</h2>\n" +
           "        <ul>\n" +
-          "            <li><code>wsl g++ -o {user_input}</code></li>\n" +
-          "            <li><code>wsl gcc -o {user_input}</code></li>\n" +
+          "            <li><code>pc g++ {user_input}</code></li>\n" +
+          "            <li><code>pc gcc {user_input}</code></li>\n" +
           "            <li><code>wsl g++ --version</code> – Anzeige der installierten G++-Version</li>\n" +
           "            <li><code>wsl {user_input}</code> – Ausführen eines kompilierten Programms innerhalb von WSL</li>\n" +
           "        </ul>\n" +
@@ -1109,6 +1109,7 @@
           "    <div class=\"category\">\n" +
           "        <h2>Rust</h2>\n" +
           "        <ul>\n" +
+          "            <li><code>pc-rust {user_input}</code> – Kompilierung einer Rust-Datei</li>\n" +
           "            <li><code>rustc {user_input}</code> – Kompilierung einer Rust-Datei</li>\n" +
           "        </ul>\n" +
           "    </div>\n" +
@@ -1116,6 +1117,8 @@
           "    <div class=\"category\">\n" +
           "        <h2>Node.js / TypeScript</h2>\n" +
           "        <ul>\n" +
+          "            <li><code>pc-js {user_input}</code> – Ausführen einer JavaScript-Datei</li>\n" +
+          "            <li><code>pc-node {user_input}</code> – Ausführen einer JavaScript-Datei</li>\n" +
           "            <li><code>node {user_input}</code> – Ausführen einer JavaScript-Datei</li>\n" +
           "            <li><code>tsc {user_input}</code> – Kompilierung einer TypeScript-Datei</li>\n" +
           "            <li><code>ts-node {user_input}</code> – Direktes Ausführen einer TypeScript-Datei</li>\n" +
@@ -1125,6 +1128,7 @@
           "    <div class=\"category\">\n" +
           "        <h2>Java</h2>\n" +
           "        <ul>\n" +
+          "            <li><code>pc-java {user_input}</code> – Kompilierung einer Java-Datei</li>\n" +
           "            <li><code>javac {user_input}</code> – Kompilierung einer Java-Datei</li>\n" +
           "            <li><code>java -jar {user_input}</code> – Ausführen einer .jar-Datei</li>\n" +
           "        </ul>\n" +
@@ -1133,6 +1137,7 @@
           "    <div class=\"category\">\n" +
           "        <h2>Kotlin</h2>\n" +
           "        <ul>\n" +
+          "            <li><code>pc-kotlin {user_input}</code> – Kompilierung mit Laufzeitumgebung</li>\n" +
           "            <li><code>kotlinc hello.kt -include-runtime -d {user_input}</code> – Kompilierung mit Laufzeitumgebung</li>\n" +
           "            <li><code>kotlinc -script {user_input}</code> – Ausführen eines Kotlin-Skripts</li>\n" +
           "        </ul>\n" +
@@ -1141,7 +1146,11 @@
           "    <div class=\"category\">\n" +
           "        <h2>Python</h2>\n" +
           "        <ul>\n" +
+          "            <li><code>prp {user_input}</code> – Ausführen eines Python-Skripts</li>\n" +
+          "            <li><code>pcp {user_input}</code> – Erstellen einer ausführbaren Datei</li>\n" +
+          "            <li><code>pc-python {user_input}</code> – Erstellen einer ausführbaren Datei</li>\n" +
           "            <li><code>python {user_input}</code> – Ausführen eines Python-Skripts</li>\n" +
+          "            <li><code>pythonc {user_input}</code> – Erstellen einer ausführbaren Datei</li>\n" +
           "            <li><code>pyinstaller --onefile {user_input}</code> – Erstellen einer ausführbaren Datei</li>\n" +
           "            <li><code>pyinstaller --onefile --noconsole --icon={user_input}</code> – Erstellen mit Icon und ohne Konsole</li>\n" +
           "        </ul>\n" +
@@ -1150,6 +1159,7 @@
           "    <div class=\"category\">\n" +
           "        <h2>Go</h2>\n" +
           "        <ul>\n" +
+          "            <li><code>pc-go {user_input}</code></li>\n" +
           "            <li><code>go run {user_input}</code></li>\n" +
           "            <li><code>go build {user_input}</code></li>\n" +
           "        </ul>\n" +
@@ -1158,20 +1168,20 @@
           "    <div class=\"category\">\n" +
           "        <h2>Weitere Sprachen</h2>\n" +
           "        <ul>\n" +
-          "            <li><code>julia {user_input}</code> – Julia</li>\n" +
-          "            <li><code>php {user_input}</code> – PHP</li>\n" +
-          "            <li><code>lua {user_input}</code> – Lua</li>\n" +
-          "            <li><code>glue srlua.exe {user_input}</code> – Lua mit srlua</li>\n" +
-          "            <li><code>swift {user_input}</code> – Swift</li>\n" +
-          "            <li><code>dart run {user_input}</code> – Dart</li>\n" +
-          "            <li><code>ghc {user_input}</code> – Haskell kompilieren</li>\n" +
-          "            <li><code>ghci {user_input}</code> – Haskell interaktiv</li>\n" +
-          "            <li><code>dotnet fsi {user_input}</code> – F# interaktive Shell</li>\n" +
-          "            <li><code>scalac {user_input}</code> – Scala kompilieren</li>\n" +
-          "            <li><code>clj {user_input}</code> – Clojure</li>\n" +
-          "            <li><code>ocamlc {user_input}</code> – OCaml</li>\n" +
-          "            <li><code>elixir {user_input}</code> – Elixir</li>\n" +
+          "            <li><code>pc-julia {user_input}</code> – Julia</li>\n" +
+          "            <li><code>pc-php {user_input}</code> – PHP</li>\n" +
+          "            <li><code>pc-lua {user_input}</code> – Lua</li>\n" +
+          "            <li><code>pc-tsc {user_input}</code> – Lua mit srlua</li>\n" +
+          "            <li><code>pc-swift {user_input}</code> – Swift</li>\n" +
+          "            <li><code>pc-dart {user_input}</code> – Dart</li>\n" +
+          "            <li><code>pc-haskell {user_input}</code> – Haskell interaktiv</li>\n" +
+          "            <li><code>pc-dotnet {user_input}</code> – F# interaktive Shell</li>\n" +
+          "            <li><code>pc-scalac {user_input}</code> – Scala kompilieren</li>\n" +
+          "            <li><code>pc-clj {user_input}</code> – Clojure</li>\n" +
+          "            <li><code>pc-ocamlc {user_input}</code> – OCaml</li>\n" +
+          "            <li><code>pc-elixir {user_input}</code> – Elixir</li>\n" +
           "        </ul>\n" +
+          "more\n" +
           "    </div>" },
   { cmd: "fun", desc: "<h1>Übersicht der Fun-Befehle</h1>\n" +
           "    <p>Diese Befehle aktivieren verschiedene spaßige Konsolenanimationen, ASCII-Spiele oder witzige Effekte. Ideal für Terminal-Entertainment oder Demonstrationen.</p>\n" +
