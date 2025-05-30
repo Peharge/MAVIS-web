@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MAVIS - P-Terminal</title>
+  <link rel="icon" type="image/x-icon" href="icons/mavis-logo-new.png" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Stile für das .headline div */
+    .headline {
+        display: flex; /* Flexbox aktivieren */
+        justify-content: center; /* Horizontal zentrieren */
+        align-items: center; /* Vertikal zentrieren */
+    }
+
+    .headline-3 {
+        display: flex; /* Flexbox aktivieren */
+        justify-content: center; /* Horizontal zentrieren */
+        align-items: center; /* Vertikal zentrieren */
+        flex-direction: column; /* Elemente untereinander anordnen */
+        margin: 0;
+        padding: 0;
+    }
+
+    .headline-3 > * {
+        margin-bottom: -8px; /* Negative Marge für die Kinder anwenden */
+    }
+
+    .headline-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+    }
+
+    .headline-4.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Kinder einzeln verzögert */
+    .headline-4 > * {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .headline-4.in-view > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Verzögerung pro Kind */
+    .headline-4.in-view > *:nth-child(1) { transition-delay: 0.3s; }
+    .headline-4.in-view > *:nth-child(2) { transition-delay: 0.6s; }
+    .headline-4.in-view > *:nth-child(3) { transition-delay: 0.9s; }
+    /* ... füge weitere hinzu bei Bedarf */
+
+
+    /* Grundlegende Stile für das h1 */
+    .headline h1 {
+        font-family: 'Courier New', monospace;
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+        color: #fff; /* Grüne Farbe */
+        display: inline-block;
+        border-right: 3px solid black; /* Simuliert den Cursor-Effekt */
+        padding-right: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0; /* Start mit null Breite */
+        animation: typing 4s steps(40) 0s forwards, deleting 4s steps(40) 4s forwards; /* Versatz für das Löschen */
+        animation-iteration-count: infinite; /* Unendliche Wiederholung */
+    }
+
+    /* Animation für das Schreiben */
+    @keyframes typing {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 85%; /* Schreibe bis zu 85% der Breite */
+        }
+    }
+
+    /* Animation für das Löschen */
+    @keyframes deleting {
+        0% {
+            width: 85%; /* Beginnt mit der vollen Breite des geschriebenen Texts */
+        }
+        100% {
+            width: 0; /* Löscht den Text */
+        }
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .logo img {
+      width: 30%;
+      max-width: 1000px;
+      filter: drop-shadow(0 0px 20px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
+    }
+
+    .img-1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Bild: Grundzustand – versteckt und leicht unten */
+    .img-1 img {
+        width: 50%;
+        max-width: 2000px;
+        border-radius: 10px;
+        filter: drop-shadow(0 0px 10px rgb(255, 255, 255));
+
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1.8s ease, transform 1.8s ease;
+    }
+
+    /* Sichtbar mit Animation nach oben */
+    .img-1.in-view img {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 15px;
+    }
+
+    .terminal-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-3 {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-3::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://img.icons8.com/ios_filled/512/FFFFFF/windows-11.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+    }
+
+    .terminal-button-3:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('https://img.icons8.com/ios_filled/512/000000/windows-11.png');
+    }
+
+    .terminal-button-3:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-4 {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-4::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('icons/p-term-logo-5.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      filter: brightness(0) invert(1); /* Weiß */
+      margin-left: 15px;
+    }
+
+    .terminal-button-4:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('icons/p-term-logo-5.png');
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-4:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-github {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-github::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .terminal-button-github:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-github:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-huggingface {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-huggingface::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/huggingface-ieplm3z71nlrt3qz5gujl.png/huggingface-epevjo31sauq02pf2urer.png?_a=DATAdtAAZAA0');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .terminal-button-huggingface:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-huggingface:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .mavis-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mavis-button::after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      background-image: url('./icons/mavis-logo-new.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .mavis-button:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .mavis-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .arch-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .arch-button::after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://img.icons8.com/?size=512&id=6M7Il2xpbLYM&format=png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .arch-button:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .arch-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+
+    .terminal {
+      border-radius: 10px;
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .terminal-3 {
+      border-radius: 10px;
+      border: 1px solid #fff;
+      padding: 20px;
+      margin-left: 15px; /* Optional: Setzt alle Ränder auf 0 */
+      width: 60%;
+    }
+
+    .terminal-4 {
+      border-radius: 10px;
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .command {
+      margin-bottom: 20px;
+    }
+
+    .cmd {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .description {
+      color: #ccc;
+      margin-left: 20px;
+    }
+
+    a {
+      color: #1fb1ff;
+      text-decoration: none;
+      transition: text-shadow 0.3s ease;
+    }
+
+    a:hover {
+      color: #0066ff;
+      text-shadow: 0 0 10px #1fb1ff;
+    }
+
+    :root {
+      --gap: 2rem;
+      --bg: #111;
+      --radius: 0.5rem;
+      --shadow: 0 0 20px #fff;
+      --accent: #fff;
+      --text: #ccc;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --min-col-width: 300px; /* verhindert, dass Spalten zu schmal werden */
+        /* schon in deinem Stylesheet definiert */
+      --transition-speed: 0.35s;
+    }
+
+    .section-pp-terminal {
+      max-width: 80%;
+      margin: 0 auto var(--gap);
+    }
+
+    .row-pp-terminal {
+      display: flex;
+      flex-wrap: nowrap;            /* kein Zeilenumbruch */
+      /* ... */
+      min-height: 500px;    /* oder height: 500px; */
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    .text-area-pp-terminal, .image-area-pp-terminal {
+      flex: 0 0 45%;                /* jeweils 50% der Container-Breite */
+      min-width: var(--min-col-width);
+    }
+
+    .text-area-pp-terminal {
+      padding: var(--gap);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .text-area-pp-terminal h2 {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+
+    .text-area-pp-terminal p {
+      color: #ccc;
+      margin: 0;
+      font-size: clamp(1rem, 1vw, 2.5rem);
+    }
+
+    /* 2. Image-Container auf 80 % der Elternhöhe begrenzen */
+    .image-area-pp-terminal {
+      position: relative;
+      width: 20%;                  /* oder flex: 0 0 50%; */
+      height: 30%;                 /* genau 80 % der Höhe von .row */
+      max-height: 30%;             /* auf Nummer sicher gehen */
+      overflow: hidden;
+      border-radius: var(--radius);
+      filter: drop-shadow(0 0px 10px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
+      transform: translateZ(0);
+
+      /* Fade-In */
+      opacity: 0;
+      animation: fadeIn var(--transition-speed) ease-out forwards;
+    }
+
+    /* 3. Bild im Container */
+    .image-area-pp-terminal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Keyframes für Fade-In */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <img src="./images/banner-3.png" alt="Mein Logo">
+  </div>
+
+  <div class="headline-3">
+      <h1 style="font-size: 4rem;">Peharge Terminal Community</h1>
+  </div>
+
+  <br><br><br>
+
+  <div class="button-container">
+    <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal', '_blank')">P-Terminal GitHub</button>
+    <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
+    <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/p-term/run-p-term.bat', '_blank')">Download P-Term (SOON)</button>
+    <button class="mavis-button" onclick="window.open('https://peharge.github.io/MAVIS-web/', '_blank')">MAVIS.com</button>
+
+    <br>
+  </div>
+
+<div class="headline-3">
+      <h3 style="font-size: 4rem;">soon</h3>
+  </div>
+
+<br><br><br>
+
+</body>
+</html>
