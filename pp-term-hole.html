@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MAVIS - P-Terminal</title>
+  <link rel="icon" type="image/x-icon" href="icons/mavis-logo-new.png" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Stile für das .headline div */
+    .headline {
+        display: flex; /* Flexbox aktivieren */
+        justify-content: center; /* Horizontal zentrieren */
+        align-items: center; /* Vertikal zentrieren */
+    }
+
+    .headline-3 {
+        display: flex; /* Flexbox aktivieren */
+        justify-content: center; /* Horizontal zentrieren */
+        align-items: center; /* Vertikal zentrieren */
+        flex-direction: column; /* Elemente untereinander anordnen */
+        margin: 0;
+        padding: 0;
+    }
+
+    .headline-3 > * {
+        margin-bottom: -8px; /* Negative Marge für die Kinder anwenden */
+    }
+
+    .headline-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1.5s ease, transform 1.5s ease;
+    }
+
+    .headline-4.in-view {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Kinder einzeln verzögert */
+    .headline-4 > * {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .headline-4.in-view > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Verzögerung pro Kind */
+    .headline-4.in-view > *:nth-child(1) { transition-delay: 0.3s; }
+    .headline-4.in-view > *:nth-child(2) { transition-delay: 0.6s; }
+    .headline-4.in-view > *:nth-child(3) { transition-delay: 0.9s; }
+    /* ... füge weitere hinzu bei Bedarf */
+
+
+    /* Grundlegende Stile für das h1 */
+    .headline h1 {
+        font-family: 'Courier New', monospace;
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+        color: #fff; /* Grüne Farbe */
+        display: inline-block;
+        border-right: 3px solid black; /* Simuliert den Cursor-Effekt */
+        padding-right: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0; /* Start mit null Breite */
+        animation: typing 4s steps(40) 0s forwards, deleting 4s steps(40) 4s forwards; /* Versatz für das Löschen */
+        animation-iteration-count: infinite; /* Unendliche Wiederholung */
+    }
+
+    /* Animation für das Schreiben */
+    @keyframes typing {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 85%; /* Schreibe bis zu 85% der Breite */
+        }
+    }
+
+    /* Animation für das Löschen */
+    @keyframes deleting {
+        0% {
+            width: 85%; /* Beginnt mit der vollen Breite des geschriebenen Texts */
+        }
+        100% {
+            width: 0; /* Löscht den Text */
+        }
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .logo img {
+      width: 25%;
+      max-width: 1000px;
+      filter: drop-shadow(0 0px 20px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
+    }
+
+    .img-1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Bild: Grundzustand – versteckt und leicht unten */
+    .img-1 img {
+        width: 80%;
+        max-width: 2000px;
+        border-radius: 10px;
+        filter: drop-shadow(0 0px 15px rgb(255, 255, 255));
+
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1.8s ease, transform 1.8s ease;
+    }
+
+    /* Sichtbar mit Animation nach oben */
+    .img-1.in-view img {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 15px;
+    }
+
+    .terminal-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-3 {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-3::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://img.icons8.com/ios_filled/512/FFFFFF/windows-11.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+    }
+
+    .terminal-button-3:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('https://img.icons8.com/ios_filled/512/000000/windows-11.png');
+    }
+
+    .terminal-button-3:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-4 {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-4::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('icons/p-term-logo-5.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      filter: brightness(0) invert(1); /* Weiß */
+      margin-left: 15px;
+    }
+
+    .terminal-button-4:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('icons/p-term-logo-5.png');
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-4:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-github {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-github::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .terminal-button-github:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-github:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .terminal-button-huggingface {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-huggingface::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/huggingface-ieplm3z71nlrt3qz5gujl.png/huggingface-epevjo31sauq02pf2urer.png?_a=DATAdtAAZAA0');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .terminal-button-huggingface:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-huggingface:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .mavis-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mavis-button::after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      background-image: url('./icons/mavis-logo-new.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .mavis-button:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .mavis-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+    .arch-button {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .arch-button::after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://img.icons8.com/?size=512&id=6M7Il2xpbLYM&format=png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 15px;
+      filter: brightness(0) invert(1); /* Weiß */
+      transition: all 0.2s ease;
+    }
+
+    .arch-button:hover::after {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .arch-button:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
+
+
+    .terminal {
+      border-radius: 10px;
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .terminal-3 {
+      border-radius: 10px;
+      border: 1px solid #fff;
+      padding: 20px;
+      margin-left: 15px; /* Optional: Setzt alle Ränder auf 0 */
+      width: 60%;
+    }
+
+    .terminal-4 {
+      border-radius: 10px;
+      background-color: #111;
+      border: 1px solid #333;
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    .command {
+      margin-bottom: 20px;
+    }
+
+    .cmd {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .description {
+      color: #fff;
+      margin-left: 20px;
+    }
+
+    a {
+      color: #1fb1ff;
+      text-decoration: none;
+      transition: text-shadow 0.3s ease;
+    }
+
+    a:hover {
+      color: #0066ff;
+      text-shadow: 0 0 10px #1fb1ff;
+    }
+
+    :root {
+      --gap: 2rem;
+      --bg: #111;
+      --radius: 0.5rem;
+      --shadow: 0 0 20px #fff;
+      --accent: #fff;
+      --text: #ccc;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --min-col-width: 300px; /* verhindert, dass Spalten zu schmal werden */
+        /* schon in deinem Stylesheet definiert */
+      --transition-speed: 0.35s;
+    }
+
+    .section-pp-terminal {
+      max-width: 100%;
+      margin: 0 auto var(--gap);
+    }
+
+    .row-pp-terminal {
+      display: flex;
+      flex-wrap: nowrap;            /* kein Zeilenumbruch */
+      /* ... */
+      min-height: 500px;    /* oder height: 500px; */
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    .text-area-pp-terminal, .image-area-pp-terminal {
+      flex: 0 0 45%;                /* jeweils 50% der Container-Breite */
+      min-width: var(--min-col-width);
+    }
+
+    .text-area-pp-terminal {
+      padding: var(--gap);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .text-area-pp-terminal h2 {
+      margin: 0 0 1rem;
+      color: var(--accent);
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+
+    .text-area-pp-terminal p {
+      color: #ccc;
+      margin: 0;
+      font-size: clamp(1rem, 1vw, 2.5rem);
+    }
+
+    /* 2. Image-Container auf 80 % der Elternhöhe begrenzen */
+    .image-area-pp-terminal {
+      position: relative;
+      width: 20%;                  /* oder flex: 0 0 50%; */
+      height: 30%;                 /* genau 80 % der Höhe von .row */
+      max-height: 30%;             /* auf Nummer sicher gehen */
+      overflow: hidden;
+      border-radius: var(--radius);
+      filter: drop-shadow(0 0px 10px rgb(255, 255, 255)); /* Schatten nur um die Form des Logos */
+      transform: translateZ(0);
+
+      /* Fade-In */
+      opacity: 0;
+      animation: fadeIn var(--transition-speed) ease-out forwards;
+    }
+
+    /* 3. Bild im Container */
+    .image-area-pp-terminal img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Keyframes für Fade-In */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+/* From Uiverse.io by Na3ar-17 */
+.container * {
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  width: 363px;
+  height: 100px;
+  background-color: #111;
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: 40px 1fr;
+    box-shadow: 0 0 10px #fff;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.card .header {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.card .header .title {
+  color: #1fb1ff;
+  font-size: 13px;
+  padding: 2px 12px;
+}
+
+.card .header .copy {
+  position: absolute;
+  background: transparent;
+  border: none;
+  top: 61%;
+  right: 1px;
+  transform: translate(-50%, -50%);
+  color: rgb(100, 116, 139);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.card .header .copy:hover {
+  color: #1fb1ff;
+}
+
+.card .header::before {
+  content: "";
+  position: absolute;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid #64748b4d;
+  right: 1px;
+  bottom: 0;
+  background-color: #33415580;
+  width: 282px;
+  height: 39px;
+  z-index: 100;
+}
+
+.card .header::after {
+  content: "";
+  position: absolute;
+  width: 22%;
+  height: 1px;
+  background-color: #1fb1ff;
+  bottom: 0;
+}
+
+.card .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding-left: 10px;
+}
+
+.card .footer .code {
+  display: flex;
+  align-items: center;
+}
+
+.card .footer .code .icon {
+  color: rgb(244, 114, 182);
+  padding-top: 3px;
+}
+
+.card .footer .code .text {
+  padding-left: 3px;
+  color: #f8fafc;
+}
+
+
+  </style>
+</head>
+<body>
+
+    <div class="headline-4">
+      <h1 style="font-size: 5rem; margin-bottom: -8px">Learn PP-Terminal 5</h1>
+      <h2 style="font-size: 1.6rem; margin-bottom: -8px">Why show the standard? The PP Terminal does it all</h2>
+      <h2 style="font-size: 1.6rem; margin-bottom: -8px">— but we show you what sets it apart.</h2>
+    </div>
+
+  <br><br><br>
+
+   <div class="img-1">
+    <img src="./images/pp-term-5-new.png" alt="Mein Logo">
+  </div>
+
+  <br><br><br>
+
+    <div class="button-container">
+        <button class="terminal-button-github" onclick="window.open('https://github.com/Peharge/p-terminal/tree/main/pp-term', '_blank')">PP-Term GitHub</button>
+        <button class="terminal-button-3" onclick="window.open('https://github.com/Peharge/p-terminal/blob/main/pp-term/run-pp-term.bat', '_blank')">Download PP-Term</button>
+        <button class="terminal-button-4" onclick="window.open('commands-pp-term.html', '_blank')">PP-Term Commands</button>
+  </div>
+
+    <br><br><br>
+
+  <section class="section-pp-terminal">
+
+      <div class="terminal">
+    <h2>Command list</h2>
+    <div id="command-list"></div>
+          <h3>and more</h3>
+  </div>
+
+  <script>
+    const commands = [
+  { cmd: "p", desc: "<h1>p-Command-System – Dokumentation</h1>\n" +
+          "        <p>\n" +
+          "            Der <strong>p-Command</strong> bietet eine flexible und einheitliche Oberfläche zur Steuerung interaktiver Skripte,\n" +
+          "            Abfragen von Systeminformationen und Interaktionen mit APIs, Git-Repositories, WSL-Distributionen sowie Modellverwaltungen.\n" +
+          "            Es handelt sich um ein konsolidiertes Kommando-Interface zur Automatisierung und Visualisierung verschiedenster Abläufe\n" +
+          "            über einfache Präfix-Kommandos im Format <code>p &lt;subcommand&gt;</code>.\n" +
+          "        </p>\n" +
+          "    </header>\n" +
+          "\n" +
+          "    <section>\n" +
+          "        <h2>Funktionsweise</h2>\n" +
+          "        <p>\n" +
+          "            Jeder Befehl mit dem Präfix <code>p</code> ist einer spezifischen Funktion oder einem interaktiven Interface zugeordnet.\n" +
+          "            Diese Befehle mappen intern auf entsprechende Python-Skripte, die unter <code>pp-commands\\\\</code> gespeichert sind\n" +
+          "            und zumeist eine GUI oder ein Terminalinterface bereitstellen.\n" +
+          "        </p>\n" +
+          "    </section>\n" +
+          "\n" +
+          "    <section>\n" +
+          "        <h2>Kategorisierung der Kommandos</h2>\n" +
+          "\n" +
+          "        <h3>System & Utilities</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p htop</li>\n" +
+          "            <li>p neofetch</li>\n" +
+          "            <li>p fastfetch</li>\n" +
+          "            <li>p screenfetch</li>\n" +
+          "            <li>p speedtest</li>\n" +
+          "            <li>p vswhere</li>\n" +
+          "            <li>p pip list</li>\n" +
+          "            <li>p pip ls</li>\n" +
+          "            <li>p pip</li>\n" +
+          "            <li>p python frameworks</li>\n" +
+          "        </ul>\n" +
+          "\n" +
+          "        <h3>Suche & Recherche</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p search</li>\n" +
+          "            <li>p google</li>\n" +
+          "            <li>p google.com</li>\n" +
+          "            <li>p wikipedia</li>\n" +
+          "            <li>p youtube</li>\n" +
+          "        </ul>\n" +
+          "\n" +
+          "        <h3>Verzeichnis- und Modellverwaltung</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p ls</li>\n" +
+          "            <li>p ls pp-term</li>\n" +
+          "            <li>p ls p-terminal</li>\n" +
+          "            <li>p ls mavis</li>\n" +
+          "            <li>p ls mavis-web</li>\n" +
+          "            <li>p ls simon</li>\n" +
+          "            <li>p models</li>\n" +
+          "            <li>p models ls</li>\n" +
+          "        </ul>\n" +
+          "\n" +
+          "        <h3>Git-Kommandos</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p git</li>\n" +
+          "            <li>p git ls</li>\n" +
+          "            <li>p git mavis</li>\n" +
+          "            <li>p git mavis-web</li>\n" +
+          "            <li>p git simon</li>\n" +
+          "            <li>p git llama.cpp</li>\n" +
+          "            <li>p git pytorch</li>\n" +
+          "            <li>p git tensorflow</li>\n" +
+          "            <li>p git jax</li>\n" +
+          "            <li>p git ollama</li>\n" +
+          "            <li>p git transformer</li>\n" +
+          "            <li>p git slicer</li>\n" +
+          "            <li>p git linux</li>\n" +
+          "            <li>p git python</li>\n" +
+          "            <li>p git p-terminal</li>\n" +
+          "            <li>p git p-terminal-old</li>\n" +
+          "        </ul>\n" +
+          "\n" +
+          "        <h3>Model Runs</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p run all</li>\n" +
+          "            <li>p run gemma3</li>\n" +
+          "            <li>p run deepseek-r1</li>\n" +
+          "            <li>p run qwen2.5</li>\n" +
+          "            <li>p run qwen2.5-coder</li>\n" +
+          "        </ul>\n" +
+          "\n" +
+          "        <h3>Webseiten & Plattformen</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p huggingface</li>\n" +
+          "            <li>p huggingface.com</li>\n" +
+          "            <li>p github</li>\n" +
+          "            <li>p github.com</li>\n" +
+          "            <li>p github p-terminal</li>\n" +
+          "            <li>p github mavis</li>\n" +
+          "            <li>p github commits</li>\n" +
+          "            <li>p github issues</li>\n" +
+          "            <li>p github peharge</li>\n" +
+          "            <li>p github pulls</li>\n" +
+          "            <li>p github readme</li>\n" +
+          "            <li>p github releases</li>\n" +
+          "            <li>p ollama</li>\n" +
+          "            <li>p ollama.com</li>\n" +
+          "            <li>p monai.com</li>\n" +
+          "            <li>p monai-github.com</li>\n" +
+          "            <li>p python.com</li>\n" +
+          "            <li>p pytorch.com</li>\n" +
+          "            <li>p pytorch-github.com</li>\n" +
+          "            <li>p 3dslicer.com</li>\n" +
+          "            <li>p 3dslicer-github.com</li>\n" +
+          "            <li>p simon.com</li>\n" +
+          "            <li>p mavis.com</li>\n" +
+          "        </ul>\n" +
+          "\n" +
+          "        <h3>WSL Distributionen</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p wsl</li>\n" +
+          "            <li>p ubuntu</li>\n" +
+          "            <li>p debian</li>\n" +
+          "            <li>p kali</li>\n" +
+          "            <li>p arch</li>\n" +
+          "            <li>p mint</li>\n" +
+          "            <li>p opensuse</li>\n" +
+          "            <li>p fedora</li>\n" +
+          "            <li>p redhat</li>\n" +
+          "            <li>p alpine</li>\n" +
+          "            <li>p clear</li>\n" +
+          "            <li>p oracle</li>\n" +
+          "            <li>p pengwin</li>\n" +
+          "            <li>p sles</li>\n" +
+          "        </ul>\n" +
+          "\n" +
+          "        <h3>Weitere Tools & Interfaces</h3>\n" +
+          "        <ul>\n" +
+          "            <li>p p-terminal</li>\n" +
+          "            <li>p p-terminal.com</li>\n" +
+          "            <li>p mavis</li>\n" +
+          "            <li>p simon</li>\n" +
+          "        </ul>\n" +
+          "    </section>\n" +
+          "\n" },
+  { cmd: "pp", desc: "<header>\n" +
+          "    <h1>pp-Command-System – Dokumentation für Administratorbefehle</h1>\n" +
+          "    <p>\n" +
+          "      Das <strong>pp-Command-System</strong> ermöglicht die <em>ausnahmslose Ausführung sicherheitskritischer Befehle mit Administratorrechten</em>.\n" +
+          "      Es ist darauf ausgelegt, systemnahe Funktionen – Dateioperationen, Prozessmanagement, Netzwerkscans und PowerShell-Kommandos – sicher und direkt per <code>pp &lt;befehl&gt;</code> auszuführen.\n" +
+          "    </p>\n" +
+          "  </header>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>Berechtigungs-Framework</h2>\n" +
+          "    <p>\n" +
+          "      Jeder Befehl im <code>pp</code>-System nutzt intern <code>run_command_with_admin_python_privileges</code>, um eine sichere, erhöhte Umgebung für PowerShell oder Python-kompatible Operationen bereitzustellen.\n" +
+          "    </p>\n" +
+          "  </section>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>Verfügbare Kommandos</h2>\n" +
+          "\n" +
+          "    <h3>Datei- & Verzeichnisoperationen</h3>\n" +
+          "    <ul>\n" +
+          "      <li><code>pp-rm &lt;file_or_folder&gt;</code> – Löscht Dateien/Ordner rekursiv mit <strong>Force</strong></li>\n" +
+          "      <li><code>pp-open &lt;file&gt;</code> – Öffnet Datei mit Standardprogramm</li>\n" +
+          "      <li><code>pp-run &lt;exe_or_script&gt;</code> – Startet beliebige ausführbare Datei</li>\n" +
+          "      <li><code>pp-del &lt;target&gt;</code> – Alternative zu <code>pp-rm</code>, ebenfalls rekursiv</li>\n" +
+          "      <li><code>pp-mkdir &lt;foldername&gt;</code> – Erstellt neues Verzeichnis</li>\n" +
+          "      <li><code>pp-touch &lt;filename&gt;</code> – Erstellt leere Datei</li>\n" +
+          "      <li><code>pp-cp &lt;quelle&gt; &lt;ziel&gt;</code> – Kopiert Dateien/Ordner mit allen Inhalten</li>\n" +
+          "      <li><code>pp-mv &lt;quelle&gt; &lt;ziel&gt;</code> – Verschiebt Dateien oder Verzeichnisse</li>\n" +
+          "      <li><code>pp-ls</code> – Listet Inhalte im aktuellen Verzeichnis auf</li>\n" +
+          "      <li><code>pp-cat &lt;datei&gt;</code> – Gibt Inhalt einer Datei im Terminal aus</li>\n" +
+          "      <li><code>pp-zip &lt;quelle&gt; &lt;ziel.zip&gt;</code> – Komprimiert Verzeichnis</li>\n" +
+          "      <li><code>pp-unzip &lt;.zip&gt; &lt;zielverzeichnis&gt;</code> – Entpackt ZIP-Datei</li>\n" +
+          "    </ul>\n" +
+          "\n" +
+          "    <h3>Suche & Analyse</h3>\n" +
+          "    <ul>\n" +
+          "      <li><code>pp-search &lt;begriff&gt;</code> – Durchsucht Dateien im Verzeichnis nach Begriff</li>\n" +
+          "    </ul>\n" +
+          "\n" +
+          "    <h3>Netzwerk & Verbindung</h3>\n" +
+          "    <ul>\n" +
+          "      <li><code>pp-ping &lt;host&gt;</code> – Pingt Zielserver (4x)</li>\n" +
+          "      <li><code>pp-ipconfig</code> – Zeigt IP-Konfiguration des Systems</li>\n" +
+          "      <li><code>pp-netstat</code> – Listet aktive TCP-Verbindungen</li>\n" +
+          "    </ul>\n" +
+          "\n" +
+          "    <h3>Benutzer- & Prozessmanagement</h3>\n" +
+          "    <ul>\n" +
+          "      <li><code>pp-users</code> – Zeigt alle lokalen Benutzerkonten</li>\n" +
+          "      <li><code>pp-procs</code> – Zeigt laufende Prozesse mit CPU- & Speicherverbrauch</li>\n" +
+          "      <li><code>pp-kill &lt;pid|prozessname&gt;</code> – Beendet Prozess über PID oder Name</li>\n" +
+          "      <li><code>pp-services</code> – Listet aktive Windows-Dienste</li>\n" +
+          "    </ul>\n" +
+          "\n" +
+          "    <h3>Code-Ausführung mit Privilegien</h3>\n" +
+          "    <ul>\n" +
+          "      <li><code>pp-cpp &lt;command&gt;</code> – Führt allgemeinen PowerShell-Befehl mit Adminrechten aus</li>\n" +
+          "      <li><code>pp-c &lt;command&gt;</code> – Führt <code>C</code>-Code oder CLI-Befehle mit Adminrechten aus</li>\n" +
+          "      <li><code>pp-p &lt;python_code&gt;</code> – Führt beliebigen Python-Code mit Adminrechten aus</li>\n" +
+          "    </ul>\n" +
+          "  </section>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>Sicherheitshinweise</h2>\n" +
+          "    <ul>\n" +
+          "      <li>Jeder Befehl wird mit erhöhten Rechten ausgeführt – <strong>keine Rückfrage!</strong></li>\n" +
+          "      <li>Fehlerhafte oder gefährliche Befehle wie <code>pp-rm *</code> können ernsthafte Schäden verursachen.</li>\n" +
+          "      <li>Alle Eingaben sollten mit Bedacht erfolgen – Logging protokolliert <em>alle Operationen</em>.</li>\n" +
+          "    </ul>\n" +
+          "  </section>\n" +
+          "\n" },
+  { cmd: "ps", desc: "  <header>\n" +
+          "    <h1>ps-Command-System – Entwicklerzentrierte Suchbefehle</h1>\n" +
+          "    <p>\n" +
+          "      Das <strong><code>ps</code>-Command-System</strong> (kurz für <em>Peharge Search</em>) bietet direkten Zugriff auf kuratierte\n" +
+          "      Entwicklerressourcen, Suchmaschinen und Plattformen. Statt manuell durch dutzende Tabs zu navigieren, kannst du mit einem\n" +
+          "      präzisen Befehl gezielt suchen – direkt aus der Shell.\n" +
+          "    </p>\n" +
+          "  </header>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>Universelle Suche</h2>\n" +
+          "    <ul>\n" +
+          "      <li><code>ps &lt;suchbegriff&gt;</code> – Führt eine allgemeine Websuche mit intelligentem Ranking durch</li>\n" +
+          "      <li><code>ps-all &lt;suchbegriff&gt;</code> – Durchsucht mehrere Engines gleichzeitig (multisource)</li>\n" +
+          "      <li><code>ps-img &lt;suchbegriff&gt;</code> – Zeigt erstes gefundenes Bild zu einem Thema</li>\n" +
+          "    </ul>\n" +
+          "  </section>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>Entwicklerportale & Dokumentationen</h2>\n" +
+          "    <ul>\n" +
+          "      <li><code>ps-w3schools &lt;thema&gt;</code> – Schneller Zugriff auf Webstandards (HTML, CSS, JS)</li>\n" +
+          "      <li><code>ps-developer-mozilla &lt;thema&gt;</code> – Durchsucht MDN Web Docs (offizielle Mozilla-Doku)</li>\n" +
+          "      <li><code>ps-geeksforgeeks &lt;thema&gt;</code> – Programmierlösungen und Beispiele</li>\n" +
+          "      <li><code>ps-realpython &lt;thema&gt;</code> – Praktische Python-Tutorials und Deep Dives</li>\n" +
+          "    </ul>\n" +
+          "  </section>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>Entwickler-Communities & Support</h2>\n" +
+          "    <ul>\n" +
+          "      <li><code>ps-stackoverflow &lt;frage&gt;</code> – Durchsucht Stack Overflow gezielt nach Problemlösungen</li>\n" +
+          "      <li><code>ps-stackexchange &lt;frage&gt;</code> – Sucht in StackExchange (inkl. Mathematik, KI, Sicherheit etc.)</li>\n" +
+          "    </ul>\n" +
+          "  </section>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>KI, Forschung & maschinelles Lernen</h2>\n" +
+          "    <ul>\n" +
+          "      <li><code>ps-huggingface &lt;modell&gt;</code> – Sucht nach Modellen oder Datasets auf HuggingFace</li>\n" +
+          "      <li><code>ps-arxiv &lt;thema&gt;</code> – Recherchiert wissenschaftliche Veröffentlichungen (Preprints)</li>\n" +
+          "      <li><code>ps-paperswithcode &lt;thema&gt;</code> – Verknüpft Papers mit Quellcode & Benchmarks</li>\n" +
+          "      <li><code>ps-ollama &lt;modell&gt;</code> – Lokale KI-Modellrecherche mit Ollama</li>\n" +
+          "    </ul>\n" +
+          "  </section>\n" +
+          "\n" +
+          "  <section>\n" +
+          "    <h2>Open Source & Repositories</h2>\n" +
+          "    <ul>\n" +
+          "      <li><code>ps-github &lt;projekt&gt;</code> – Findet relevante Repositories auf GitHub</li>\n" +
+          "      <li><code>ps-pypi &lt;paketname&gt;</code> – Durchsucht das Python-Paketverzeichnis</li>\n" +
+          "      <li><code>ps-kaggle &lt;projekt&gt;</code> – Findet Datasets, Wettbewerbe oder Notebooks</li>\n" +
+          "    </ul>\n" +
+          "  </section>\n" +
+          "\n" +
+          "  <footer>\n" +
+          "    <p><strong>Hinweis:</strong> Alle Suchen erfolgen über spezialisierte Funktionen wie <code>search_stackoverflow()</code>, <code>search_paperswithcode()</code> usw. – je nach Plattform.</p>\n" +
+          "    <p><strong>Letztes Update:</strong> Mai 2025 | <strong>Entwickelt von:</strong> Peharge Systems</p>\n" +
+          "  </footer>" },
+  { cmd: "pa", desc: "<h1>Peharge AI Befehle (pa)</h1>\n" +
+          "  <p>Die <code>pa</code>-Befehle dienen zur Kommunikation mit lokal laufenden KI-Modellen über Ollama.</p>\n" +
+          "\n" +
+          "  <h2>Allgemein</h2>\n" +
+          "  <ul>\n" +
+          "    <li><code>pa &lt;eingabe&gt;</code>: Standardzugriff auf das primäre KI-Modell (z. B. qwen:14b).</li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "  <h2>Qwen Modelle</h2>\n" +
+          "  <ul>\n" +
+          "    <li><code>pa-qwen3:0.6b &lt;eingabe&gt;</code>: Nutzt das kleine Qwen-Modell (0.6B).</li>\n" +
+          "    <li><code>pa-qwen3:1.7b &lt;eingabe&gt;</code>: Nutzt Qwen 1.7B.</li>\n" +
+          "    <li><code>pa-qwen3:4b &lt;eingabe&gt;</code>: Nutzt Qwen 4B.</li>\n" +
+          "    <li><code>pa-qwen3:8b &lt;eingabe&gt;</code>: Nutzt Qwen 8B.</li>\n" +
+          "    <li><code>pa-qwen3:14b &lt;eingabe&gt;</code>: Nutzt Qwen 14B.</li>\n" +
+          "    <li><code>pa-qwen3:30b &lt;eingabe&gt;</code>: Nutzt Qwen 30B.</li>\n" +
+          "    <li><code>pa-qwen3:32b &lt;eingabe&gt;</code>: Nutzt Qwen 32B.</li>\n" +
+          "    <li><code>pa-qwen3:235b &lt;eingabe&gt;</code>: Nutzt Qwen 235B.</li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "  <h2>LLaMA 4 Modelle</h2>\n" +
+          "  <ul>\n" +
+          "    <li><code>pa-llama4:scout &lt;eingabe&gt;</code>: Nutzt LLaMA 4 Scout Modell.</li>\n" +
+          "    <li><code>pa-llama4:maverick &lt;eingabe&gt;</code>: Nutzt LLaMA 4 Maverick Modell.</li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "  <h2>DeepSeek R1 Modelle</h2>\n" +
+          "  <ul>\n" +
+          "    <li><code>pa-deepseek-r1:1.5b &lt;eingabe&gt;</code>: DeepSeek R1 mit 1.5B.</li>\n" +
+          "    <li><code>pa-deepseek-r1:7b &lt;eingabe&gt;</code>: DeepSeek R1 mit 7B.</li>\n" +
+          "    <li><code>pa-deepseek-r1:8b &lt;eingabe&gt;</code>: DeepSeek R1 mit 8B.</li>\n" +
+          "    <li><code>pa-deepseek-r1:14b &lt;eingabe&gt;</code>: DeepSeek R1 mit 14B.</li>\n" +
+          "    <li><code>pa-deepseek-r1:32b &lt;eingabe&gt;</code>: DeepSeek R1 mit 32B.</li>\n" +
+          "    <li><code>pa-deepseek-r1:70b &lt;eingabe&gt;</code>: DeepSeek R1 mit 70B.</li>\n" +
+          "    <li><code>pa-deepseek-r1:671b &lt;eingabe&gt;</code>: DeepSeek R1 mit 671B.</li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "  <h2>Gemma 3 Modelle</h2>\n" +
+          "  <ul>\n" +
+          "    <li><code>pa-gemma3:1b &lt;eingabe&gt;</code>: Gemma 3 Modell mit 1B.</li>\n" +
+          "    <li><code>pa-gemma3:4b &lt;eingabe&gt;</code>: Gemma 3 Modell mit 4B.</li>\n" +
+          "    <li><code>pa-gemma3:12b &lt;eingabe&gt;</code>: Gemma 3 Modell mit 12B.</li>\n" +
+          "    <li><code>pa-gemma3:27b &lt;eingabe&gt;</code>: Gemma 3 Modell mit 27B.</li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "  <h2>Sonstige Modelle</h2>\n" +
+          "  <ul>\n" +
+          "    <li><code>pa-devstral &lt;eingabe&gt;</code>: Zugriff auf ein spezielles Entwicklermodell namens Devstral.</li>\n" +
+          "  </ul>\n" },
+  { cmd: "lx", desc: "  <h2>Übersicht und Funktionsweise der Text-Commands</h2>\n" +
+          "  <p>Diese Dokumentation beschreibt sämtliche verfügbaren Text-Commands und deren professionelle Anwendung in Ihrer WSL-Umgebung. Jeder Befehl ist nach Präfix, Distribution und Sprache/Compiler kategorisiert.</p>\n" +
+          "\n" +
+          "\n" +
+          "  <h3>Generische Prefixe</h3>\n" +
+          "  <ul>\n" +
+          "    <li><strong><code>lx &lt;Befehl&gt;</code></strong><br>\n" +
+          "      Führt <code>&lt;Befehl&gt;</code> direkt in der Standard-WSL-Distribution (default Linux) aus.<br>\n" +
+          "      <strong>Beispiel:</strong> <code>lx ls -la</code> → listet alle Dateien im aktuellen Verzeichnis auf.\n" +
+          "    </li>\n" +
+          "    <li><strong><code>pl &lt;Befehl&gt;</code></strong><br>\n" +
+          "      Alias für <code>lx</code>, steht für „peharge linux“. Identische Funktionalität.\n" +
+          "    </li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "  <h3>Sprach- und Compiler-Erweiterungen</h3>\n" +
+          "  <table>\n" +
+          "    <thead>\n" +
+          "      <tr>\n" +
+          "        <th>Präfix</th>\n" +
+          "        <th>Beschreibung</th>\n" +
+          "      </tr>\n" +
+          "    </thead>\n" +
+          "    <tbody>\n" +
+          "      <tr><td><code>-cpp</code></td><td>Leitet den Befehl über den C++-Compiler/Interpreter.</td></tr>\n" +
+          "      <tr><td><code>-c</code></td><td>Führt den Befehl in einer C-Shell aus und leitet ihn direkt an die Linux-Umgebung weiter.</td></tr>\n" +
+          "      <tr><td><code>-p</code></td><td>Führt den Befehl mit dem Python-Interpreter aus.</td></tr>\n" +
+          "    </tbody>\n" +
+          "  </table>\n" +
+          "  <p><strong>Beispiel:</strong><br>\n" +
+          "     <code>lx-cpp g++ main.cpp -o main</code> kompiliert eine C++-Datei,<br>\n" +
+          "     <code>pl-p python3 script.py</code> startet ein Python-Skript.</p>\n" +
+          "\n" +
+          "  <h3>Distribution-spezifische Befehle</h3>\n" +
+          "  <p>Jede Distribution kann optional mit den Sprach-Erweiterungen kombiniert werden. Ersetzen Sie <code>&lt;dist&gt;</code> durch einen der folgenden Werte:</p>\n" +
+          "  <ul>\n" +
+          "    <li><code>ubuntu</code>, <code>debian</code>, <code>kali</code>, <code>arch</code>, <code>openSUSE</code>, <code>mint</code>, <code>fedora</code>, <code>redhat</code>, <code>sles</code>, <code>pengwin</code>, <code>oracle</code>, <code>alpine</code>, <code>clear</code></li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "  <h4>Syntax</h4>\n" +
+          "  <pre><code>&lt;dist&gt;[-cpp|-c|-p] &lt;Befehl&gt;</code></pre>\n" +
+          "\n" +
+          "  <h4>Beispiele</h4>\n" +
+          "  <ul>\n" +
+          "    <li><code>ubuntu apt update</code> → aktualisiert Paketlisten unter Ubuntu.</li>\n" +
+          "    <li><code>debian-c gcc hello.c -o hello</code> → führt den Befehl in einer C-Shell aus und übergibt ihn an Debian.</li>\n" +
+          "    <li><code>arch-p python3 -m venv venv</code> → erstellt ein Python-Virtualenv auf Arch Linux.</li>\n" +
+          "  </ul>\n" +
+          "\n" +
+          "\n" +
+          "  <h2>Vollständige Befehlsübersicht</h2>\n" +
+          "  <table>\n" +
+          "    <thead>\n" +
+          "      <tr><th>Befehl</th><th>Beschreibung</th></tr>\n" +
+          "    </thead>\n" +
+          "    <tbody>\n" +
+          "      <tr><td colspan=\"2\"><strong>Generische Befehle</strong></td></tr>\n" +
+          "      <tr><td><code>lx &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> in der Standard-WSL-Distribution aus.</td></tr>\n" +
+          "      <tr><td><code>pl &lt;cmd&gt;</code></td><td>Alias für <code>lx</code>.</td></tr>\n" +
+          "\n" +
+          "      <tr><td colspan=\"2\"><strong>C++-Integration</strong></td></tr>\n" +
+          "      <tr><td><code>lx-cpp &lt;cmd&gt;</code></td><td>Kompatibel mit C++-Modus (z. B. <code>g++</code>).</td></tr>\n" +
+          "      <tr><td><code>pl-cpp &lt;cmd&gt;</code></td><td>Alias für <code>lx-cpp</code>.</td></tr>\n" +
+          "      <tr><td><code>lx-cpp-c &lt;cmd&gt;</code></td><td>Kombiniert C++- und C-Modus.</td></tr>\n" +
+          "      <tr><td><code>pl-cpp-c &lt;cmd&gt;</code></td><td>Alias für <code>lx-cpp-c</code>.</td></tr>\n" +
+          "\n" +
+          "      <tr><td colspan=\"2\"><strong>C-Integration</strong></td></tr>\n" +
+          "      <tr><td><code>lx-c &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> in einer C-Shell aus und übergibt ihn unverändert an die Standard-WSL-Distribution.</td></tr>\n" +
+          "      <tr><td><code>pl-c &lt;cmd&gt;</code></td><td>Alias für <code>lx-c</code>, führt den Befehl in einer C-Shell aus.</td></tr>\n" +
+          "      <tr><td><code>lx-c-c &lt;cmd&gt;</code></td><td>Doppelte C-Erweiterung für dedizierte Toolchains.</td></tr>\n" +
+          "      <tr><td><code>pl-c-c &lt;cmd&gt;</code></td><td>Alias für <code>lx-c-c</code>.</td></tr>\n" +
+          "\n" +
+          "      <tr><td colspan=\"2\"><strong>Python-Integration</strong></td></tr>\n" +
+          "      <tr><td><code>lx-p &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> mit dem Python-Interpreter aus.</td></tr>\n" +
+          "      <tr><td><code>pl-p &lt;cmd&gt;</code></td><td>Alias für <code>lx-p</code>.</td></tr>\n" +
+          "      <tr><td><code>lx-p-c &lt;cmd&gt;</code></td><td>Python + C-Modus für native Extensions.</td></tr>\n" +
+          "      <tr><td><code>pl-p-c &lt;cmd&gt;</code></td><td>Alias für <code>lx-p-c</code>.</td></tr>\n" +
+          "\n" +
+          "      <tr><td colspan=\"2\"><strong>Distributionen ohne Suffix</strong></td></tr>\n" +
+          "      <tr><td><code>ubuntu &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Ubuntu aus.</td></tr>\n" +
+          "      <tr><td><code>debian &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Debian aus.</td></tr>\n" +
+          "      <tr><td><code>kali &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Kali Linux aus.</td></tr>\n" +
+          "      <tr><td><code>arch &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Arch Linux aus.</td></tr>\n" +
+          "      <tr><td><code>openSUSE &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter openSUSE aus.</td></tr>\n" +
+          "      <tr><td><code>mint &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Linux Mint aus.</td></tr>\n" +
+          "      <tr><td><code>fedora &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unterFedora aus.</td></tr>\n" +
+          "      <tr><td><code>redhat &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Red Hat Enterprise Linux aus.</td></tr>\n" +
+          "      <tr><td><code>sles &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter SUSE Linux Enterprise Server aus.</td></tr>\n" +
+          "      <tr><td><code>pengwin &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Pengwin aus.</td></tr>\n" +
+          "      <tr><td><code>oracle &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Oracle Linux aus.</td></tr>\n" +
+          "      <tr><td><code>alpine &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Alpine Linux aus.</td></tr>\n" +
+          "      <tr><td><code>clear &lt;cmd&gt;</code></td><td>Führt <code>&lt;cmd&gt;</code> unter Clear Linux aus.</td></tr>" +
+          "      <tr><td>...</td></tr>" },
+  { cmd: "pc", desc: "<h1>Befehlsreferenz zur Ausführung und Kompilierung von Quellcode</h1>\n" +
+          "    <p>Diese Übersicht listet typische Kommandos zur Ausführung oder Kompilierung von Code in unterschiedlichen Sprachen auf. Der Platzhalter <code>{user_input}</code> steht für den jeweiligen Quellcodedateinamen oder Skript.</p>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>WSL / GCC / G++</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>wsl g++ -o {user_input}</code></li>\n" +
+          "            <li><code>wsl gcc -o {user_input}</code></li>\n" +
+          "            <li><code>wsl g++ --version</code> – Anzeige der installierten G++-Version</li>\n" +
+          "            <li><code>wsl {user_input}</code> – Ausführen eines kompilierten Programms innerhalb von WSL</li>\n" +
+          "        </ul>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>Rust</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>rustc {user_input}</code> – Kompilierung einer Rust-Datei</li>\n" +
+          "        </ul>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>Node.js / TypeScript</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>node {user_input}</code> – Ausführen einer JavaScript-Datei</li>\n" +
+          "            <li><code>tsc {user_input}</code> – Kompilierung einer TypeScript-Datei</li>\n" +
+          "            <li><code>ts-node {user_input}</code> – Direktes Ausführen einer TypeScript-Datei</li>\n" +
+          "        </ul>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>Java</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>javac {user_input}</code> – Kompilierung einer Java-Datei</li>\n" +
+          "            <li><code>java -jar {user_input}</code> – Ausführen einer .jar-Datei</li>\n" +
+          "        </ul>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>Kotlin</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>kotlinc hello.kt -include-runtime -d {user_input}</code> – Kompilierung mit Laufzeitumgebung</li>\n" +
+          "            <li><code>kotlinc -script {user_input}</code> – Ausführen eines Kotlin-Skripts</li>\n" +
+          "        </ul>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>Python</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>python {user_input}</code> – Ausführen eines Python-Skripts</li>\n" +
+          "            <li><code>pyinstaller --onefile {user_input}</code> – Erstellen einer ausführbaren Datei</li>\n" +
+          "            <li><code>pyinstaller --onefile --noconsole --icon={user_input}</code> – Erstellen mit Icon und ohne Konsole</li>\n" +
+          "        </ul>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>Go</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>go run {user_input}</code></li>\n" +
+          "            <li><code>go build {user_input}</code></li>\n" +
+          "        </ul>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"category\">\n" +
+          "        <h2>Weitere Sprachen</h2>\n" +
+          "        <ul>\n" +
+          "            <li><code>julia {user_input}</code> – Julia</li>\n" +
+          "            <li><code>php {user_input}</code> – PHP</li>\n" +
+          "            <li><code>lua {user_input}</code> – Lua</li>\n" +
+          "            <li><code>glue srlua.exe {user_input}</code> – Lua mit srlua</li>\n" +
+          "            <li><code>swift {user_input}</code> – Swift</li>\n" +
+          "            <li><code>dart run {user_input}</code> – Dart</li>\n" +
+          "            <li><code>ghc {user_input}</code> – Haskell kompilieren</li>\n" +
+          "            <li><code>ghci {user_input}</code> – Haskell interaktiv</li>\n" +
+          "            <li><code>dotnet fsi {user_input}</code> – F# interaktive Shell</li>\n" +
+          "            <li><code>scalac {user_input}</code> – Scala kompilieren</li>\n" +
+          "            <li><code>clj {user_input}</code> – Clojure</li>\n" +
+          "            <li><code>ocamlc {user_input}</code> – OCaml</li>\n" +
+          "            <li><code>elixir {user_input}</code> – Elixir</li>\n" +
+          "        </ul>\n" +
+          "    </div>" },
+  { cmd: "fun", desc: "<h1>Übersicht der Fun-Befehle</h1>\n" +
+          "    <p>Diese Befehle aktivieren verschiedene spaßige Konsolenanimationen, ASCII-Spiele oder witzige Effekte. Ideal für Terminal-Entertainment oder Demonstrationen.</p>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun</code>\n" +
+          "        <div class=\"description\">Startet eine allgemeine Fun-Übersicht oder Standardanimation.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun sl</code>\n" +
+          "        <div class=\"description\">Zeigt einen animierten Zug, inspiriert von Tippfehlern bei \"ls\".</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun aafire</code>\n" +
+          "        <div class=\"description\">Simuliert animiertes ASCII-Feuer im Terminal.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun cmatrix</code>\n" +
+          "        <div class=\"description\">Matrix-Style grüner Code-Regen, animiert.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun cow</code>\n" +
+          "        <div class=\"description\">ASCII-Kuh, die Text \"spricht\". Nutzt cowsay oder ähnliche Logik.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun dragon</code>\n" +
+          "        <div class=\"description\">ASCII-Drachen, der Text ausgibt (ähnlich cowsay).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun figlet</code>\n" +
+          "        <div class=\"description\">Erzeugt große ASCII-Buchstaben aus Text.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun fortune</code>\n" +
+          "        <div class=\"description\">Zeigt ein zufälliges humorvolles oder weises Zitat an.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>install fun main</code>\n" +
+          "        <div class=\"description\">Installiert Hauptkomponenten der Fun-Sammlung.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun ponysay</code>\n" +
+          "        <div class=\"description\">Erweiterung von cowsay mit ASCII-Ponys (My Little Pony).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun telnet</code>\n" +
+          "        <div class=\"description\">Öffnet Telnet zu klassischen ASCII-Diensten (z. B. Star Wars).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun train</code>\n" +
+          "        <div class=\"description\">Zug-Animation im ASCII-Stil.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun train a</code>\n" +
+          "        <div class=\"description\">Variante A der Zug-Animation.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun train F</code>\n" +
+          "        <div class=\"description\">Variante F der Zug-Animation (z. B. schnelles Tempo).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun train l</code>\n" +
+          "        <div class=\"description\">Langsame oder andere animierte Zugstrecke.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun train S</code>\n" +
+          "        <div class=\"description\">Spezielle Zugvariante (z. B. Dampflok).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun train t</code>\n" +
+          "        <div class=\"description\">Variante mit transparentem Layout oder Spezialeffekt.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun install games</code>\n" +
+          "        <div class=\"description\">Installiert Spiele, die mit den Fun-Befehlen gespielt werden können.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun bastet</code>\n" +
+          "        <div class=\"description\">Terminal-Version von Tetris mit „intelligenten“ Steinen (Bastet).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun chess</code>\n" +
+          "        <div class=\"description\">Startet ein Schachspiel (z. B. GNU Chess im Terminal).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun moon-buggy</code>\n" +
+          "        <div class=\"description\">ASCII-Spiel mit Mondmobil, das Hindernissen ausweicht.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun nethack</code>\n" +
+          "        <div class=\"description\">Startet das klassische ASCII-Rollenspiel NetHack.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun nsnake</code>\n" +
+          "        <div class=\"description\">Snake-Spiel für das Terminal (ASCII-grafisch).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun pacman</code>\n" +
+          "        <div class=\"description\">ASCII-Version von Pacman.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun tictactoe</code>\n" +
+          "        <div class=\"description\">Tic-Tac-Toe (Drei gewinnt) im Terminal.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun tint</code>\n" +
+          "        <div class=\"description\">Ein textbasiertes RPG- oder Adventure-Spiel.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun tetris</code>\n" +
+          "        <div class=\"description\">Klassisches Tetris im Terminal (z. B. mit vitetris).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun calculator</code>\n" +
+          "        <div class=\"description\">Startet einen Konsolenrechner.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun calc</code>\n" +
+          "        <div class=\"description\">Alias für <code>fun calculator</code>.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun install calculator</code>\n" +
+          "        <div class=\"description\">Installiert die benötigte Rechner-Umgebung.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun matrix</code>\n" +
+          "        <div class=\"description\">Matrix-Effekt (grüner Zahlenregen).</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun matrix green</code>\n" +
+          "        <div class=\"description\">Matrix-Effekt in grün – Klassiker.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun aquarium</code>\n" +
+          "        <div class=\"description\">ASCII-Aquarium mit Fischen und Blasen.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun aqua</code>\n" +
+          "        <div class=\"description\">Alias für <code>fun aquarium</code>.</div>\n" +
+          "    </div>\n" +
+          "\n" +
+          "    <div class=\"command\"><code>fun bb</code>\n" +
+          "        <div class=\"description\">Zeigt eine komplexe ASCII-Animation mit Musik – Klassiker!</div>\n" +
+          "    </div>\n" },
+  { cmd: "cd", desc: "<tr><td><code>cd &lt;cmd&gt;</code><td> Change directory</td></tr><br>" +
+            "<tr><td><code>cd2 &lt;PowerShell&gt;</code><td> Change directory</td></tr><br>" +
+            "<tr><td><code>cd3 &lt;Linux&gt;</code><td> Change directory</td></tr>"},
+  { cmd: "cls", desc: "Clear screen (Windows)" },
+  { cmd: "clear", desc: "Clear screen (Windows + Linux)" },
+  { cmd: "dir", desc: "List directory contents (Windows)" },
+  { cmd: "ls", desc: "List directory contents (Linux)" },
+  { cmd: "pcf", desc: "Create a new file" },
+  { cmd: "pcfo", desc: "Create a new directory or mkdir" },
+  { cmd: "rmdir", desc: "Remove a directory" },
+  { cmd: "pcv", desc: "Erstellt ein virtual environment für  python" },
+  { cmd: "pav", desc: "Erstellt ein virtual environment für python oder auch pavf, um ein virtualenviroment aus einem ganze anderen Order zu activiren!" },
+  { cmd: "del", desc: "Delete a file (Windows)" },
+  { cmd: "rm", desc: "Remove a file (Linux)" },
+  { cmd: "pb", desc: "Open a URL in your default browser, just type \"pb google.com\"" },
+  { cmd: "echo", desc: "Print text to output" },
+  { cmd: "type", desc: "Display contents of a file (Windows)" },
+  { cmd: "cat", desc: "Display contents of a file (Linux)" },
+  { cmd: "exit", desc: "Exit application" },
+  { cmd: "restart", desc: "Restart PP-Terminal" },
+  { cmd: "restart-os", desc: "Restart Windows" },
+  { cmd: "alpine", desc: "Alpine Linux command" },
+  { cmd: "htop", desc: "Interaktiver Prozessviewer für Systemressourcen" },
+  { cmd: "bashtop", desc: "Echtzeit-Systemmonitor mit schöner Benutzeroberfläche" },
+  { cmd: "taskmanager", desc: "Alternative zum System-Task-Manager" },
+  { cmd: "btop", desc: "Fortgeschrittener Systemmonitor ähnlich bashtop" },
+  { cmd: "atop", desc: "Umfassender Performance-Monitor für Linux-Systeme" },
+  { cmd: "emacs", desc: "Leistungsfähiger Texteditor und Entwicklungsumgebung" },
+  { cmd: "vim", desc: "Erweiterter Texteditor für Entwickler" },
+  { cmd: "nano", desc: "Einfacher Terminal-Texteditor" },
+  { cmd: "dstat", desc: "Echtzeit-Statistiken zu Systemressourcen" },
+  { cmd: "nmon", desc: "System-Performance-Monitor" },
+  { cmd: "glances", desc: "Systemüberwachung mit umfassenden Informationen" },
+  { cmd: "iftop", desc: "Netzwerkbandbreitenmonitor in Echtzeit" },
+  { cmd: "nethogs", desc: "Zeigt Netzwerkverbrauch pro Prozess an" },
+  { cmd: "bmon", desc: "Bandwidth-Monitor für Netzwerkinterfaces" },
+  { cmd: "tcpdump", desc: "Paket-Sniffer zur Netzwerkdiagnose" },
+  { cmd: "speedtest-cli", desc: "Testet Internetgeschwindigkeit über Kommandozeile" },
+  { cmd: "ncdu", desc: "Disk Usage Analyzer im Terminal" },
+  { cmd: "duf", desc: "Disk Usage-Finder mit schöner Ausgabe" },
+  { cmd: "lsblk", desc: "Zeigt Informationen zu Blockgeräten an" },
+  { cmd: "iotop", desc: "Zeigt Echtzeit-I/O-Last pro Prozess an" },
+  { cmd: "fzf", desc: "Interaktiver Kommandozeilen-Dateifinder" },
+  { cmd: "fd", desc: "Schneller und benutzerfreundlicher Datei-Finder" },
+  { cmd: "ripgrep", desc: "Schnelles Suchen in Dateien" },
+  { cmd: "tmux", desc: "Terminal-Multiplexer zum Verwalten mehrerer Sitzungen" },
+  { cmd: "bat", desc: "Verbesserter cat-Befehl mit Syntax-Highlighting" },
+  { cmd: "exa", desc: "Moderner Ersatz für ls" },
+  { cmd: "tldr", desc: "Kurzgefasste Handbuchseiten" },
+  { cmd: "gitui", desc: "Benutzeroberfläche für Git in Terminal" },
+  { cmd: "lazygit", desc: "Einfacher Git-Client im Terminal" },
+  { cmd: "zoxide", desc: "Schneller Directory-Jumper" },
+  { cmd: "starship", desc: "Moderne und anpassbare Shell-Prompt" },
+  { cmd: "nala", desc: "Alternativer Frontend für apt-Paketmanager" },
+  { cmd: "bpytop", desc: "Echtzeit-Systemmonitor mit Python" },
+  { cmd: "belnder", desc: "3D-Grafik- und Animationssoftware (vermutlich Blender)" },
+  { cmd: "clion", desc: "C/C++ IDE von JetBrains" },
+  { cmd: "community", desc: "Community Tools oder Plugins" },
+  { cmd: "intellij", desc: "IDE für Java und andere Sprachen" },
+  { cmd: "pycharm", desc: "Python IDE von JetBrains" },
+  { cmd: "rider", desc: "IDE für .NET-Entwicklung von JetBrains" },
+  { cmd: "vs-code", desc: "Visual Studio Code Editor" },
+  { cmd: "webstorm", desc: "IDE für Webentwicklung von JetBrains" },
+  { cmd: "golab", desc: "Go-Entwicklungsumgebung" },
+  { cmd: "phpstorm", desc: "PHP IDE von JetBrains" },
+  { cmd: "githubdesktop", desc: "GitHub Desktop Client" },
+  { cmd: "nvim", desc: "Neovim, verbesserter Vim-Editor" },
+  { cmd: "code", desc: "Startet Visual Studio Code" },
+  { cmd: "micro", desc: "Einfacher Terminal-Texteditor" },
+  { cmd: "gedit", desc: "Einfacher GUI-Texteditor für GNOME" },
+  { cmd: "update", desc: "System- oder Programm-Update starten" },
+  { cmd: "selfupdate", desc: "PP-Terminal oder Programm selbst aktualisieren" },
+  { cmd: "update pp-term", desc: "PP-Terminal aktualisieren (vermutlich Schreibfehler in Pfad)" },
+  { cmd: "kakoune", desc: "Modaler Terminal-Texteditor" },
+  { cmd: "helix", desc: "Moderner Terminal-Texteditor" },
+  { cmd: "jed", desc: "Texteditor mit Emacs-ähnlichen Funktionen" },
+  { cmd: "joe", desc: "Einfacher Terminal-Texteditor" },
+  { cmd: "mg", desc: "Minimalistischer Emacs-kompatibler Editor" },
+  { cmd: "acme", desc: "Fensterbasierter Editor (Plan 9)" },
+  { cmd: "geany", desc: "Leichte IDE und Texteditor" },
+  { cmd: "kate", desc: "Fortgeschrittener Texteditor für KDE" },
+  { cmd: "mousepad", desc: "Einfacher GUI-Texteditor für XFCE" },
+  { cmd: "xed", desc: "Texteditor für Linux Mint" },
+  { cmd: "entr", desc: "Führt Befehle bei Dateiänderungen aus" },
+  { cmd: "asdf", desc: "Version Manager für Programmiersprachen" },
+  { cmd: "direnv", desc: "Automatische Umgebung für Verzeichnisse" },
+  { cmd: "nmap", desc: "Netzwerkscanner zur Sicherheitsanalyse" },
+  { cmd: "iperf3", desc: "Netzwerk-Benchmarking-Tool" },
+  { cmd: "glow", desc: "Markdown-Renderer im Terminal" },
+  { cmd: "ranger", desc: "Terminal-basierter Dateimanager" },
+  { cmd: "espanso", desc: "Text-Expander für Automatisierungen" },
+  { cmd: "plasma-workspace", desc: "KDE Plasma Desktop-Umgebung starten" },
+  { cmd: "syncthing", desc: "Dateisynchronisation über Netzwerke" },
+  { cmd: "flatpak", desc: "Softwarepaketverwaltung für Flatpak-Anwendungen" },
+  { cmd: "atom", desc: "Texteditor von GitHub" },
+  { cmd: "lite-xl", desc: "Leichter Texteditor" },
+  { cmd: "weather", desc: "Wetterinformationen anzeigen" },
+  { cmd: "g++", desc: "C++ Compiler" },
+  { cmd: "gcc", desc: "C Compiler" },
+  { cmd: "scoop", desc: "Manage apps via Scoop package manager (Windows)" },
+  { cmd: "choco", desc: "Manage apps via Chocolatey package manager (Windows)" },
+  { cmd: "winget", desc: "Manage apps via Winget package manager (Windows)" },
+  { cmd: "speedtest", desc: "Run internet speed test" },
+  { cmd: "kill", desc: "Kill a running process" },
+  { cmd: "download", desc: "Download a file from a URL" },
+  { cmd: "cputemp", desc: "Display CPU temperature" },
+  { cmd: "chucknorris", desc: "Show Chuck Norris jokes" },
+  { cmd: "theme", desc: "Change the application's theme" },
+  { cmd: "cleantemp", desc: "Clean temporary files" },
+  { cmd: "selfupdate", desc: "Update the application to latest version" },
+  { cmd: "tree", desc: "Display directory tree structure" },
+  { cmd: "py", desc: "Execute Python code" },
+  { cmd: "ask", desc: "Ask a question (AI interaction)" },
+  { cmd: "weather", desc: "Show current weather information" },
+  { cmd: "whoami", desc: "Display current user information" },
+  { cmd: "hostname", desc: "Display machine hostname" },
+  { cmd: "ip", desc: "Display IP address information" },
+  { cmd: "os", desc: "Display operating system information" },
+  { cmd: "time", desc: "Display current time" },
+  { cmd: "date", desc: "Display current date" },
+  { cmd: "open", desc: "Open a file or application" },
+  { cmd: "fortune", desc: "Display a random fortune quote" },
+  { cmd: "history", desc: "Show command history" },
+  { cmd: "search", desc: "Search for files or commands" },
+  { cmd: "zip", desc: "Compress files into a zip archive" },
+  { cmd: "unzip", desc: "Extract files from a zip archive" },
+  { cmd: "sysinfo", desc: "Show system information" },
+  { cmd: "clip set", desc: "Set clipboard content" },
+  { cmd: "clip get", desc: "Get clipboard content" },
+  { cmd: "ping", desc: "Ping a network address" },
+  { cmd: "emptytrash", desc: "Empty the trash/recycle bin" },
+  { cmd: "launch", desc: "Launch an application" },
+  { cmd: "doctor", desc: "Run system doctor check" },
+  { cmd: "mavis env install", desc: "Install Mavis environment" },
+  { cmd: "install mavis env", desc: "Install Mavis environment" },
+  { cmd: "install mavis3", desc: "Install Mavis version 3" },
+  { cmd: "install mavis3.3", desc: "Install Mavis version 3.3" },
+  { cmd: "install mavis4", desc: "Install Mavis version 4" },
+  { cmd: "install mavis4.3", desc: "Install Mavis version 4.3" },
+  { cmd: "mavis env update", desc: "Update Mavis environment" },
+  { cmd: "update mavis env", desc: "Update Mavis environment" },
+  { cmd: "mavis update", desc: "Update Mavis repository" },
+  { cmd: "update mavis", desc: "Update Mavis repository" },
+  { cmd: "security", desc: "Run security check" },
+  { cmd: "p-terminal security", desc: "Run security check in terminal" },
+  { cmd: "securitycheck", desc: "Run security check" },
+  { cmd: "info", desc: "Show general information" },
+  { cmd: "mavis info", desc: "Show Mavis information" },
+  { cmd: "info mavis", desc: "Show Mavis information" },
+  { cmd: "p-term info", desc: "Show terminal information" },
+      { cmd: "info p-term", desc: "Show terminal information" },
+  { cmd: "neofetch", desc: "Display system information" },
+  { cmd: "fastfetch", desc: "Display system information quickly" },
+  { cmd: "screenfetch", desc: "Display system information" },
+  { cmd: "jupyter", desc: "Run Jupyter" },
+  { cmd: "run jupyter", desc: "Run Jupyter" },
+  { cmd: "run ju", desc: "Run Jupyter" },
+  { cmd: "run mavis-4", desc: "Run Mavis version 4" },
+  { cmd: "run mavis-4-3", desc: "Run Mavis version 4.3" },
+  { cmd: "run mavis-4-fast", desc: "Run Mavis version 4 fast" },
+  { cmd: "run mavis-4-3-fast", desc: "Run Mavis version 4.3 fast" },
+  { cmd: "run mavis-launcher-4", desc: "Run Mavis launcher" },
+  { cmd: "run ollama mavis-4", desc: "Install Ollama Mavis version 4" },
+  { cmd: "install ollama mavis-4", desc: "Install Ollama Mavis version 4" },
+  { cmd: "change models mavis-4", desc: "Change models for Mavis version 4" },
+  { cmd: "change models", desc: "Change models" },
+  { cmd: "grafana", desc: "Run Grafana" },
+  { cmd: "run grafana", desc: "Run Grafana" },
+  { cmd: "install grafana", desc: "Install Grafana" },
+  { cmd: "account", desc: "Manage Mavis account" },
+  { cmd: "run qwen3:0.6b", desc: "Run Qwen 3 model version 0.6b" },
+  { cmd: "run qwen3:1.7b", desc: "Run Qwen 3 model version 1.7b" },
+  { cmd: "run qwen3:4b", desc: "Run Qwen 3 model version 4b" },
+  { cmd: "run qwen3:8b", desc: "Run Qwen 3 model version 8b" },
+  { cmd: "run qwen3:14b", desc: "Run Qwen 3 model version 14b" },
+  { cmd: "run qwen3:32b", desc: "Run Qwen 3 model version 32b" },
+  { cmd: "run qwen3:30b", desc: "Run Qwen 3 model version 30b" },
+  { cmd: "run qwen3:235b", desc: "Run Qwen 3 model version 235b" },
+  { cmd: "run deepseek-r1:1.5b", desc: "Run DeepSeek model version 1.5b" },
+  { cmd: "run deepseek-r1:7b", desc: "Run DeepSeek model version 7b" },
+  { cmd: "run deepseek-r1:8b", desc: "Run DeepSeek model version 8b" },
+  { cmd: "run deepseek-r1:14b", desc: "Run DeepSeek model version 14b" },
+  { cmd: "run deepseek-r1:32b", desc: "Run DeepSeek model version 32b" },
+  { cmd: "run deepseek-r1:70b", desc: "Run DeepSeek model version 70b" },
+  { cmd: "run deepseek-r1:671b", desc: "Run DeepSeek model version 671b" },
+  { cmd: "run deepscaler", desc: "Run DeepScaler" },
+  { cmd: "run llama3.1:8b", desc: "Run Llama3.1 model version 8b" },
+  { cmd: "run llama3.1:70b", desc: "Run Llama3.1 model version 70b" },
+  { cmd: "run llama3.1:405", desc: "Run Llama3.1 model version 405b" },
+  { cmd: "run llama3.2:1b", desc: "Run Llama3.2 model version 1b" },
+  { cmd: "run llama3.2:3b", desc: "Run Llama3.2 model version 3b" },
+  { cmd: "run llama3.3", desc: "Run Llama3.3 model" },
+  { cmd: "run llama3:8b", desc: "Run Llama3 model version 8b" },
+  { cmd: "run llama3:70b", desc: "Run Llama3 model version 70b" },
+  { cmd: "run mistral", desc: "Run Mistral model" },
+  { cmd: "run mistral-large", desc: "Run Mistral large model" },
+  { cmd: "run mistral-nemo", desc: "Run Mistral Nemo model" },
+  { cmd: "run mistral-openorca", desc: "Run Mistral OpenOrca model" },
+  { cmd: "run mistral-small:22b", desc: "Run Mistral small model version 22b" },
+  { cmd: "run mistral-small:24b", desc: "Run Mistral small model version 24b" },
+  { cmd: "run phi4", desc: "Run Phi4 model" },
+  { cmd: "run qwen2.5:0.5b", desc: "Run Qwen2.5 model version 0.5b" },
+  { cmd: "run qwen2.5:1.5b", desc: "Run Qwen2.5 model version 1.5b" },
+  { cmd: "run qwen2.5:3b", desc: "Run Qwen2.5 model version 3b" },
+  { cmd: "run qwen2.5:7b", desc: "Run Qwen2.5 model version 7b" },
+  { cmd: "run qwen2.5:14b", desc: "Run Qwen2.5 model version 14b" },
+  { cmd: "run qwen2.5:32b", desc: "Run Qwen2.5 model version 32b" },
+  { cmd: "run qwen2.5:72b", desc: "Run Qwen2.5 model version 72b" },
+  { cmd: "run qwen2.5-coder:0.5b", desc: "Run Qwen2.5 Coder model version 0.5b" },
+  { cmd: "run qwen2.5-coder:1.5b", desc: "Run Qwen2.5 Coder model version 1.5b" },
+  { cmd: "run qwen2.5-coder:3b", desc: "Run Qwen2.5 Coder model version 3b" },
+  { cmd: "run qwen2.5-coder:7b", desc: "Run Qwen2.5 Coder model version 7b" },
+  { cmd: "run qwen2.5-coder:14b", desc: "Run Qwen2.5 Coder model version 14b" },
+  { cmd: "run qwen2.5-coder:32b", desc: "Run Qwen2.5 Coder model version 32b" },
+  { cmd: "run gemma3:1b", desc: "Run Gemma3 model version 1b" },
+  { cmd: "run gemma3:4b", desc: "Run Gemma3 model version 4b" },
+  { cmd: "run gemma3:12b", desc: "Run Gemma3 model version 12b" },
+  { cmd: "run gemma3:27b", desc: "Run Gemma3 model version 27b" },
+  { cmd: "run qwq", desc: "Run QwQ model" },
+  { cmd: "run command-a", desc: "Run Command-A" },
+  { cmd: "run phi4-mini", desc: "Run Phi4 mini model" },
+  { cmd: "run granite3.2:8b", desc: "Run Granite3.2 model version 8b" },
+  { cmd: "run granite3.2:2b", desc: "Run Granite3.2 model version 2b" },
+  { cmd: "run granite3.2-vision:2b", desc: "Run Granite3.2 Vision model version 2b" },
+  { cmd: "run qwen-2-5-omni:7b", desc: "Run Qwen-2.5 Omni model version 7b" },
+  { cmd: "run qvq:72b", desc: "Run QVQ model version 72b" },
+  { cmd: "run qwen-2-5-vl:32b", desc: "Run Qwen-2.5 VL model version 32b" },
+  { cmd: "run qwen-2-5-vl:72b", desc: "Run Qwen-2.5 VL model version 72b" },
+  { cmd: "run llama-4-maverick:17b", desc: "Run Llama-4 Maverick model version 17b" },
+  { cmd: "run llama-4-scout:17b", desc: "Run Llama-4 Scout model version 17b" },
+  { cmd: "run deepcoder:1.5b", desc: "Run DeepCoder model version 1.5b" },
+  { cmd: "run deepcoder:14b", desc: "Run DeepCoder model version 14b" },
+  { cmd: "run mistral-small3.1", desc: "Run Mistral small model version 3.1" },
+  { cmd: "help", desc: "Display help information" },
+  { cmd: "image generation", desc: "Generate images" },
+  { cmd: "video generation", desc: "Generate videos" },
+  { cmd: "models", desc: "List available models" },
+  { cmd: "models ls", desc: "List available models" },
+  { cmd: "install 3d-slicer", desc: "Install 3D Slicer" },
+  { cmd: "run 3d-slicer", desc: "Run 3D Slicer" },
+  { cmd: "install simon", desc: "Install Simon" },
+  { cmd: "run simon", desc: "Run Simon" },
+  { cmd: "jupyter --version", desc: "Display Jupyter version" },
+  { cmd: "grafana --version", desc: "Display Grafana version" },
+  { cmd: "3d-slicer --version", desc: "Display 3D Slicer version" },
+  { cmd: "pin-evil", desc: "evil mode" },
+  { cmd: "pin-main", desc: "main mode" },
+  { cmd: "pin-cool", desc: "cool mode" },
+  { cmd: "install cool pin", desc: "Install cool pin mode" },
+  { cmd: "pin-cool-3", desc: "cool-3 mode" },
+  { cmd: "install cool pin-3", desc: "Install cool pin-3 mode" },
+  { cmd: "pin-cool-4", desc: "cool-4 mode" },
+  { cmd: "install cool pin-4", desc: "Install cool pin-4 mode" }
+];
+
+    const container = document.getElementById("command-list");
+
+    commands.forEach(item => {
+      const commandDiv = document.createElement("div");
+      commandDiv.className = "command";
+
+      const cmdDiv = document.createElement("div");
+      cmdDiv.className = "cmd";
+      cmdDiv.innerHTML = `<div class="container">
+  <div class="card">
+    <div class="header">
+      <p class="title">PP-Term</p>
+      <button class="copy">
+        <svg
+          class="w-[19px] h-[19px] text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18 3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1V9a4 4 0 0 0-4-4h-3a1.99 1.99 0 0 0-1 .267V5a2 2 0 0 1 2-2h7Z"
+            clip-rule="evenodd"
+          ></path>
+          <path
+            fill-rule="evenodd"
+            d="M8 7.054V11H4.2a2 2 0 0 1 .281-.432l2.46-2.87A2 2 0 0 1 8 7.054ZM10 7v4a2 2 0 0 1-2 2H4v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3Z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="footer">
+      <div class="code">
+        <span class="icon">
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="m9 5 7 7-7 7"
+            ></path>
+          </svg>
+        </span>
+        <p class="text"><p style="color: #1fb1ff; display: inline;">$&nbsp;</p> ${item.cmd}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+`;
+
+      const descDiv = document.createElement("div");
+descDiv.className = "description";
+
+// HTML-Inhalt korrekt rendern
+descDiv.innerHTML = item.desc;
+
+commandDiv.appendChild(cmdDiv);
+commandDiv.appendChild(descDiv);
+container.appendChild(commandDiv);
+
+    });
+  </script>
+
+  </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in-view");
+                }
+            });
+        },
+        {
+            threshold: 0.2, // Sobald 20% sichtbar sind
+        }
+    );
+
+    // Alle animierbaren Elemente, einschließlich .terminal-5
+    const targets = document.querySelectorAll(".headline-4, .img-1");
+    targets.forEach(target => observer.observe(target));
+});
+</script>
+
+
+</html>
