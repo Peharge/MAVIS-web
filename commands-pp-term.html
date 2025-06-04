@@ -51,6 +51,55 @@
     .headline-3 > * {
         margin-bottom: -8px; /* Negative Marge für die Kinder anwenden */
     }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 15px;
+    }
+
+    .terminal-button-4 {
+      background-color: #111;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px 10px 20px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      transition: background-color 0.5s, color 0.5s, transform 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .terminal-button-4::after {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      background-image: url('icons/p-term-logo-5.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      filter: brightness(0) invert(1); /* Weiß */
+      margin-left: 15px;
+    }
+
+    .terminal-button-4:hover::after {
+      width: 25px;
+      height: 25px;
+      background-image: url('icons/p-term-logo-5.png');
+      filter: brightness(0); /* Schwarz */
+    }
+
+    .terminal-button-4:hover {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      transform: scale(1.06);
+    }
   </style>
 </head>
 <body>
@@ -59,14 +108,24 @@
     <div id="command-list"></div>
   </div>
 
-  <br><br><br>
+<br><br><br><br><br>
+
+<div class="button-container">
+    <button class="terminal-button-4" onclick="window.open('impressum-p-terminal.html', '_blank')">Impressum</button>
+    <button class="terminal-button-4" onclick="window.open('license-p-terminal.html', '_blank')">P-Terminal License</button>
+    <button class="terminal-button-4" onclick="window.open('security-p-terminal.html', '_blank')">Security</button>
+    <button class="terminal-button-4" onclick="window.open('contributing-p-terminal.html', '_blank')">Contributing</button>
+    <button class="terminal-button-4" onclick="window.open('code_of_conduct-p-terminal.html', '_blank')">Code of Conduct</button>
+  </div>
+
+<br>
 
   <div class="headline-3">
-    <h1 style="font-size: 1.8rem;">Peharge Terminal</h1>
+    <h1 style="font-size: 1.8vw;">Peharge Terminal</h1>
     <p>Peharge Projects 2025</p>
   </div>
 
-  <br><br><br><br>
+<br><br><br><br>
 
   <script>
 const commands = [
