@@ -318,6 +318,14 @@
       text-shadow: 0 0 10px #1fb1ff;
     }
 
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
 
   </style>
 </head>
@@ -650,6 +658,49 @@ Or use the WSL installation command:</p>
   </div>
 
 <br><br><br><br>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const duration = 20 * 1000; // 15 Sekunden
+    const animationEnd = Date.now() + duration;
+    const defaults = { origin: { y: 0.0 } };
+
+    const interval = setInterval(function () {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        return;
+      }
+
+      const particleCount = 200 * (timeLeft / duration);
+      // Mehr Konfetti links + rechts oben
+      confetti({
+        ...defaults,
+        particleCount,
+        spread: 70,
+        startVelocity: 60,
+        angle: 60,
+        origin: { x: 0, y: 0 }
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        spread: 70,
+        startVelocity: 60,
+        angle: 120,
+        origin: { x: 1, y: 0 }
+      });
+    }, 250);
+
+    // Nach Ende langsam ausblenden
+    setTimeout(() => {
+      const fadeCanvas = document.querySelector('canvas');
+      fadeCanvas.style.transition = 'opacity 2s ease-out';
+      fadeCanvas.style.opacity = '0';
+      setTimeout(() => fadeCanvas.remove(), 3000);
+    }, duration);
+  </script>
 
 </script>
 </body>
