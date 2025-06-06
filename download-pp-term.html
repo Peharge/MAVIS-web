@@ -446,44 +446,36 @@
 }
 
 .headline-5 {
-    display: flex;
-    justify-content: center;   /* horizontal zentrieren */
-    align-items: center;       /* vertikal NICHT, da keine Höhe */
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #000;
-    color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
 }
 
 .headline-5 > p {
-    margin-bottom: -8px;
+  margin-bottom: -8px;
+  animation: danke-title 1.1s cubic-bezier(.52,0,.2,1.03) 0.7s both;
+  display: inline-block; /* wichtig für transform */
+}
+
+/* Beispiel Animation danke-title */
+@keyframes danke-title {
+  0% {
     opacity: 0;
-    display: inline-block;
-    position: relative;
-    animation: fadeIn3 1s ease-in forwards, scaleUpDown 1s ease-in forwards;
-    animation-delay: 0.5s, 0.5s;
-}
-
-/* Fade-In Animation */
-@keyframes fadeIn3 {
-    to {
-        opacity: 1;
-    }
-}
-
-/* Scale-Animation: größer werden und zurück */
-@keyframes scaleUpDown {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
   </style>
