@@ -426,6 +426,66 @@
             margin-bottom: -8px;
         }
 
+.button-container > * {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards, danke-glow 2.2s cubic-bezier(.55,0,.18,1) 1;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Glow-Effekt Animation (nur einmal) */
+@keyframes danke-glow {
+  0% { box-shadow: 0 0 0 #fff, 0 0 0 #fff; }
+  50% { box-shadow: 0 0 60px #fff, 0 0 14px #fff; }
+  100% { box-shadow: 0 0 15px #fff, 0 0 2px #fff; }
+}
+
+.headline-5 {
+    display: flex;
+    justify-content: center;   /* horizontal zentrieren */
+    align-items: center;       /* vertikal NICHT, da keine Höhe */
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+}
+
+.headline-5 > p {
+    margin-bottom: -8px;
+    opacity: 0;
+    display: inline-block;
+    position: relative;
+    animation: fadeIn3 1s ease-in forwards, scaleUpDown 1s ease-in forwards;
+    animation-delay: 0.5s, 0.5s;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn3 {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Scale-Animation: größer werden und zurück */
+@keyframes scaleUpDown {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
   </style>
 </head>
 <body>
@@ -482,9 +542,9 @@
 
 <br><br><br><br><br>
 
-  <div class="headline-3">
+  <div class="headline-5">
 
-To install PP-Terminal, copy the code from the run-pp-term.bat file ↓. <br>Then, create a new file named run-pp-term.bat in Visual Studio Code (or a similar editor) and paste the copied code into it. <br>Save the file and run it – experience the powerful performance your workflow deserves.<br><br>
+<p>To install PP-Terminal, copy the code from the run-pp-term.bat file ↓. <br>Then, create a new file named run-pp-term.bat in Visual Studio Code (or a similar editor) and paste the copied code into it. <br>Save the file and run it – experience the powerful performance your workflow deserves.<br><br></p>
 
 </div>
 
