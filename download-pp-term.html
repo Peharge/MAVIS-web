@@ -326,6 +326,20 @@
       z-index: 9999;
     }
 
+    .headline-3 {
+    display: flex;                /* Flexbox aktivieren */
+    justify-content: center;     /* Horizontal zentrieren */
+    align-items: center;         /* Vertikal zentrieren */
+    flex-direction: column;      /* Elemente untereinander anordnen */
+    margin: 0;
+    padding: 0;
+    text-align: center;          /* Text zentriert ausrichten */
+}
+
+
+        .headline-3 > * {
+            margin-bottom: -8px;
+        }
 
   </style>
 </head>
@@ -381,8 +395,15 @@
   </style>
 </section>
 
-<br><br><br>
+<br><br><br><br><br>
 
+  <div class="headline-3">
+
+To install PP-Terminal, copy the code from the run-pp-term.bat file ↓. <br>Then, create a new file named run-pp-term.bat in Visual Studio Code (or a similar editor) and paste the copied code into it. <br>Save the file and run it – experience the powerful performance your workflow deserves.<br><br>
+
+</div>
+
+<br><br><br>
 
   <div class="button-container">
     <button class="terminal-button-5" onclick="window.open('https://raw.githubusercontent.com/Peharge/p-terminal/main/pp-term/run-pp-term.bat', '_blank')">
@@ -393,7 +414,118 @@
     </button>
   </div>
 
-<br><br><br>
+<section class="pricing-section" style="margin: 70px auto; width: 80%; display: flex; justify-content: space-between; gap: 24px;">
+  <!-- Erste Box -->
+  <div class="pricing-box" style="flex: 1; background: linear-gradient(135deg, #111 60%, #127b02 100%); border-radius: 24px; box-shadow: 0 0 15px #fff; padding: 48px 36px 40px; text-align: center; animation: pricing-glow 2.2s cubic-bezier(.55,0,.18,1) 1;">
+    <div class="headline-3" style="margin-bottom: 26px; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="font-size: 2.5rem; font-family: 'Courier New', Courier, monospace; color: #fff; margin: 0; letter-spacing: 2px; text-shadow: 0 0 18px #187b02, 0 0 2px #fff;">
+        PP-Term Basic
+      </h2>
+    </div>
+    <!-- Versionen -->
+    <div class="version-list" style="opacity: 0; transform: translateY(25px); transition: opacity 1.4s, transform 1.4s 0.2s;">
+      <!-- Version 1 -->
+      <div class="version-item" style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.6rem; font-family: 'Courier New', Courier, monospace; color: #b7dea7; margin: 0 0 8px; letter-spacing: 1px; text-shadow: 0 0 8px #247b02;">
+          PP-Terminal – Free
+        </h3>
+        <p style="margin: 0; font-size: 1rem; color: #cfe1c8; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.4px; line-height: 1.6;">
+          • All basic functions - CMD, Powershell, WSL<br>
+          • Many Peharge commands<br>
+          • Code available on GitHub
+        </p>
+      </div>
+      <!-- Version 2 -->
+      <div class="version-item" style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.6rem; font-family: 'Courier New', Courier, monospace; color: #b3dea7; margin: 0 0 8px; letter-spacing: 1px; text-shadow: 0 0 8px #1c7b02;">
+          Peharge Compiler – Free
+        </h3>
+        <p style="margin: 0; font-size: 1rem; color: #cde1c8; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.4px; line-height: 1.6;">
+          • All basic functions<br>
+          • Compile over 50 programming languages<br>
+          • Debug over 50 programming languages<br>
+          • Special features for C, C++, C#, Rust, Python, Java, GO, PHP
+        </p>
+      </div>
+      <!-- Version 3 -->
+      <div class="version-item">
+        <h3 style="font-size: 1.6rem; font-family: 'Courier New', Courier, monospace; color: #b7dea7; margin: 0 0 8px; letter-spacing: 1px; text-shadow: 0 0 8px #247b02;">
+          Peharge IQ Kernel - Free
+        </h3>
+        <p style="margin: 0; font-size: 1rem; color: #cfe1c8; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.4px; line-height: 1.6;">
+          • All basic functions
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zweite Box -->
+  <div class="pricing-box" style="flex: 1; background: linear-gradient(135deg, #111 60%, #7b0202 100%); border-radius: 24px; box-shadow: 0 0 15px #fff; padding: 48px 36px 40px; text-align: center; animation: pricing-glow 2.2s cubic-bezier(.55,0,.18,1) 1;">
+    <div class="headline-3" style="margin-bottom: 26px; display: flex; flex-direction: column; align-items: center;">
+      <h2 style="font-size: 2.5rem; font-family: 'Courier New', Courier, monospace; color: #fff; margin: 0; letter-spacing: 2px; text-shadow: 0 0 18px #7b0202, 0 0 2px #fff;">
+        PP-Term Ultra
+      </h2>
+    </div>
+    <!-- Versionen -->
+    <div class="version-list" style="opacity: 0; transform: translateY(25px); transition: opacity 1.4s, transform 1.4s 0.2s;">
+      <!-- Version 1 -->
+      <div class="version-item" style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.6rem; font-family: 'Courier New', Courier, monospace; color: #dea7a7; margin: 0 0 8px; letter-spacing: 1px; text-shadow: 0 0 8px #7b0202;">
+          PP-Terminal – not available
+        </h3>
+        <p style="margin: 0; font-size: 1rem; color: #e1c8c8; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.4px; line-height: 1.6;">
+          • All functions<br>
+          • Compile over 50 programming languages<br>
+          • Debug over 50 programming languages<br>
+          • Special features for C, C++, C#, Rust, Python, Java, GO, PHP
+        </p>
+      </div>
+      <!-- Version 2 -->
+      <div class="version-item" style="margin-bottom: 24px;">
+        <h3 style="font-size: 1.6rem; font-family: 'Courier New', Courier, monospace; color: #dea7a7; margin: 0 0 8px; letter-spacing: 1px; text-shadow: 0 0 8px #7b0202;">
+          Peharge Compiler – not available
+        </h3>
+        <p style="margin: 0; font-size: 1rem; color: #e1c8c8; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.4px; line-height: 1.6;">
+          • All functions
+        </p>
+      </div>
+      <!-- Version 3 -->
+      <div class="version-item">
+        <h3 style="font-size: 1.6rem; font-family: 'Courier New', Courier, monospace; color: #dea7a7; margin: 0 0 8px; letter-spacing: 1px; text-shadow: 0 0 8px #7b0202;">
+          Peharge IQ Kernel - not available
+        </h3>
+        <p style="margin: 0; font-size: 1rem; color: #e1c8c8; font-family: 'Courier New', Courier, monospace; letter-spacing: 0.4px; line-height: 1.6;">
+          • Alle Business-Funktionen<br>
+          • Unbegrenzte Benutzer<br>
+          • Persönlicher Berater & 24/7 Support
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes pricing-glow {
+      0% { box-shadow: 0 0 0 #fff, 0 0 0 #fff; }
+      50% { box-shadow: 0 0 60px #fff, 0 0 14px #fff; }
+      100% { box-shadow: 0 0 15px #fff, 0 0 2px #fff; }
+    }
+    .pricing-box .headline-3 h2 {
+      animation: pricing-title 1.1s cubic-bezier(.52,0,.2,1.03) 0.5s both;
+    }
+    @keyframes pricing-title {
+      0% { opacity: 0; letter-spacing: -0.2em; filter: blur(7px); }
+      100% { opacity: 1; letter-spacing: 2px; filter: blur(0); }
+    }
+    .pricing-box .version-list {
+      animation: pricing-appear 1.1s cubic-bezier(.6,.01,.32,1.03) 1.2s both;
+    }
+    @keyframes pricing-appear {
+      0% { opacity: 0; transform: translateY(25px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</section>
+
 
   <div class="terminal-4">
     <h2 style="font-size: clamp(1.5rem, 2vw, 2.5rem);">Install PP-Term</h2>
